@@ -5,14 +5,17 @@ using UnityEngine;
 public class TheGame : ControllerLocal
 {
 
-
-
-
     public static TheGame Instance
     {
         get => m_Instance;
     }
     private static TheGame m_Instance;
+
+
+
+
+
+
 
     private void Awake()
     {
@@ -24,3 +27,6 @@ public class TheGame : ControllerLocal
         base.Init();
     }
 }
+
+
+
