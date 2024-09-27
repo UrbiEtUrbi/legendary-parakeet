@@ -15,8 +15,15 @@ public class GameCycleManager : MonoBehaviour
 
     GameState CurrentStateInstance;
 
-    
+    Camera MainCamera;
 
+
+    private void Awake()
+    {
+        MainCamera = Camera.main;
+
+
+    }
 
     public void EnterState(GameStateType gameState)
     {
@@ -33,7 +40,7 @@ public class GameCycleManager : MonoBehaviour
         CurrentStateInstance = Instantiate(States[gameState]);
         CurrentStateInstance.Init();
 
-        Camera.main.gameObject.SetActive(CurrentStateInstance.GetComponentInChildren<Camera>() == null);
+        MainCamera.gameObject.SetActive(CurrentStateInstance.GetComponentInChildren<Camera>() == null);
         
 
         //switch (gameState)
@@ -48,6 +55,29 @@ public class GameCycleManager : MonoBehaviour
         //    case GameStateType.Prep:
         //        break;
         //}
+    }
+
+    public void CheatNextState()
+    {
+        if (CurrentStateInstance == null)
+        {
+            EnterState(GameStateType.Day);
+        }
+        else
+        {
+            switch (CurrentStateInstance.StateType)
+            {
+                case GameStateType.Day:
+                    EnterState(GameStateType.Prep);
+                    break;
+                case GameStateType.Night:
+                    EnterState(GameStateType.Day);
+                    break;
+                case GameStateType.Prep:
+                    EnterState(GameStateType.Night);
+                    break;
+            }
+        }
     }
 
 }

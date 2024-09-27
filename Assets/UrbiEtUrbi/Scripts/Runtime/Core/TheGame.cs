@@ -33,6 +33,11 @@ public class TheGame : ControllerLocal
     [field: SerializeField]
     public GameCycleManager GameCycleManager { private set; get; }
 
+    [field: SerializeField]
+    public ControllerResources ControllerResources { private set; get; }
+    [field: SerializeField]
+    public Canvas Canvas { private set; get; }
+
 
 
     private void Awake()

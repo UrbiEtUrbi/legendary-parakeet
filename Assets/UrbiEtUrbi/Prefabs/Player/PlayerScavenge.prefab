@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594209665697054206}
   - component: {fileID: 1364501033202139189}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 71463772544947574}
   - component: {fileID: 1697662739932920824}
   - component: {fileID: 8547073458702656275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerScavenge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

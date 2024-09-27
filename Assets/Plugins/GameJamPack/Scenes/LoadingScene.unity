@@ -187,17 +187,8 @@ MonoBehaviour:
     scenePath: Assets/Plugins/GameJamPack/Scenes/MainMenuScene.unity
     buildIndex: 1
   SaveData:
-    HasStick: 0
-    HasIceMelee: 0
-    HasSpike: 0
-    Room: 0
-    Entrance: 0
     MaxHp: 0
     CurrentHP: 0
-    MaxStamina: 0
-    CurrentStamina: 0
-    Dialogues: []
-    Pickups: []
 --- !u!114 &510743728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,22 +424,6 @@ PrefabInstance:
     - target: {fileID: 2860189954925094734, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
-      propertyPath: pooledObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
-      propertyPath: pooledObjects.Array.data[2].poolObject
-      value: 
-      objectReference: {fileID: 8547073458702656275, guid: 7ea6d2cc6548d4d669cf326289fe762e, type: 3}
-    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
-      propertyPath: pooledObjects.Array.data[2].maxPoolSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
-      propertyPath: pooledObjects.Array.data[2].initialPoolSize
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9093844782617078912, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: m_Name

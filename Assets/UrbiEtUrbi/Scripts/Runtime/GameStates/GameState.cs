@@ -14,6 +14,10 @@ public abstract class GameState : MonoBehaviour
 
     public virtual void Init()
     {
+        if (string.IsNullOrEmpty(PlayerInstanceKey))
+        {
+            return;
+        }
         Player = PoolManager.Spawn<PlayerInstance>(PlayerInstanceKey, transform, default, default);
 
     }
@@ -21,7 +25,10 @@ public abstract class GameState : MonoBehaviour
 
     public virtual void Cleanup()
     {
-        PoolManager.Despawn(Player);
+        if (Player != null)
+        {
+            PoolManager.Despawn(Player);
+        }
     }
 
 }

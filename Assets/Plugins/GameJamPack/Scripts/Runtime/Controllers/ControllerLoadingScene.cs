@@ -64,15 +64,18 @@ public class ControllerLoadingScene : MonoBehaviour
 [System.Serializable]
 public class SaveData
 {
-    public bool HasStick;
-    public bool HasIceMelee;
-    public bool HasSpike;
-    public int Room;
-    public int Entrance;
     public int MaxHp;
     public int CurrentHP;
-    public int MaxStamina;
-    public int CurrentStamina;
-    public List<string> Dialogues;
-    public List<string> Pickups;
+
+    List<ResourceAmount> resourceSaves;
+
+    
+}
+
+[System.Serializable]
+public class ResourceAmount
+{
+    public int ID;
+    public int Amount;
+
 }

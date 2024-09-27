@@ -51,3 +51,12 @@ MonoBehaviour:
   - poolObject: {fileID: 4568430017190543386, guid: 8f6c698300d894260ba4a58fe30b4cb6, type: 3}
     initialPoolSize: 0
     maxPoolSize: 10
+  - poolObject: {fileID: 8547073458702656275, guid: 7ea6d2cc6548d4d669cf326289fe762e, type: 3}
+    initialPoolSize: 1
+    maxPoolSize: 1
+  - poolObject: {fileID: 5714204190052369279, guid: 885146e8db36045aea7589969855a92c, type: 3}
+    initialPoolSize: 2
+    maxPoolSize: 4
+  - poolObject: {fileID: 8518476432094116603, guid: c12cc38868b8841ddaafa5cc48b92430, type: 3}
+    initialPoolSize: 10
+    maxPoolSize: 50
