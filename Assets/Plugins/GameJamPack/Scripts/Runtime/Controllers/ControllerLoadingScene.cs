@@ -36,6 +36,12 @@ public class ControllerLoadingScene : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void Save()
+    {
+        PlayerPrefs.SetString(SaveStr, JsonUtility.ToJson(SaveData));
+        PlayerPrefs.Save();
+    }
+
     public void Load()
     {
        var str =  PlayerPrefs.GetString(SaveStr,string.Empty);
