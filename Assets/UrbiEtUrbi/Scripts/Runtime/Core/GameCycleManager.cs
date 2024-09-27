@@ -1,31 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameCycleManager : MonoBehaviour
 {
-    public void EnterState(GameState gameState)
+
+    [SerializeField]
+    TMP_Text DebugLabel;
+
+
+    [SerializeField]
+    SerializedDictionary<GameStateType, GameState> States;
+
+    GameState CurrentStateInstance;
+
+    
+
+
+    public void EnterState(GameStateType gameState)
     {
 
+        DebugLabel.text = $"Current State: {gameState}";
+
         //exit current state
-
-        switch (gameState)
+        if (CurrentStateInstance != null)
         {
-            case GameState.Day:
-                break;
-
-            case GameState.Night:
-                break;
-
-            case GameState.Prep:
-                break;
+            CurrentStateInstance.Cleanup();
+            Destroy(CurrentStateInstance.gameObject);
         }
+
+        CurrentStateInstance = Instantiate(States[gameState]);
+        CurrentStateInstance.Init();
+
+        Camera.main.gameObject.SetActive(CurrentStateInstance.GetComponentInChildren<Camera>() == null);
+        
+
+        //switch (gameState)
+        //{
+        //    case GameStateType.Day:
+                
+        //        break;
+
+        //    case GameStateType.Night:
+        //        break;
+
+        //    case GameStateType.Prep:
+        //        break;
+        //}
     }
 
 }
 
 
-public enum GameState
+public enum GameStateType
 {
     Day,
     Night,

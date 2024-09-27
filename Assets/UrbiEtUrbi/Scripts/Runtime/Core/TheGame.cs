@@ -12,6 +12,13 @@ public class TheGame : ControllerLocal
     private static TheGame m_Instance;
 
 
+    [HideInInspector]
+    public bool IsGameOver;
+
+    [HideInInspector]
+    public bool IsGamePlaying;
+
+
 
 
     [field: SerializeField]
@@ -23,6 +30,9 @@ public class TheGame : ControllerLocal
     [field: SerializeField]
     public ControllerEntities ControllerEntities { private set; get; }
 
+    [field: SerializeField]
+    public GameCycleManager GameCycleManager { private set; get; }
+
 
 
     private void Awake()
@@ -33,6 +43,7 @@ public class TheGame : ControllerLocal
     public override void Init()
     {
         base.Init();
+        GameCycleManager.EnterState(GameStateType.Day);
     }
 
     public void Save()
