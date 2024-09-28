@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TopDownMovement : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class TopDownMovement : MonoBehaviour
 
     [HideInInspector]
     public bool Slowing;
+
+    [SerializeField]
+    TopDownTool TopDownTool;
 
     void OnEnable()
     {
@@ -131,11 +135,17 @@ public class TopDownMovement : MonoBehaviour
 
 
 
-        // KnockForce *= 0.9f;
-        if (m_Velocity.magnitude > 0.1f)
-        {
-            m_Sprite.flipX = m_Velocity.x < 0;
-        }
+        var pos = TheGame.Instance.GameCycleManager.CurrentCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        Vector3 direction = pos - transform.position;
+        direction.z = 0;  // Ignore z-axis since it's 2D
+
+        // Calculate the angle between the direction vector and the world up vector (0, 1, 0)
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+
+        m_Sprite.flipX = Mathf.Abs(angle) > 90f;
+
+       
 
         if (!playingRun)
         {

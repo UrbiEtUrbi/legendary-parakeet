@@ -14,6 +14,9 @@ public class ControllerInput : GenericSingleton<ControllerInput>
     [HideInInspector]
     public UnityEvent<float> Interact = new UnityEvent<float>();
 
+    [HideInInspector]
+    public UnityEvent<bool> LeftClick = new UnityEvent<bool>();
+
 
 
 
@@ -38,8 +41,16 @@ public class ControllerInput : GenericSingleton<ControllerInput>
 
     void OnInteract(InputValue inputValue)
     {
-       var isPressed = inputValue.Get<float>();
+
+        var isPressed = inputValue.Get<float>();
         Interact.Invoke(isPressed);
+    }
+
+    void OnLeftClick(InputValue inputValue)
+    {
+        var isPressed = inputValue.Get<float>();
+
+        LeftClick.Invoke(isPressed > 0);
     }
 
     

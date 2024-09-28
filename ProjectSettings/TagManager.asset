@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bkg
+    uniqueID: 2647171615
+    locked: 0
+  - name: Entities
+    uniqueID: 715286177
+    locked: 0
+  - name: Foreground
+    uniqueID: 432659613
+    locked: 0

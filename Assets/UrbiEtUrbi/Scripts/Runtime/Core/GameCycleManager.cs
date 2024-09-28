@@ -16,6 +16,7 @@ public class GameCycleManager : MonoBehaviour
     GameState CurrentStateInstance;
 
     Camera MainCamera;
+    public Camera CurrentCamera;
 
 
     private void Awake()
@@ -40,7 +41,12 @@ public class GameCycleManager : MonoBehaviour
         CurrentStateInstance = Instantiate(States[gameState]);
         CurrentStateInstance.Init();
 
-        MainCamera.gameObject.SetActive(CurrentStateInstance.GetComponentInChildren<Camera>() == null);
+        var camera = CurrentStateInstance.GetComponentInChildren<Camera>();
+        
+        MainCamera.gameObject.SetActive(camera == null);
+
+        CurrentCamera = camera == null ? MainCamera : camera;
+        
         
 
         //switch (gameState)
