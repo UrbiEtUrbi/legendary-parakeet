@@ -240,6 +240,9 @@ MonoBehaviour:
   Interact:
     m_PersistentCalls:
       m_Calls: []
+  LeftClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1434140469
 PrefabInstance:
   m_ObjectHideFlags: 0

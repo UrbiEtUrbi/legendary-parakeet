@@ -11,6 +11,12 @@ public class TopDownTool : MonoBehaviour
     [SerializeField]
     SpriteRenderer SpriteRenderer;
 
+    [SerializeField]
+    float kickback = -0.2f;
+
+    [SerializeField]
+    float kickbackDuration = 0.2f;
+
     private void OnEnable()
     {
         if (ControllerInput.Instance != null)
@@ -39,17 +45,26 @@ public class TopDownTool : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 
-        SpriteRenderer.flipY = Mathf.Abs(angle) > 90f;
+       
 
         // Apply the rotation to the sprite
+        Move(angle);
+    }
+
+    protected virtual void Move(float angle)
+    {
+
+
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        SpriteRenderer.flipY = Mathf.Abs(angle) > 90f;
+
     }
 
     void OnUseTool(bool use)
     {
         if (use)
         {
-            Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(-0.2f, 0, 0), duration: 0.2f, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
+            Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(kickback, 0, 0), duration: kickbackDuration, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
         }
     }
 }
