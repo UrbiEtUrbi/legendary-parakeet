@@ -9,7 +9,16 @@ public class TopDownTool : MonoBehaviour
 
 
     [SerializeField]
+    AttackType Attack;
+
+    [SerializeField]
+    float ReloadTime;
+
+    [SerializeField]
     SpriteRenderer SpriteRenderer;
+
+    [SerializeField]
+    Transform Muzzle;
 
     [SerializeField]
     float kickback = -0.2f;
@@ -17,11 +26,20 @@ public class TopDownTool : MonoBehaviour
     [SerializeField]
     float kickbackDuration = 0.2f;
 
+    float reloadTimer = 0;
+
+    bool holdingUse = false;
+
     private void OnEnable()
     {
         if (ControllerInput.Instance != null)
         {
             ControllerInput.Instance.LeftClick.AddListener(OnUseTool);
+        }
+
+        if (TheGame.Instance != null)
+        {
+            TheGame.Instance.GameCycleManager.OnChangeState.AddListener(OnStateChanged);
         }
     }
 
@@ -31,6 +49,11 @@ public class TopDownTool : MonoBehaviour
         if (ControllerInput.Instance != null)
         {
             ControllerInput.Instance.LeftClick.RemoveListener(OnUseTool);
+        }
+
+        if (TheGame.Instance != null)
+        {
+            TheGame.Instance.GameCycleManager.OnChangeState.RemoveListener(OnStateChanged);
         }
     }
 
@@ -49,22 +72,55 @@ public class TopDownTool : MonoBehaviour
 
         // Apply the rotation to the sprite
         Move(angle);
+
+        reloadTimer -= Time.deltaTime;
+        if (holdingUse)
+        {
+         //   OnUseTool(holdingUse);
+        }
+
     }
 
     protected virtual void Move(float angle)
     {
 
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));    
         SpriteRenderer.flipY = Mathf.Abs(angle) > 90f;
 
     }
 
+    List<AttackObject> attackObjects = new List<AttackObject>();
+
     void OnUseTool(bool use)
     {
-        if (use)
+     //   holdingUse = use;
+        if (use && reloadTimer <= 0)
         {
+            reloadTimer = ReloadTime;
             Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(kickback, 0, 0), duration: kickbackDuration, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
+
+            var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, 1, -Muzzle.up);
+            obj.OnBeforeDestroy =() =>  attackObjects.Remove(obj);
+            attackObjects.Add(obj);
         }
+    }
+
+    void OnStateChanged(GameStateType gameStateType)
+    {
+        Cleanup();
+    }
+
+    public void Cleanup()
+    {
+        for (int i = attackObjects.Count - 1; i >= 0; i--)
+        {
+            if (attackObjects[i] != null)
+            {
+                Destroy(attackObjects[i].gameObject);
+            }
+        }
+
+        attackObjects.Clear();
     }
 }

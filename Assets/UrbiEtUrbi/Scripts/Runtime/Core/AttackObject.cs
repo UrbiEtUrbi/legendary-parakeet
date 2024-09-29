@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [RequireComponent(typeof(DestroyDelayed))]
 public class AttackObject : MonoBehaviour
@@ -21,6 +21,8 @@ public class AttackObject : MonoBehaviour
     float impulseAmplitude;
 
     AttackType type;
+
+   public UnityAction OnBeforeDestroy;
     private void Awake()
     {
         dd = GetComponent<DestroyDelayed>();
@@ -67,7 +69,7 @@ public class AttackObject : MonoBehaviour
                   //TODO shake camera
                 }
 
-                var lp = GetComponent<LinearProjectile>();
+                var lp = GetComponent<Projectile>();
                 if (lp != null)
                 {
                     lp.BeforeDestroy();
@@ -76,6 +78,13 @@ public class AttackObject : MonoBehaviour
                 break;
             }
         }
+    }
+
+
+
+    private void OnDestroy()
+    {
+        OnBeforeDestroy.Invoke();
     }
 
     private void OnDrawGizmos()

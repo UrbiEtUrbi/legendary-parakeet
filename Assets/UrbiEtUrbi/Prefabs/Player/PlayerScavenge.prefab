@@ -140,6 +140,7 @@ MonoBehaviour:
   lockOrientation: 0
   _Animator: {fileID: 5124831253826304719}
   Slowing: 0
+  TopDownTool: {fileID: 0}
 --- !u!95 &5124831253826304719
 Animator:
   serializedVersion: 5
@@ -265,7 +266,8 @@ Transform:
   m_LocalPosition: {x: 0.611, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6080465277966531080}
   m_Father: {fileID: 2865385690185185282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6137441010046712456
@@ -365,4 +367,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69e0a32734724e5e956c946abb9dded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attack: 0
+  ReloadTime: 0.5
   SpriteRenderer: {fileID: 6137441010046712456}
+  Muzzle: {fileID: 6080465277966531080}
+  kickback: -0.2
+  kickbackDuration: 0.2
+--- !u!1 &7917114030841853124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6080465277966531080}
+  m_Layer: 3
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6080465277966531080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917114030841853124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.19, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8284374702227692819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}

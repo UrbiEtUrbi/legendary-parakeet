@@ -34,6 +34,9 @@ public class TheGame : ControllerLocal
     public GameCycleManager GameCycleManager { private set; get; }
 
     [field: SerializeField]
+    public ControllerAttack ControllerAttack { private set; get; }
+
+    [field: SerializeField]
     public ControllerResources ControllerResources { private set; get; }
     [field: SerializeField]
     public Canvas Canvas { private set; get; }

@@ -2,43 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearProjectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-
-
     [SerializeField]
-    float Speed;
+    protected float Speed;
 
-    int Direction;
+    protected Vector3 Direction;
 
     [SerializeField]
     ParticleSystem OnHit;
 
-    public void SetDirection(int d)
+
+    public virtual void SetDirection(Vector3 d)
     {
-        
+
         Direction = d;
-        transform.localScale = new Vector3(d, 1, 1);
     }
 
-    private void FixedUpdate()
-    {
-        transform.position += new Vector3(Direction * Speed * Time.fixedDeltaTime, 0, 0);
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        BeforeDestroy();
-        Destroy(gameObject);
-
-    }
 
     public void BeforeDestroy()
     {
@@ -59,5 +39,18 @@ public class LinearProjectile : MonoBehaviour
             dd.Init(10f);
         }
         t.transform.position = transform.position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        BeforeDestroy();
+        Destroy(gameObject);
+
     }
 }

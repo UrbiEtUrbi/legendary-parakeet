@@ -1020,6 +1020,7 @@ MonoBehaviour:
     - key: 1
       value: {fileID: 4529101800631504158, guid: a4c9d7bcdf4c34d8bb96039c9085572e, type: 3}
     error: 0
+  CurrentCamera: {fileID: 0}
 --- !u!114 &1332901970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1064,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9af9735616248339b5a40af48eb9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attacks: []
+  Attacks:
+  - AttackType: 0
+    AttackObject: {fileID: 767558357544777703, guid: 20d5268d03331413fa511b7917c954f9, type: 3}
+    AttackVFX: {fileID: 0}
+  - AttackType: 1
+    AttackObject: {fileID: 647294998434894936, guid: b5aee0a0b8e914999bc35dd4bc6037ff, type: 3}
+    AttackVFX: {fileID: 0}
 --- !u!114 &1332901973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,6 +1102,7 @@ MonoBehaviour:
   <ControllerPickups>k__BackingField: {fileID: 1332901971}
   <ControllerEntities>k__BackingField: {fileID: 1332901973}
   <GameCycleManager>k__BackingField: {fileID: 1332901969}
+  <ControllerAttack>k__BackingField: {fileID: 1332901972}
   <ControllerResources>k__BackingField: {fileID: 1332901976}
   <Canvas>k__BackingField: {fileID: 455033344}
 --- !u!4 &1332901975

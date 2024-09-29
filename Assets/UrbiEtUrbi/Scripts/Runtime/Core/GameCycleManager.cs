@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameCycleManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameCycleManager : MonoBehaviour
 
     Camera MainCamera;
     public Camera CurrentCamera;
+
+    [HideInInspector]
+    public UnityEvent<GameStateType> OnChangeState = new();
 
 
     private void Awake()
@@ -34,6 +38,7 @@ public class GameCycleManager : MonoBehaviour
         //exit current state
         if (CurrentStateInstance != null)
         {
+            OnChangeState.Invoke(gameState);
             CurrentStateInstance.Cleanup();
             Destroy(CurrentStateInstance.gameObject);
         }
