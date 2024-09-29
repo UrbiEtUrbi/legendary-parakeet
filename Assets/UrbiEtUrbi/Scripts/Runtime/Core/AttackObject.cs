@@ -52,9 +52,10 @@ public class AttackObject : MonoBehaviour
 
         foreach (var colliderHit in colliders)
         {
+
             if (colliderHit != null)
             {
-               
+                Debug.Log($"collider hit {colliderHit.name}");
                 var h = colliderHit.GetComponent<IHealth>();
                 if (h == null)
                 {
@@ -84,7 +85,10 @@ public class AttackObject : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnBeforeDestroy.Invoke();
+        if (OnBeforeDestroy != null)
+        {
+            OnBeforeDestroy.Invoke();
+        }
     }
 
     private void OnDrawGizmos()

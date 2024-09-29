@@ -15,6 +15,8 @@ public class GameCycleManager : MonoBehaviour
     SerializedDictionary<GameStateType, GameState> States;
 
     GameState CurrentStateInstance;
+    public GameState GetCurrentState => CurrentStateInstance;
+    public GameStateType GetCurrentStateType => GetCurrentState.StateType;
 
     Camera MainCamera;
     public Camera CurrentCamera;

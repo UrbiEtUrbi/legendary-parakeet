@@ -43,7 +43,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        BeforeDestroy();
+        Destroy(gameObject);
     }
 
 

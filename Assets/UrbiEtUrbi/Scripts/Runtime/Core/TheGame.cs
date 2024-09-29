@@ -19,6 +19,9 @@ public class TheGame : ControllerLocal
     public bool IsGamePlaying;
 
 
+    private Tower m_Tower;
+
+    public Tower Tower => m_Tower;
 
 
     [field: SerializeField]
@@ -52,6 +55,8 @@ public class TheGame : ControllerLocal
     {
         base.Init();
         GameCycleManager.EnterState(GameStateType.Day);
+        m_Tower = new Tower();
+        m_Tower.SetInitialHealth(100);
     }
 
     public void Save()
