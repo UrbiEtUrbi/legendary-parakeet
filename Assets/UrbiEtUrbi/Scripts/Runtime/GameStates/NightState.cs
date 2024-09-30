@@ -53,6 +53,7 @@ public class NightState : GameState
                var sp = GetSpawnPosition();
                var enemy =  PoolManager.Spawn<WalkingEnemy>(transform, sp);
                 //TODO remove these magic numbers
+               enemy.transform.rotation = default;
                enemy.Init(1, 1, 2, TheGame.Instance.Tower, sp.x > 0 ? 1.51f : -2.38f);
                enemyCount++;
                currentWaveEnemyCount++;

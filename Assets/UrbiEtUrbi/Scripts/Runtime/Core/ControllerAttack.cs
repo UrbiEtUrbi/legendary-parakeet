@@ -55,5 +55,6 @@ public class AttackData{
 public enum AttackType
 {
     Pistol,
-    MainGun
+    MainGun,
+    MainGunBlast
 }

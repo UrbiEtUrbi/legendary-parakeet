@@ -23,6 +23,18 @@ public class AttackObject : MonoBehaviour
     AttackType type;
 
    public UnityAction OnBeforeDestroy;
+
+    [SerializeField]
+    bool hitMultiple;
+    [SerializeField]
+    bool destroyOnHit;
+
+    [SerializeField]
+    float Force;
+
+
+    List<IHealth> HitTargets = new();
+
     private void Awake()
     {
         dd = GetComponent<DestroyDelayed>();
@@ -55,29 +67,52 @@ public class AttackObject : MonoBehaviour
 
             if (colliderHit != null)
             {
-                Debug.Log($"collider hit {colliderHit.name}");
+//                Debug.Log($"collider hit {colliderHit.name}");
                 var h = colliderHit.GetComponent<IHealth>();
                 if (h == null)
                 {
                     continue;
                 }
+                if (hitMultiple && HitTargets.Contains(h)){
+                    continue;
+                }
 
 
-                colliderHit.GetComponent<IHealth>().ChangeHealth(-damage, type);
                 CancelInvoke();
                 if (generateImpulse)
                 {
                   //TODO shake camera
                 }
 
+                if (Force > 0)
+                {
+                    Debug.Log($"{transform.position} {colliderHit.transform.position} {(colliderHit.transform.position - transform.position).normalized} {Force * (colliderHit.transform.position - transform.position).normalized}");
+                    colliderHit.GetComponent<WalkingEnemy>().AddForce(Force * (colliderHit.transform.position - transform.position).normalized);
+                }
+                colliderHit.GetComponent<IHealth>().ChangeHealth(-damage, type);
+
                 var lp = GetComponent<Projectile>();
                 if (lp != null)
                 {
                     lp.BeforeDestroy();
                 }
-                Destroy(gameObject);
-                break;
+
+                if (!hitMultiple && destroyOnHit)
+                {
+                    Destroy(gameObject);
+                    break;
+                }
+                else
+                {
+                    HitTargets.Add(h);
+
+                }
             }
+        }
+
+        if (destroyOnHit && HitTargets.Count > 0)
+        {
+            Destroy(gameObject);
         }
     }
 

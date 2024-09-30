@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8583418947079951136}
   - component: {fileID: 433186512833229934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8462615923820963770}
   - component: {fileID: 6723119999682255784}
   - component: {fileID: 571023405124762262}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MainGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,9 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   generateImpulse: 0
   impulseAmplitude: 0
+  hitMultiple: 0
+  destroyOnHit: 0
 --- !u!114 &8462615923820963770
 MonoBehaviour:
   m_ObjectHideFlags: 0

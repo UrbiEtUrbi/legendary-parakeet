@@ -10,6 +10,9 @@ public class MainGun : TopDownTool
     [SerializeField]
     AnimationCurve AnimationCurve;
 
+    [SerializeField]
+    float BlastRadius;
+
 
 
 

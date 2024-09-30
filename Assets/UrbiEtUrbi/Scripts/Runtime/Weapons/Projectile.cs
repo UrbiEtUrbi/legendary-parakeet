@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     protected Vector3 Direction;
 
     [SerializeField]
-    ParticleSystem OnHit;
+    GameObject OnHit;
 
 
     public virtual void SetDirection(Vector3 d)
@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-    public void BeforeDestroy()
+    public virtual void BeforeDestroy()
     {
         if (OnHit == null)
         {
@@ -43,6 +43,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         BeforeDestroy();
         Destroy(gameObject);
     }

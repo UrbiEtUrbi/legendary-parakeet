@@ -1021,6 +1021,9 @@ MonoBehaviour:
       value: {fileID: 4529101800631504158, guid: a4c9d7bcdf4c34d8bb96039c9085572e, type: 3}
     error: 0
   CurrentCamera: {fileID: 0}
+  OnChangeState:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1332901970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1073,9 @@ MonoBehaviour:
     AttackVFX: {fileID: 0}
   - AttackType: 1
     AttackObject: {fileID: 647294998434894936, guid: b5aee0a0b8e914999bc35dd4bc6037ff, type: 3}
+    AttackVFX: {fileID: 0}
+  - AttackType: 2
+    AttackObject: {fileID: 647294998434894936, guid: 4e67f35d486984318949f908e0666622, type: 3}
     AttackVFX: {fileID: 0}
 --- !u!114 &1332901973
 MonoBehaviour:

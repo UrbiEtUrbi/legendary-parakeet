@@ -24,7 +24,12 @@ public class WalkingEnemy : Enemy
     float TargetPos;
     int direction;
 
-   
+    Vector2 force = default;
+
+    public void AddForce(Vector2 force)
+    {
+        this.force = force;
+    }
 
     protected virtual void Update()
     {
@@ -65,8 +70,17 @@ public class WalkingEnemy : Enemy
 
     protected override void  BeforeDeath()
     {
-
+        var enemy = Instantiate<WalkingEnemy>(this).gameObject;
+        Destroy(enemy.GetComponent<Enemy>());
+        var rb = enemy.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 1;
+        rb.freezeRotation = false;
+        Debug.Log($"force {force}");
+        rb.AddForceAtPosition(force, rb.position-new Vector2(0,-0.2f));
+        
+        enemy.AddComponent<DestroyDelayed>().Init(1f);
         (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).RemoveEnemy();
+
     }
 
     
