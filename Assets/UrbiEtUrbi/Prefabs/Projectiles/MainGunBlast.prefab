@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f23fb5d6fa74c9484fc4ff0f690ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyAfter: 0.016666668
+  DestroyAfter: 0.083333336
   AutoDestroy: 1
   FromAnimation: 0
 --- !u!114 &647294998434894936
@@ -67,4 +67,6 @@ MonoBehaviour:
   impulseAmplitude: 0
   hitMultiple: 1
   destroyOnHit: 1
-  Force: 300
+  Force: 3
+  Radius: 10
+  Uplift: 0

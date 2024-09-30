@@ -220,7 +220,7 @@ MonoBehaviour:
   StateType: 1
   PlayerInstanceKey: 
   Player: {fileID: 0}
-  InitialDelay: 3
+  InitialDelay: 0
   EnemyWaves:
   - delay: 0
     singleDelay: 0.5

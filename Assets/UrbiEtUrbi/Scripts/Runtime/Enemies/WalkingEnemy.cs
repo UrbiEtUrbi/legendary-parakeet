@@ -24,11 +24,17 @@ public class WalkingEnemy : Enemy
     float TargetPos;
     int direction;
 
-    Vector2 force = default;
+    float force = default;
+    Vector3 origin = default;
+    float radius;
+    float uplift;
 
-    public void AddForce(Vector2 force)
+    public void AddForce(Vector3 origin, float force, float radius, float uplift)
     {
         this.force = force;
+        this.origin = origin;
+        this.radius = radius;
+        this.uplift = uplift;
     }
 
     protected virtual void Update()
@@ -70,14 +76,17 @@ public class WalkingEnemy : Enemy
 
     protected override void  BeforeDeath()
     {
+      
         var enemy = Instantiate<WalkingEnemy>(this).gameObject;
         Destroy(enemy.GetComponent<Enemy>());
         var rb = enemy.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1;
         rb.freezeRotation = false;
-        Debug.Log($"force {force}");
-        rb.AddForceAtPosition(force, rb.position-new Vector2(0,-0.2f));
-        
+        if (force > 0)
+        {
+            rb.AddExplosionForce(force, origin, radius, uplift);
+        }
+        force = 0;
         enemy.AddComponent<DestroyDelayed>().Init(1f);
         (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).RemoveEnemy();
 
@@ -86,4 +95,39 @@ public class WalkingEnemy : Enemy
     
 
 
+}
+public static class Rigidbody2DExtension
+{
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius)
+    {
+        var dir = (body.transform.position - explosionPosition);
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+        body.AddForce(dir.normalized * explosionForce * wearoff);
+    }
+
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier)
+    {
+        Debug.Log($"{body.transform.position} {explosionPosition}");
+        var dir = (body.transform.position - explosionPosition);
+        dir = new Vector3(dir.x, dir.y, 0);
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+        Vector3 baseForce = dir.normalized * explosionForce * wearoff;
+        body.AddForce(baseForce, ForceMode2D.Impulse);
+
+        float upliftWearoff = 1 - upliftModifier / explosionRadius;
+        Vector3 upliftForce = Vector2.up * explosionForce * upliftWearoff;
+        body.AddForce(upliftForce, ForceMode2D.Impulse);
+
+
+        if (body.position.x > explosionPosition.x)
+        {
+            Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {-baseForce.magnitude}");
+            body.AddTorque(0.5f*-baseForce.magnitude, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {baseForce.magnitude}");
+            body.AddTorque(0.5f*baseForce.magnitude, ForceMode2D.Impulse);
+        }
+    }
 }

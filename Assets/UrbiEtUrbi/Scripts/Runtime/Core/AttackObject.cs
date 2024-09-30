@@ -32,6 +32,12 @@ public class AttackObject : MonoBehaviour
     [SerializeField]
     float Force;
 
+    [SerializeField]
+    float Radius;
+
+    [SerializeField]
+    float Uplift;
+
 
     List<IHealth> HitTargets = new();
 
@@ -84,10 +90,10 @@ public class AttackObject : MonoBehaviour
                   //TODO shake camera
                 }
 
+                Debug.Log(Force);
                 if (Force > 0)
                 {
-                    Debug.Log($"{transform.position} {colliderHit.transform.position} {(colliderHit.transform.position - transform.position).normalized} {Force * (colliderHit.transform.position - transform.position).normalized}");
-                    colliderHit.GetComponent<WalkingEnemy>().AddForce(Force * (colliderHit.transform.position - transform.position).normalized);
+                    colliderHit.GetComponent<WalkingEnemy>().AddForce(transform.position,Force,Radius,Uplift );
                 }
                 colliderHit.GetComponent<IHealth>().ChangeHealth(-damage, type);
 
