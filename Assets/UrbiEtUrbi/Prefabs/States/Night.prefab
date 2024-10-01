@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 135837012537093116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.92, y: -2.57, z: 0}
+  m_LocalPosition: {x: -12.92, y: -3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,8 +223,8 @@ MonoBehaviour:
   InitialDelay: 0
   EnemyWaves:
   - delay: 0
-    singleDelay: 0.5
-    count: 2
+    singleDelay: 0.001
+    count: 1000
   - delay: 4
     singleDelay: 1
     count: 10
@@ -4065,7 +4065,7 @@ Transform:
   m_GameObject: {fileID: 6372887246744358406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.45, y: -2.57, z: 0}
+  m_LocalPosition: {x: 11.45, y: -3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

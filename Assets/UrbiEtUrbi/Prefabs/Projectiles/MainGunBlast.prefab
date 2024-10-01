@@ -69,4 +69,4 @@ MonoBehaviour:
   destroyOnHit: 1
   Force: 3
   Radius: 10
-  Uplift: 0
+  Uplift: 1
