@@ -31,7 +31,8 @@ public class GravityProjectile : Projectile
     public override void BeforeDestroy()
     {
 
-        TheGame.Instance.ControllerAttack.Attack(transform, false, AttackType.MainGunBlast, transform.position, new Vector3(2, 2, 2),1, default);
+        Debug.Log(HitPosition);
+        TheGame.Instance.ControllerAttack.Attack(transform, false, AttackType.MainGunBlast, HitPosition, new Vector3(2, 2, 2),1, default);
         base.BeforeDestroy();
 
     }

@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     GameObject OnHit;
 
+    protected Vector3 HitPosition;
+
 
     public virtual void SetDirection(Vector3 d)
     {
@@ -44,6 +46,8 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        Debug.Log("on collision enter");
+        HitPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
         BeforeDestroy();
         Destroy(gameObject);
     }
@@ -51,6 +55,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("on trigger enter");
+
+        Bounds triggerBounds = GetComponent<Collider2D>().bounds;
+        Bounds colliderBounds = collision.bounds;
+
+        // Calculate the center of the intersection of the two bounds
+        float intersectX = Mathf.Max(triggerBounds.min.x, colliderBounds.min.x);
+        float intersectY = Mathf.Max(triggerBounds.min.y, colliderBounds.min.y);
+
+        // This should give you an intersection point between the two colliders
+        Vector2 intersectionPoint = new Vector2(intersectX, intersectY);
+        HitPosition = intersectionPoint;
+        //HitPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
         BeforeDestroy();
         Destroy(gameObject);
 

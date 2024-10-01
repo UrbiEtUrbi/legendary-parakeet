@@ -122,12 +122,13 @@ public static class Rigidbody2DExtension
         if (body.position.x > explosionPosition.x)
         {
             Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {-baseForce.magnitude}");
-            body.AddTorque(0.5f*-baseForce.magnitude, ForceMode2D.Impulse);
+            body.AddTorque(0.1f*-baseForce.magnitude, ForceMode2D.Impulse);
         }
         else
         {
+
             Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {baseForce.magnitude}");
-            body.AddTorque(0.5f*baseForce.magnitude, ForceMode2D.Impulse);
+            body.AddTorque(0.1f*baseForce.magnitude, ForceMode2D.Impulse);
         }
     }
 }
