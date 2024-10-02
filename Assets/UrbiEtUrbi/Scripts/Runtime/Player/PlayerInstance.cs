@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PlayerInstance : PoolObject
 {
-   
+
+
+    
+    public SpriteRenderer Art;
 }

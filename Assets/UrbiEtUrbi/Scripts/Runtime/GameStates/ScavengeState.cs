@@ -18,7 +18,13 @@ public class ScavengeState : GameState
     List<ResourcePickup> Pickups = new ();
 
     [SerializeField]
-    Transform Map;
+    Transform MapParent;
+
+
+    [SerializeField]
+    List<Map> Prefabs;
+
+    Map currentMap;
 
     public override void Init()
     {
@@ -28,11 +34,13 @@ public class ScavengeState : GameState
 
         for (int i = 0; i < 10; i++)
         {
-            var resPickup = PoolManager.Spawn<ResourcePickup>("ResourcePickup",Map);
+            var resPickup = PoolManager.Spawn<ResourcePickup>("ResourcePickup",MapParent);
             resPickup.transform.position = new Vector3(Random.Range(-10,10f), Random.Range(-10, 10f),0);
             resPickup.Init(Random.Range(0, TheGame.Instance.ControllerResources.ResourceCollection.Count),Random.Range(1,5));
             Pickups.Add(resPickup);
         }
+        currentMap = Instantiate<Map>(Prefabs[0]);
+        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
 
     }
     public override void Cleanup()
@@ -47,6 +55,7 @@ public class ScavengeState : GameState
             }
         }
         Pickups.Clear();
+        Destroy(currentMap.gameObject);
     }
 
 

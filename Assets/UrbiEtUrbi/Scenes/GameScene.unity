@@ -306,7 +306,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1141,6 +1141,7 @@ MonoBehaviour:
   ResourceCollection:
   - {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
   - {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
+  - {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
 --- !u!1 &1831790143
 GameObject:
   m_ObjectHideFlags: 0

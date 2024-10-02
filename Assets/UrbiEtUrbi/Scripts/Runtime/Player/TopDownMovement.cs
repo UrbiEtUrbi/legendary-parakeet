@@ -12,6 +12,9 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField]
     float MaxSpeed;
 
+    [SerializeField]
+    bool FreezeVertical;
+
     //[SerializeField]
     //float MaxSpeedAbility;
 
@@ -52,6 +55,7 @@ public class TopDownMovement : MonoBehaviour
 
     [SerializeField]
     TopDownTool TopDownTool;
+
 
     void OnEnable()
     {
@@ -181,6 +185,10 @@ public class TopDownMovement : MonoBehaviour
 
     void OnVertical(float amount)
     {
+        if (FreezeVertical)
+        {
+            return;
+        }
         m_Speed = new Vector2(m_Speed.x, amount * Acceleration);
         // Animator.SetBool("IsSitting", amount < 0);
     }

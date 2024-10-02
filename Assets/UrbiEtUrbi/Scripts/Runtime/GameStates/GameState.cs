@@ -18,7 +18,14 @@ public abstract class GameState : MonoBehaviour
         {
             return;
         }
-        Player = PoolManager.Spawn<PlayerInstance>(PlayerInstanceKey, transform, default, default);
+
+        var pos = GameObject.Find("StartPosition");
+        var startPos = Vector3.zero;
+        if (pos != null)
+        {
+            startPos = pos.transform.position;
+        }
+        Player = PoolManager.Spawn<PlayerInstance>(PlayerInstanceKey, transform, startPos, default);
 
     }
 

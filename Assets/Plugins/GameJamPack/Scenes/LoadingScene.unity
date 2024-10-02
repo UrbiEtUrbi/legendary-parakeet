@@ -430,19 +430,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].poolObject
       value: 
       objectReference: {fileID: 5971668891609434697, guid: ea9810b8434f14cd79e1fc45b5680653, type: 3}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[6].poolObject
+      value: 
+      objectReference: {fileID: 8547073458702656275, guid: a77192109370740cea7544afd3f68275, type: 3}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].maxPoolSize
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[6].maxPoolSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].initialPoolSize
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[6].initialPoolSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9093844782617078912, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: m_Name

@@ -22,12 +22,20 @@ public class NightState : GameState
 
     bool allEnemiesSpawned;
 
+    [SerializeField]
+    GameObject CameraExterior, CameraInterior;
+
+
+    bool isInside = true;
 
     private void Start()
     {
         enemyCount = 0;
         allEnemiesSpawned = false;
         StartCoroutine(SpawnEnemy());
+        UpdateState();
+
+
     }
 
     IEnumerator SpawnEnemy()
@@ -79,6 +87,19 @@ public class NightState : GameState
         var collider = SpawnPositionGround[idx];
 
         return collider.transform.position += new Vector3(Random.Range(-collider.size.x * 0.5f, collider.size.x * 0.5f),0,0);
+    }
+
+    public void SwitchView()
+    {
+        isInside = !isInside;
+        UpdateState();
+    }
+
+    void UpdateState()
+    {
+        CameraExterior.SetActive(!isInside);
+        CameraInterior.SetActive(isInside);
+        Player.gameObject.SetActive(isInside);
     }
 
 
