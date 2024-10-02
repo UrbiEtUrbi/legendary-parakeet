@@ -21,7 +21,6 @@ public class ScavangeResourceView : MonoBehaviour
     public void UpdateResourceCollected(Resource resource, int amount)
     {
 
-        Debug.Log($"update res collection {resource.Name} {amount}");
         var idx = Views.FindIndex(x => x.Resource == resource);
         if (idx != -1)
         {

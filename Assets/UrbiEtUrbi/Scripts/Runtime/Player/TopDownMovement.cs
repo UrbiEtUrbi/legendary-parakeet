@@ -48,6 +48,11 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField]
     Animator _Animator;
 
+    [SerializeField]
+    Transform Art;
+
+    [HideInInspector]
+    public Transform ArtObject;
 
 
     [HideInInspector]
@@ -59,6 +64,14 @@ public class TopDownMovement : MonoBehaviour
 
     void OnEnable()
     {
+        if (TheGame.Instance == null)
+        {
+            return;
+        }
+
+        ArtObject = Instantiate(Art);
+        Debug.Log(ArtObject);
+        GetComponent<PlayerInstance>().Art = ArtObject.GetComponent<SpriteRenderer>();
         m_GroundLayer = LayerMask.GetMask("Ground");
         m_Sprite = GetComponentInChildren<SpriteRenderer>();
         m_Rb = GetComponent<Rigidbody2D>();
@@ -75,8 +88,10 @@ public class TopDownMovement : MonoBehaviour
 
     void OnDisable()
     {
+        
         if (ControllerInput.Instance != null)
         {
+            Destroy(ArtObject.gameObject);
             ControllerInput.Instance.Horizontal.RemoveListener(OnHorizontal);
             ControllerInput.Instance.Vertical.RemoveListener(OnVertical);
         }
@@ -88,9 +103,13 @@ public class TopDownMovement : MonoBehaviour
     bool playingRun;
 
 
+    Vector2 prevPosition;
+
 
     void FixedUpdate()
     {
+
+
         
         //if (TheGame.Instance.IsGameOver)
         //{
@@ -101,14 +120,14 @@ public class TopDownMovement : MonoBehaviour
 
         //if (!TheGame.Instance.IsGamePlaying)
         //{
-           
+
         //    m_Speed = default;
         //    m_Velocity = default;
         //    m_Rb.velocity = default;
         //    return;
         //}
 
-       
+
 
         if (m_Speed == default)
         {
@@ -126,10 +145,11 @@ public class TopDownMovement : MonoBehaviour
 
         m_Velocity = m_Velocity.normalized * Mathf.Min((m_Velocity).magnitude, maxSpeed);// + KnockForce.magnitude);
 
+        float unitsPerPixel = 1f / pixelsPerUnit;
+        var velBefore = m_Velocity;
+        m_Velocity = new Vector2(Mathf.Round(m_Velocity.x / unitsPerPixel), Mathf.Round(m_Velocity.y / unitsPerPixel)) * unitsPerPixel;
 
-
-
-
+        Debug.Log($"{velBefore} {m_Velocity}");
         m_Rb.velocity = m_Velocity;
 
         if (_Animator.GetBool("Move") != m_Rb.velocity.magnitude > 0.2f)
@@ -168,9 +188,30 @@ public class TopDownMovement : MonoBehaviour
             }
             
         }
+
+        Debug.Log(m_Rb.position - prevPosition);
+        prevPosition = m_Rb.position;
+        var position = m_Rb.position;
+       
+        position.x= Mathf.Round(position.x / unitsPerPixel) * unitsPerPixel;
+
+        Debug.Log($"{unitsPerPixel} {Mathf.Round(position.x / unitsPerPixel)} {m_Rb.position} -> {position}");
     }
 
-        public void Revive()
+    [SerializeField]
+    int pixelsPerUnit = 16;
+    private void LateUpdate()
+    {
+        var position = m_Rb.position;
+        float unitsPerPixel = 1f / pixelsPerUnit;
+        position.x = Mathf.Round(position.x / unitsPerPixel) * unitsPerPixel;
+        position.y = Mathf.Round(position.y / unitsPerPixel) * unitsPerPixel;
+
+     //   Debug.Log($"{unitsPerPixel} {Mathf.Round(position.x / unitsPerPixel)} {m_Rb.position} -> {position}");
+        ArtObject.position = position;
+    }
+
+    public void Revive()
     {
         //Animator.SetBool("IsDead", false);
         m_Velocity = default;

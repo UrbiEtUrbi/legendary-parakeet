@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class FPSCounter : MonoBehaviour
 {
@@ -23,5 +24,7 @@ public class FPSCounter : MonoBehaviour
 
         if (timer <= 0) avgFramerate = (int)(1f / timelapse);
         m_Text.text = string.Format(display, avgFramerate.ToString());
+
+        Time.timeScale = Keyboard.current.spaceKey.isPressed ? 0.01f : 1f;
     }
 }

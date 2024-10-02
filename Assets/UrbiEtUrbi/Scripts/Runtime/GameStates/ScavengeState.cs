@@ -7,7 +7,7 @@ public class ScavengeState : GameState
 {
 
     [SerializeField]
-    CinemachineVirtualCamera vCam;
+    PixelPerfectFollowCamera cam;
 
     [SerializeField]
     ScavangeResourceView ScavangedResourceView;
@@ -20,6 +20,9 @@ public class ScavengeState : GameState
     [SerializeField]
     Transform MapParent;
 
+    [SerializeField]
+    CinemachineVirtualCamera vCam;
+
 
     [SerializeField]
     List<Map> Prefabs;
@@ -29,6 +32,8 @@ public class ScavengeState : GameState
     public override void Init()
     {
         base.Init();
+
+       // cam.target = Player.transform;
         vCam.Follow = Player.transform;
         TheGame.Instance.ControllerPickups.OnPickupResource.AddListener(CollectResource);
 
@@ -40,7 +45,7 @@ public class ScavengeState : GameState
             Pickups.Add(resPickup);
         }
         currentMap = Instantiate<Map>(Prefabs[0]);
-        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
+       vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
 
     }
     public override void Cleanup()
