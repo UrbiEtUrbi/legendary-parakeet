@@ -44,6 +44,9 @@ public class TheGame : ControllerLocal
     [field: SerializeField]
     public Canvas Canvas { private set; get; }
 
+    [field: SerializeField]
+    public ControllerInteractibles ControllerInteractibles { private set; get; }
+
 
 
     private void Awake()

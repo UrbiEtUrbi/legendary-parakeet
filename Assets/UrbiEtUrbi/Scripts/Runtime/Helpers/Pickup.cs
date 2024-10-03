@@ -37,20 +37,29 @@ public class Pickup : PoolObject
         Tween.Delay(Random.value,() => { t = Tween.Position(transform, TweenSettings); });
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Player")){
+
+    //        //TODO collect only if alive
+    //        //if (ControllerGame.Player.CurrentHealth > 0)
+    //        //{
+    //            TheGame.Instance.ControllerPickups.Pickup(this);
+
+    //        //    SoundManager.Instance.Play(sound);
+    //        t.Stop();
+    //        PoolManager.Despawn(this);
+    //        //}
+    //    }
+    //}
+
+    public void PickupResource()
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")){
-
-            //TODO collect only if alive
-            //if (ControllerGame.Player.CurrentHealth > 0)
-            //{
-                TheGame.Instance.ControllerPickups.Pickup(this);
-
-            //    SoundManager.Instance.Play(sound);
-            t.Stop();
-            PoolManager.Despawn(this);
-            //}
-        }
+        TheGame.Instance.ControllerPickups.Pickup(this);
+        t.Stop();
     }
   
 

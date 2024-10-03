@@ -34,7 +34,7 @@ public class ScavangeResourceView : MonoBehaviour
             rt.anchoredPosition = new Vector2(-Width, nextIndex * Height);
             Tween.UIAnchoredPosition(rt, new Vector2(10, nextIndex * Height), duration: 0.5f);
             v.Init(resource, 0);
-            Tween.Delay(0.5f, () => v.Set(amount));
+            v.Set(amount);
             Views.Add(v);
         }
     }

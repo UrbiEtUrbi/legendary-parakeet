@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8518476432094116603}
   - component: {fileID: 1395443079954540586}
   - component: {fileID: 3361434472982131632}
+  - component: {fileID: 5441684454550329049}
   m_Layer: 0
   m_Name: ResourcePickup
   m_TagString: Untagged
@@ -125,7 +126,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ccbf73f20a288448c8730f59b184ceca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,3 +158,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5441684454550329049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318764928399172464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00917f69b0f654545bfae3e083a325a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractTime: 1
+  DestroyOnInteract: 1

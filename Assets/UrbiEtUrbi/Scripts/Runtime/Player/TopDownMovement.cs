@@ -91,7 +91,10 @@ public class TopDownMovement : MonoBehaviour
         
         if (ControllerInput.Instance != null)
         {
-            Destroy(ArtObject.gameObject);
+            if (ArtObject != null)
+            {
+                Destroy(ArtObject.gameObject);
+            }
             ControllerInput.Instance.Horizontal.RemoveListener(OnHorizontal);
             ControllerInput.Instance.Vertical.RemoveListener(OnVertical);
         }
@@ -149,7 +152,7 @@ public class TopDownMovement : MonoBehaviour
         var velBefore = m_Velocity;
         m_Velocity = new Vector2(Mathf.Round(m_Velocity.x / unitsPerPixel), Mathf.Round(m_Velocity.y / unitsPerPixel)) * unitsPerPixel;
 
-        Debug.Log($"{velBefore} {m_Velocity}");
+//        Debug.Log($"{velBefore} {m_Velocity}");
         m_Rb.velocity = m_Velocity;
 
         if (_Animator.GetBool("Move") != m_Rb.velocity.magnitude > 0.2f)
@@ -189,13 +192,13 @@ public class TopDownMovement : MonoBehaviour
             
         }
 
-        Debug.Log(m_Rb.position - prevPosition);
+//        Debug.Log(m_Rb.position - prevPosition);
         prevPosition = m_Rb.position;
         var position = m_Rb.position;
        
         position.x= Mathf.Round(position.x / unitsPerPixel) * unitsPerPixel;
 
-        Debug.Log($"{unitsPerPixel} {Mathf.Round(position.x / unitsPerPixel)} {m_Rb.position} -> {position}");
+ //       Debug.Log($"{unitsPerPixel} {Mathf.Round(position.x / unitsPerPixel)} {m_Rb.position} -> {position}");
     }
 
     [SerializeField]

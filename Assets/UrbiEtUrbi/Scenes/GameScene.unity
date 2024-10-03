@@ -991,6 +991,7 @@ GameObject:
   - component: {fileID: 1332901970}
   - component: {fileID: 1332901969}
   - component: {fileID: 1332901976}
+  - component: {fileID: 1332901977}
   m_Layer: 0
   m_Name: TheGame
   m_TagString: Untagged
@@ -1111,6 +1112,7 @@ MonoBehaviour:
   <ControllerAttack>k__BackingField: {fileID: 1332901972}
   <ControllerResources>k__BackingField: {fileID: 1332901976}
   <Canvas>k__BackingField: {fileID: 455033344}
+  <ControllerInteractibles>k__BackingField: {fileID: 1332901977}
 --- !u!4 &1332901975
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,6 +1146,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
   - {fileID: 11400000, guid: c31023182d078450a9036f356dfddc93, type: 2}
   - {fileID: 11400000, guid: c3508f7c9fa4143b4b3b4ecb94855212, type: 2}
+--- !u!114 &1332901977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332901968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d78541a0fc46afabfdcb8236df976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Circle: {fileID: 957936531430426978, guid: 05d4ac0b1aaba4a8da74b30c62dfac0d, type: 3}
 --- !u!1 &1831790143
 GameObject:
   m_ObjectHideFlags: 0
