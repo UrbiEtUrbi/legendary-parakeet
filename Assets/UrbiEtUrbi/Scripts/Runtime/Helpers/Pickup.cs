@@ -29,12 +29,12 @@ public class Pickup : PoolObject
 
     protected void Init()
     {
-        t.Stop();
-        TweenSettings.startValue = startValueFirst + transform.position;
-        TweenSettings.endValue = endValueFirst + transform.position;
+        //t.Stop();
+        //TweenSettings.startValue = startValueFirst + transform.position;
+        //TweenSettings.endValue = endValueFirst + transform.position;
 
 
-        Tween.Delay(Random.value,() => { t = Tween.Position(transform, TweenSettings); });
+        //Tween.Delay(Random.value,() => { t = Tween.Position(transform, TweenSettings); });
     }
 
 

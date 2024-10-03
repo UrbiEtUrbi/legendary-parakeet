@@ -6,24 +6,17 @@ using UnityEngine;
 public class ResourcePickup : Pickup
 {
     [HideInInspector]
-    public Resource res;
+    public Cache cache;
 
-    [HideInInspector]
-    public int amount;
+
 
     [SerializeField]
     SpriteRenderer SpriteRenderer;
 
-    public void Init(Resource res, int amount)
+    public void Init(Cache cache, Sprite defaultSprite)
     {
-       this. amount = amount;
-       this.res = res;
-       SpriteRenderer.sprite = res.Icon;
-        base.Init();
-    }
-
-    public void Init(int resID, int amount)
-    {
-        Init(TheGame.Instance.ControllerResources.GetResourceByID(resID), amount);
+       this.cache = cache;
+       SpriteRenderer.sprite = cache.OverrideSprite == null ? defaultSprite : cache.OverrideSprite;
+       base.Init();
     }
 }

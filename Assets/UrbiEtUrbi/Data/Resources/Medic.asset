@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93572bd2c23e44274aadd97e52b091a1, type: 3}
+  m_Name: Medic
+  m_EditorClassIdentifier: 
+  ID: 6
+  Name: Medic
+  Icon: {fileID: -2031472408, guid: 255d4f11dc9864dd39a40635fef370bd, type: 3}

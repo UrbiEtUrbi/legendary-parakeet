@@ -14,7 +14,12 @@ public class ControllerPickups : MonoBehaviour
         switch (pickup)
         {
             case ResourcePickup resPickup:
-                OnPickupResource.Invoke(resPickup.res, resPickup.amount);
+                var drops = resPickup.cache.Open();
+                foreach (var d in drops)
+                {
+                    var res = TheGame.Instance.ControllerResources.GetResourceByID(d.ID);
+                    OnPickupResource.Invoke(res, d.Amount);
+                }
                 break;
 
 

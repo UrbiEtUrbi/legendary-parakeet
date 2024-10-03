@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Linq;
 
 public class Map : MonoBehaviour
 {
@@ -19,9 +20,32 @@ public class Map : MonoBehaviour
     TilemapRenderer foreground;
 
 
+    [SerializeField]
+    Sprite DefaultCacheSprite;
+
+    [SerializeField]
+    Sprite DefaultSurvivorSprite;
+
+    List<ResourcePickup> Pickups = new();
+
     private void Start()
     {
         EnterLayer(0);
+
+      
+        var objects = FindObjectsByType<MapObjectPlaceholder>(FindObjectsSortMode.None);
+        foreach (var o in objects)
+        {
+            var cache = GetCache(o.Drops);
+            if (cache == null)
+            {
+                continue;
+            }
+            var pickup = PoolManager.Spawn<ResourcePickup>("ResourcePickup", transform, o.transform.position);
+            pickup.Init(cache, o.IsSurvivor ? DefaultSurvivorSprite : DefaultCacheSprite);
+            Pickups.Add(pickup);
+
+        }
     }
 
     public void EnterLayer(int layer)
@@ -42,4 +66,48 @@ public class Map : MonoBehaviour
 
         }
     }
+
+
+    Cache GetCache(List<CacheDrop> cacheDrops)
+    {
+        int weightSum = cacheDrops.Sum(x => x.Weight);
+
+        int currentWeight = 0;
+
+        int targetWeight = Random.Range(0, weightSum);
+
+        for (int i = 0; i < cacheDrops.Count; i++)
+        {
+
+
+            if (targetWeight >= currentWeight && targetWeight < currentWeight + cacheDrops[i].Weight)
+            {
+                return cacheDrops[i].Cache;
+            }
+            currentWeight += cacheDrops[i].Weight;
+        }
+        return cacheDrops[^1].Cache;
+
+
+
+
+    }
+
+    public void Clear()
+    {
+        for (int i = Pickups.Count - 1; i >= 0; i--)
+        {
+            PoolManager.Despawn(Pickups[i]);
+        }
+        Pickups.Clear();
+    }
+}
+
+
+[System.Serializable]
+public class CacheDrop
+{
+    public Cache Cache;
+    public int Weight;
+
 }
