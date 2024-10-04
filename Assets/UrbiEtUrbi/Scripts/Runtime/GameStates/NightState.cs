@@ -23,7 +23,7 @@ public class NightState : GameState
     bool allEnemiesSpawned;
 
     [SerializeField]
-    GameObject CameraExterior, CameraInterior;
+    List<GameObject> CameraExterior, CameraInterior;
 
     [SerializeField]
     PopupBase InfoPopup, UpgradesPopup;
@@ -105,8 +105,15 @@ public class NightState : GameState
 
     void UpdateState()
     {
-        CameraExterior.SetActive(!isInside);
-        CameraInterior.SetActive(isInside);
+        foreach (var ext in CameraExterior)
+        {
+            ext.SetActive(!isInside);
+        }
+
+        foreach (var inte in CameraInterior)
+        {
+            inte.SetActive(isInside);
+        }
         Player.gameObject.SetActive(isInside);
     }
 

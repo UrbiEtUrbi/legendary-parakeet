@@ -60,7 +60,7 @@ public class TheGame : ControllerLocal
     public override void Init()
     {
         base.Init();
-        GameCycleManager.EnterState(GameStateType.Day);
+        GameCycleManager.EnterState(GameStateType.Night);
         m_Tower = new Tower();
         m_Tower.SetInitialHealth(100);
     }

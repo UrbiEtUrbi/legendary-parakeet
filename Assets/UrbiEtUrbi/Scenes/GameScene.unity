@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
@@ -1150,6 +1150,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
   - {fileID: 11400000, guid: 08ee81433c82a4d6eb81882e5559e7c6, type: 2}
   - {fileID: 11400000, guid: 2cfa304c61fe44948870abcc47d6b339, type: 2}
+  resourceAmounts: []
 --- !u!114 &1332901977
 MonoBehaviour:
   m_ObjectHideFlags: 0

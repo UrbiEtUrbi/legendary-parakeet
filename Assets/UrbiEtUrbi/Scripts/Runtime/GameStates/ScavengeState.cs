@@ -34,14 +34,14 @@ public class ScavengeState : GameState
 
     public override void Init()
     {
-        base.Init();
 
        // cam.target = Player.transform;
-        vCam.Follow = Player.transform;
         TheGame.Instance.ControllerPickups.OnPickupResource.AddListener(CollectResource);
 
        
         currentMap = Instantiate<Map>(Prefabs[0]);
+        base.Init();
+        vCam.Follow = Player.transform;
        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
 
     }

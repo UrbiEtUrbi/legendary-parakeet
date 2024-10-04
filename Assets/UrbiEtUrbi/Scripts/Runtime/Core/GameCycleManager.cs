@@ -42,7 +42,7 @@ public class GameCycleManager : MonoBehaviour
 
     public void EnterState(GameStateType gameState)
     {
-
+        Debug.Log(gameState);
         DebugLabel.text = $"Current State: {gameState}";
 
         //exit current state
@@ -126,7 +126,7 @@ public class GameCycleManager : MonoBehaviour
         }
         if (CurrentStateInstance == null)
         {
-            EnterState(GameStateType.Day);
+            EnterState(GameStateType.Night);
         }
         else
         {

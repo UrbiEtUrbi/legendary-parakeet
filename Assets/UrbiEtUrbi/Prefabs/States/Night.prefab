@@ -1175,8 +1175,11 @@ MonoBehaviour:
   SpawnPositionGround:
   - {fileID: 5634881998972624163}
   - {fileID: 7958561901095517847}
-  CameraExterior: {fileID: 5137878440406461774}
-  CameraInterior: {fileID: 5212122609044904046}
+  CameraExterior:
+  - {fileID: 5137878440406461774}
+  CameraInterior:
+  - {fileID: 756355853986885638}
+  - {fileID: 1533571101404354724}
   InfoPopup: {fileID: 852402542159772531}
   UpgradesPopup: {fileID: 2445567051710607481}
 --- !u!1 &1953882001783345010
@@ -1296,6 +1299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4945253288404554262}
+  - component: {fileID: 7184709262626935794}
   m_Layer: 0
   m_Name: StartPosition
   m_TagString: Untagged
@@ -1318,6 +1322,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8121104066426364631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7184709262626935794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101796667792026897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e245d0ddcdd8946c9bb330c95bce94bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2297164766620046567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4974,7 +4990,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.7291665
+  orthographic size: 4.5875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
