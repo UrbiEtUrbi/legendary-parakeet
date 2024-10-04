@@ -108,6 +108,7 @@ public class GameCycleManager : MonoBehaviour
             {
 
                 CurrentStateInstance.OnEndStage();
+                
                 yield break;
             }
         }
@@ -117,7 +118,7 @@ public class GameCycleManager : MonoBehaviour
 
     public void CheatNextState()
     {
-
+      
         if (timeCoroutine != null)
         {
             StopCoroutine(timeCoroutine);
@@ -132,13 +133,10 @@ public class GameCycleManager : MonoBehaviour
             switch (CurrentStateInstance.StateType)
             {
                 case GameStateType.Day:
-                    EnterState(GameStateType.Prep);
+                    EnterState(GameStateType.Night);
                     break;
                 case GameStateType.Night:
                     EnterState(GameStateType.Day);
-                    break;
-                case GameStateType.Prep:
-                    EnterState(GameStateType.Night);
                     break;
             }
         }
@@ -151,5 +149,4 @@ public enum GameStateType
 {
     Day,
     Night,
-    Prep
 }

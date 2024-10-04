@@ -1017,8 +1017,6 @@ MonoBehaviour:
     pairs:
     - key: 0
       value: {fileID: 4994588833564269629, guid: e925acfb7093a42fe8d9ea63b477ad4e, type: 3}
-    - key: 2
-      value: {fileID: 6375596496372757867, guid: 16914e8f7cc5046e6b092b6c775209a6, type: 3}
     - key: 1
       value: {fileID: 4529101800631504158, guid: a4c9d7bcdf4c34d8bb96039c9085572e, type: 3}
     error: 0

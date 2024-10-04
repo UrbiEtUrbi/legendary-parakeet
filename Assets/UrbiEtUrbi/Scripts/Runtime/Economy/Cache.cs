@@ -17,10 +17,10 @@ public class Cache : ScriptableObject
         foreach (var c in Contents)
         {
             gain.Add(new ResourceAmount
-            {
-                ID = c.Resource.ID,
-                Amount = Random.Range(c.Min, c.Max+1)
-            }) ;
+            (
+                c.Resource.ID,
+                Random.Range(c.Min, c.Max + 1)
+            ));
         }
         return gain;
 

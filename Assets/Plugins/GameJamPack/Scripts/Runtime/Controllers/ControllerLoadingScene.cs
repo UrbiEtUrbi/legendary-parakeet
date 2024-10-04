@@ -78,4 +78,10 @@ public class ResourceAmount
     public int ID;
     public int Amount;
 
+    public ResourceAmount(int id, int amount)
+    {
+        ID = id;
+        Amount = amount;
+    }
+
 }

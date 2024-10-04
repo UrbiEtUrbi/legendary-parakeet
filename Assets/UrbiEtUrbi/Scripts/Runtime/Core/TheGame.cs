@@ -41,6 +41,9 @@ public class TheGame : ControllerLocal
 
     [field: SerializeField]
     public ControllerResources ControllerResources { private set; get; }
+
+    public static ControllerResources Res => Instance.ControllerResources;
+
     [field: SerializeField]
     public Canvas Canvas { private set; get; }
 

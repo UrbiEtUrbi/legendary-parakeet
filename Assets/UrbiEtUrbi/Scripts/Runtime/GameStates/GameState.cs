@@ -30,6 +30,11 @@ public abstract class GameState : MonoBehaviour
             startPos = pos.transform.position;
         }
         Player = PoolManager.Spawn<PlayerInstance>(PlayerInstanceKey, transform, startPos, default);
+        var rb = Player.GetComponentInChildren<Rigidbody2D>();
+        if (rb)
+        {
+            rb.position = startPos;
+        }
 
     }
 

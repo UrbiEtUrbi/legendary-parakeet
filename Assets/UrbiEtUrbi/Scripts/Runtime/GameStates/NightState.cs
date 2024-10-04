@@ -8,7 +8,7 @@ public class NightState : GameState
     [SerializeField]
     float InitialDelay;
 
-    
+
 
     [SerializeField]
     List<Wave> EnemyWaves;
@@ -25,14 +25,22 @@ public class NightState : GameState
     [SerializeField]
     GameObject CameraExterior, CameraInterior;
 
+    [SerializeField]
+    PopupBase InfoPopup, UpgradesPopup;
+
 
     bool isInside = true;
 
+    bool IsPrepping, IsDefending;
+
     private void Start()
     {
+        IsPrepping = true;
+        IsDefending = false;
         enemyCount = 0;
         allEnemiesSpawned = false;
-        StartCoroutine(SpawnEnemy());
+        isInside = true;
+      
         UpdateState();
 
 
@@ -102,6 +110,25 @@ public class NightState : GameState
         Player.gameObject.SetActive(isInside);
     }
 
+
+    public override void OnEndStage()
+    {
+        if (IsPrepping)
+        {
+            IsPrepping = false;
+            IsDefending = true;
+            StartCoroutine(SpawnEnemy());
+            return;
+        }
+        else if (IsDefending)
+        {
+            IsDefending = false;
+            base.OnEndStage();
+        }
+
+        
+       
+    }
 
 
 }

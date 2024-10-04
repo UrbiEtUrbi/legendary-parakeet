@@ -62,6 +62,10 @@ public class ScavengeState : GameState
 
     public override void OnEndStage()
     {
+        foreach (var ra in CollectedResources)
+        {
+            TheGame.Instance.ControllerResources.Change(ra);
+        }
         Popup.Init(CollectedResources);
         base.OnEndStage();
     }
@@ -78,10 +82,10 @@ public class ScavengeState : GameState
         else
         {
             CollectedResources.Add(new ResourceAmount
-            {
-                ID = resource.ID,
-                Amount = amount
-            });
+            (
+                resource.ID,
+                amount
+            ));
             idx = CollectedResources.Count - 1;
         }
 
@@ -89,6 +93,7 @@ public class ScavengeState : GameState
         currentMap.PickedUp(pickup);
         if (currentMap.HasPickedUpAll)
         {
+            
             TheGame.Instance.GameCycleManager.EndStage();
         }
     }
