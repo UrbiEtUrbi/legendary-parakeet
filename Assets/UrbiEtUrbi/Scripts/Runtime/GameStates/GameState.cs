@@ -12,6 +12,10 @@ public abstract class GameState : MonoBehaviour
     public PlayerInstance Player;
 
 
+
+    public float Duration;
+
+
     public virtual void Init()
     {
         if (string.IsNullOrEmpty(PlayerInstanceKey))
@@ -27,6 +31,14 @@ public abstract class GameState : MonoBehaviour
         }
         Player = PoolManager.Spawn<PlayerInstance>(PlayerInstanceKey, transform, startPos, default);
 
+    }
+
+    public virtual void OnEndStage()
+    {
+        if (Player)
+        {
+            Player.gameObject.SetActive(false);
+        }
     }
 
 

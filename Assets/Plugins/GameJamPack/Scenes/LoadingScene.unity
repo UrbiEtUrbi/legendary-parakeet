@@ -430,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].poolObject
@@ -441,6 +441,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8547073458702656275, guid: a77192109370740cea7544afd3f68275, type: 3}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[7].poolObject
+      value: 
+      objectReference: {fileID: 8424018685399985413, guid: 399763b15e1fb4b4fb93d8f7ec443bf3, type: 3}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].maxPoolSize
       value: 50
       objectReference: {fileID: 0}
@@ -449,12 +453,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[7].maxPoolSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[5].initialPoolSize
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: pooledObjects.Array.data[6].initialPoolSize
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565657103340671150, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
+      propertyPath: pooledObjects.Array.data[7].initialPoolSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9093844782617078912, guid: b4a57ee4867b240e2b8947d47820c959, type: 3}
       propertyPath: m_Name

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using PrimeTween;
 
 public class ScavengeState : GameState
 {
@@ -28,6 +29,9 @@ public class ScavengeState : GameState
 
     Map currentMap;
 
+    [SerializeField]
+    PopupScavengeEndDay Popup;
+
     public override void Init()
     {
         base.Init();
@@ -49,8 +53,22 @@ public class ScavengeState : GameState
         Destroy(currentMap.gameObject);
     }
 
+    public void HidePopup()
+    {
+        Popup.Hide();
+        Tween.Delay(0.6f, () => TheGame.Instance.GameCycleManager.CheatNextState());
+    }
 
-    public void CollectResource(Resource resource, int amount)
+
+    public override void OnEndStage()
+    {
+        Popup.Init(CollectedResources);
+        base.OnEndStage();
+    }
+
+
+
+    public void CollectResource(Resource resource, int amount, Pickup pickup)
     {
         var idx = CollectedResources.FindIndex(x => x.ID == resource.ID);
         if (idx != -1)
@@ -68,6 +86,10 @@ public class ScavengeState : GameState
         }
 
         ScavangedResourceView.UpdateResourceCollected(CollectedResources[idx]);
-
+        currentMap.PickedUp(pickup);
+        if (currentMap.HasPickedUpAll)
+        {
+            TheGame.Instance.GameCycleManager.EndStage();
+        }
     }
 }

@@ -27,6 +27,9 @@ public class Map : MonoBehaviour
     Sprite DefaultSurvivorSprite;
 
     List<ResourcePickup> Pickups = new();
+    List<bool> pickedUp = new();
+
+    public bool HasPickedUpAll => pickedUp.All(x => x);
 
     private void Start()
     {
@@ -44,7 +47,7 @@ public class Map : MonoBehaviour
             var pickup = PoolManager.Spawn<ResourcePickup>("ResourcePickup", transform, o.transform.position);
             pickup.Init(cache, o.IsSurvivor ? DefaultSurvivorSprite : DefaultCacheSprite);
             Pickups.Add(pickup);
-
+            pickedUp.Add(false);
         }
     }
 
@@ -64,6 +67,16 @@ public class Map : MonoBehaviour
         {
             foreground.sortingOrder = TheGame.Instance.GameCycleManager.GetCurrentState.Player.Art.sortingOrder + 1;
 
+        }
+    }
+
+    public void PickedUp(Pickup pickup)
+    {
+
+        var idx = Pickups.IndexOf(pickup as ResourcePickup);
+        if (idx != -1)
+        {
+            pickedUp[idx] = true;
         }
     }
 

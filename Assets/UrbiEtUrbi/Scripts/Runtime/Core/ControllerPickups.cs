@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ControllerPickups : MonoBehaviour
 {
 
-    public UnityEvent<Resource, int> OnPickupResource = new();
+    public UnityEvent<Resource, int, Pickup> OnPickupResource = new();
     public void Pickup(Pickup pickup)
     {
 
@@ -18,7 +18,7 @@ public class ControllerPickups : MonoBehaviour
                 foreach (var d in drops)
                 {
                     var res = TheGame.Instance.ControllerResources.GetResourceByID(d.ID);
-                    OnPickupResource.Invoke(res, d.Amount);
+                    OnPickupResource.Invoke(res, d.Amount, pickup);
                 }
                 break;
 

@@ -27,6 +27,7 @@ public class TopDownMovement : MonoBehaviour
 
     //private fields
     int m_GroundLayer;
+    [SerializeField]
     SpriteRenderer m_Sprite;
     Vector2 m_Velocity;
     Vector2 m_Speed;
@@ -69,11 +70,10 @@ public class TopDownMovement : MonoBehaviour
             return;
         }
 
-        ArtObject = Instantiate(Art);
-        Debug.Log(ArtObject);
-        GetComponent<PlayerInstance>().Art = ArtObject.GetComponent<SpriteRenderer>();
+        //  ArtObject = Instantiate(Art);
+        //  Debug.Log(ArtObject);
+        GetComponent<PlayerInstance>().Art = m_Sprite;
         m_GroundLayer = LayerMask.GetMask("Ground");
-        m_Sprite = GetComponentInChildren<SpriteRenderer>();
         m_Rb = GetComponent<Rigidbody2D>();
 
         if (ControllerInput.Instance != null)
@@ -211,7 +211,7 @@ public class TopDownMovement : MonoBehaviour
         position.y = Mathf.Round(position.y / unitsPerPixel) * unitsPerPixel;
 
      //   Debug.Log($"{unitsPerPixel} {Mathf.Round(position.x / unitsPerPixel)} {m_Rb.position} -> {position}");
-        ArtObject.position = position;
+    //    ArtObject.position = position;
     }
 
     public void Revive()

@@ -24,6 +24,14 @@ public class GameCycleManager : MonoBehaviour
     [HideInInspector]
     public UnityEvent<GameStateType> OnChangeState = new();
 
+    [SerializeField]
+    Bar Bar;
+
+
+    float timer;
+
+    IEnumerator timeCoroutine;
+
 
     private void Awake()
     {
@@ -48,6 +56,13 @@ public class GameCycleManager : MonoBehaviour
         CurrentStateInstance = Instantiate(States[gameState]);
         CurrentStateInstance.Init();
 
+        if (CurrentStateInstance.Duration > 0)
+        {
+            Bar.SetValue(1);
+            StartCoroutine(TimeStage());
+
+        }
+
         var camera = CurrentStateInstance.GetComponentInChildren<Camera>();
         
         MainCamera.gameObject.SetActive(camera == null);
@@ -70,8 +85,44 @@ public class GameCycleManager : MonoBehaviour
         //}
     }
 
+
+    public void EndStage()
+    {
+        if (timeCoroutine != null)
+        {
+            StopCoroutine(timeCoroutine);
+            timeCoroutine = null;
+        }
+        CurrentStateInstance.OnEndStage();
+
+    }
+    IEnumerator TimeStage()
+    {
+        timer = 0;
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            timer += 0.1f;
+            Bar.SetValue(1 - timer / CurrentStateInstance.Duration);
+            if (timer >= CurrentStateInstance.Duration)
+            {
+
+                CurrentStateInstance.OnEndStage();
+                yield break;
+            }
+        }
+
+    }
+    
+
     public void CheatNextState()
     {
+
+        if (timeCoroutine != null)
+        {
+            StopCoroutine(timeCoroutine);
+            timeCoroutine = null;
+        }
         if (CurrentStateInstance == null)
         {
             EnterState(GameStateType.Day);

@@ -100,7 +100,9 @@ public class ControllerInteractibles : MonoBehaviour
 
                 circles[instance.Interactible].rectTransform.anchoredPosition = canvasPos;
                 instance.CurrentTime += Time.deltaTime;
-                circles[instance.Interactible].fillAmount = instance.CurrentTime / instance.Interactible.InteractTime;
+                var step = 1f / circles[instance.Interactible].mainTexture.height;
+                var val = Mathf.Round((instance.CurrentTime / instance.Interactible.InteractTime)/step)*step;
+                circles[instance.Interactible].fillAmount = val;
                 if (instance.CurrentTime >= instance.Interactible.InteractTime && !instance.Interacted)
                 {
                     instance.Interacted = true;
