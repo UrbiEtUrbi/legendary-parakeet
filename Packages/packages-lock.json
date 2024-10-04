@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.browar.editor-toolbox": {
-      "version": "https://github.com/arimger/Unity-Editor-Toolbox.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.editorcoroutines": "1.0.0"
-      },
-      "hash": "53b9bed8338295e685fedd94dd0bd24aa5b5bc3c"
-    },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
       "depth": 0,
@@ -147,7 +138,7 @@
     },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
