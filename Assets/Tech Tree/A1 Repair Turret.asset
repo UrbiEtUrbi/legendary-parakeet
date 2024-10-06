@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cfbcdb2a51e334589032bbce033a10, type: 3}
+  m_Name: A1 Repair Turret
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 11400000, guid: 311a361f7c9284444b3c1bcd559a2dcb, type: 2}
+  - {fileID: 11400000, guid: 015364aaab4cc8541909fc58f23b751e, type: 2}
+  - {fileID: 11400000, guid: 81b4fd07cd36a7c49a7f748948c7f8a3, type: 2}
+  techName: Repair Turret
+  height: 1
+  available: 1
+  resources:
+  - {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+  resourceCosts: 0f000000
