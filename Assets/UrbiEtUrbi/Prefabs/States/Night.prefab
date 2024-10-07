@@ -1182,6 +1182,7 @@ MonoBehaviour:
   - {fileID: 1533571101404354724}
   InfoPopup: {fileID: 852402542159772531}
   UpgradesPopup: {fileID: 2445567051710607481}
+  InteriorController: {fileID: 8011435804427281451}
 --- !u!1 &1953882001783345010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,7 +4991,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.5875
+  orthographic size: 5.078125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5312,6 +5313,7 @@ MonoBehaviour:
     m_PostInfinity: 1
     m_RotationOrder: 4
   BlastRadius: 0
+  IsActive: 0
   rotationVelocity: 0
   rotationAcceleration: 2000
   maxRotationSpeed: 2000
@@ -5638,7 +5640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
@@ -5767,6 +5769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8121104066426364631}
+  - component: {fileID: 8011435804427281451}
   m_Layer: 0
   m_Name: Interior
   m_TagString: Untagged
@@ -5793,6 +5796,24 @@ Transform:
   - {fileID: 5896890448703536556}
   m_Father: {fileID: 8114281815507537282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8011435804427281451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212122609044904046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f731de5a7de9d4348bb3cfd59aeaca5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: {fileID: 2255569898782653168}
+  AutoGun: []
+  PickupSmallAmmo: {fileID: 0}
+  PickupMainGunAmmo: {fileID: 0}
+  AmmoDepositMainGun: {fileID: 0}
+  AmmoDepositSmallGun: {fileID: 0}
 --- !u!1 &5243080037321283994
 GameObject:
   m_ObjectHideFlags: 0

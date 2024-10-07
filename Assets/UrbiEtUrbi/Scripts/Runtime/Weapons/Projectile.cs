@@ -45,8 +45,6 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        Debug.Log("on collision enter");
         HitPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
         BeforeDestroy();
         Destroy(gameObject);
@@ -55,8 +53,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("on trigger enter");
-
         Bounds triggerBounds = GetComponent<Collider2D>().bounds;
         Bounds colliderBounds = collision.bounds;
 

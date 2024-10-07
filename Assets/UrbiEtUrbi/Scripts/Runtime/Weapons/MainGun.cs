@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGun : TopDownTool
+public class MainGun : TopDownTool, IMagazine
 {
     [SerializeField]
     Transform BarrelParent;
@@ -14,7 +14,12 @@ public class MainGun : TopDownTool
     float BlastRadius;
 
 
+    Magazine Magazine;
 
+
+    public bool IsActive;
+
+    protected override bool CanShoot => base.CanShoot && IsActive && Magazine.Current > 0;
 
     // Rotation settings
     public float rotationVelocity = 0f;   // The current velocity of rotation (degrees per second)
@@ -29,6 +34,11 @@ public class MainGun : TopDownTool
 
     protected override void Move(float angle)
     {
+
+        if (!IsActive)
+        {
+            return;
+        }
         targetAngle = angle;
         // Calculate the difference between the current and target angle
         float angleDifference = Mathf.DeltaAngle(currentAngle, targetAngle);
@@ -71,5 +81,16 @@ public class MainGun : TopDownTool
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         BarrelParent.localPosition = new Vector3(AnimationCurve.Evaluate(currentAngle/360f), 0, 0);
         currentAngle %= 360f;
+    }
+
+    public void AssignMagazine(Magazine magazine)
+    {
+        Magazine = magazine;
+    }
+
+    protected override void Use()
+    {
+        Magazine.Current -= 1;
+        base.Use();
     }
 }

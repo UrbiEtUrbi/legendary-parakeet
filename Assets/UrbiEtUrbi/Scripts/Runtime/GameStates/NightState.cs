@@ -28,11 +28,16 @@ public class NightState : GameState
     [SerializeField]
     PopupBase InfoPopup, UpgradesPopup;
 
+    [SerializeField]
+    InteriorController InteriorController;
+
 
     bool isInside = true;
 
     bool IsPrepping, IsDefending;
 
+
+    
     private void Start()
     {
         IsPrepping = true;
@@ -100,6 +105,7 @@ public class NightState : GameState
     public void SwitchView()
     {
         isInside = !isInside;
+        InteriorController.Toggle(isInside);
         UpdateState();
     }
 
@@ -149,3 +155,5 @@ public class Wave
     public float count;
 
 }
+
+

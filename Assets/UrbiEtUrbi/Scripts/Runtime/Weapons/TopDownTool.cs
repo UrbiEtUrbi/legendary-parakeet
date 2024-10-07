@@ -28,6 +28,8 @@ public class TopDownTool : MonoBehaviour
 
     float reloadTimer = 0;
 
+    protected virtual bool CanShoot => reloadTimer <= 0;
+
     bool holdingUse = false;
 
     private void OnEnable()
@@ -95,7 +97,7 @@ public class TopDownTool : MonoBehaviour
     void OnUseTool(bool use)
     {
      //   holdingUse = use;
-        if (use && reloadTimer <= 0)
+        if (use && CanShoot)
         {
             reloadTimer = ReloadTime;
             Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(kickback, 0, 0), duration: kickbackDuration, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
@@ -103,7 +105,13 @@ public class TopDownTool : MonoBehaviour
             var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, 1, -Muzzle.up);
             obj.OnBeforeDestroy =() =>  attackObjects.Remove(obj);
             attackObjects.Add(obj);
+            Use();
         }
+    }
+
+    protected virtual void Use()
+    {
+
     }
 
     void OnStateChanged(GameStateType gameStateType)
