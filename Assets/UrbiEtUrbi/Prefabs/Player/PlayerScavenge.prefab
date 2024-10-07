@@ -61,6 +61,7 @@ MonoBehaviour:
   ArtObject: {fileID: 0}
   Slowing: 0
   TopDownTool: {fileID: 0}
+  LookAtCursor: 1
   pixelsPerUnit: 16
 --- !u!95 &5124831253826304719
 Animator:

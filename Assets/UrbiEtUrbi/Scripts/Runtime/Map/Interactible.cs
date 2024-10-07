@@ -12,6 +12,12 @@ public class Interactible : MonoBehaviour
 
     Material m;
 
+    protected virtual bool CanInteract()
+    {
+
+        return true;
+    }
+
     private void Awake()
     {
         var sr = GetComponent<SpriteRenderer>();
@@ -32,9 +38,11 @@ public class Interactible : MonoBehaviour
 
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && CanInteract())
         {
             m.SetFloat("_Radius", 1f);
             TheGame.Instance.ControllerInteractibles.Add(this);

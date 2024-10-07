@@ -26,6 +26,9 @@ public class NightState : GameState
     List<GameObject> CameraExterior, CameraInterior;
 
     [SerializeField]
+    Camera CameraInteriorCam, CameraExteriorCam;
+
+    [SerializeField]
     PopupBase InfoPopup, UpgradesPopup;
 
     [SerializeField]
@@ -109,10 +112,20 @@ public class NightState : GameState
         UpdateState();
     }
 
+    private void Update()
+    {
+        if (UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            SwitchView();
+        }
+    }
+
     void UpdateState()
     {
         foreach (var ext in CameraExterior)
         {
+
+
             ext.SetActive(!isInside);
         }
 
@@ -120,6 +133,7 @@ public class NightState : GameState
         {
             inte.SetActive(isInside);
         }
+        TheGame.Instance.GameCycleManager.CurrentCamera = isInside ? CameraInteriorCam : CameraExteriorCam;
         Player.gameObject.SetActive(isInside);
     }
 

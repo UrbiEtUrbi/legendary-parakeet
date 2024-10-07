@@ -62,6 +62,9 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField]
     TopDownTool TopDownTool;
 
+    [SerializeField]
+    bool LookAtCursor;
+
 
     void OnEnable()
     {
@@ -170,7 +173,17 @@ public class TopDownMovement : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 
-        m_Sprite.flipX = Mathf.Abs(angle) > 90f;
+        if (LookAtCursor)
+        {
+            m_Sprite.flipX = Mathf.Abs(angle) > 90f;
+        }
+        else
+        {
+            if (m_Rb.velocity.magnitude > 0.1f)
+            {
+                m_Sprite.flipX = Mathf.Sign(m_Rb.velocity.x) < 0;
+            }
+        }
 
        
 

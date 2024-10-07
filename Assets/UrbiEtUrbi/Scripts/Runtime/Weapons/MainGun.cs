@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainGun : TopDownTool, IMagazine
 {
@@ -15,6 +16,8 @@ public class MainGun : TopDownTool, IMagazine
 
 
     Magazine Magazine;
+
+    List<TMP_Text> labels;
 
 
     public bool IsActive;
@@ -83,14 +86,27 @@ public class MainGun : TopDownTool, IMagazine
         currentAngle %= 360f;
     }
 
-    public void AssignMagazine(Magazine magazine)
+    public void AssignMagazine(Magazine magazine, List<TMP_Text> Labels)
     {
         Magazine = magazine;
+
+        labels = Labels;
+        UpdateLabels();
+    }
+
+    void UpdateLabels()
+    {
+        foreach (var label in labels)
+        {
+            label.text = $"{Magazine.Current}/{Magazine.Max}";
+        }
     }
 
     protected override void Use()
     {
         Magazine.Current -= 1;
+        UpdateLabels();
+
         base.Use();
     }
 }
