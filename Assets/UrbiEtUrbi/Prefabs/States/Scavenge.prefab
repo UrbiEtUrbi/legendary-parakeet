@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5292972853800018786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.988, y: 3.2}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6054948738431206684
 CanvasRenderer:
@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Okay
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
+  m_sharedMaterial: {fileID: -2350339230749759293, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -92,15 +92,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 37.24
+  m_fontSizeBase: 37.24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -202,8 +202,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: End of The Day
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
+  m_sharedMaterial: {fileID: -2350339230749759293, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
@@ -489,8 +489,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You collected:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
+  m_sharedMaterial: {fileID: -2350339230749759293, guid: 33c66f2cb65ff4065b9d0bc01f2ea501, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -685,7 +685,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.7291665
+  orthographic size: 4.59375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1004,8 +1004,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 5539db7537a1c418b9ea0108e2d1f10c, type: 3}
+    m_HighlightedSprite: {fileID: -1849133743, guid: e62b9ec550a954c479d53c8483e19a28, type: 3}
+    m_PressedSprite: {fileID: -985223347, guid: e62b9ec550a954c479d53c8483e19a28, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8c8b0d39107f4cb19ae44bd2cfdd607, type: 3}
+  m_Sprite: {fileID: 1979758440, guid: e62b9ec550a954c479d53c8483e19a28, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1188,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7110866933197106530
 RectTransform:
   m_ObjectHideFlags: 0

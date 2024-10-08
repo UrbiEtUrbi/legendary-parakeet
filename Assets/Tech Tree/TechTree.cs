@@ -6,28 +6,27 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+
 public class TechTree : MonoBehaviour
 {
     // Serializing this field makes changes persistent. Apparently.
-    [SerializeField] public NodeData root;
+    NodeData root;
     [SerializeField] GameObject nodePrefab;
     [SerializeField] GameObject columnPrefab;
-    [SerializeField] GameObject rowPrefab;
-    [SerializeField] GameObject costDisplayPrefab;
 
-    [SerializeField] GameObject infoReadout;
+    [SerializeField] CostDisplay costDisplayPrefab;
+
     [SerializeField] TextMeshProUGUI techNameText;
+    [SerializeField] TMP_Text descriptionNameText;
     [SerializeField] HorizontalLayoutGroup costsLayout;
 
     [SerializeField] public bool treeMode;
     [SerializeField] bool update;
-    [SerializeField] bool clearReadout;
 
     List<VerticalLayoutGroup> columns = new List<VerticalLayoutGroup>();
     List<GameObject> generatedNodes = new List<GameObject>();
     [SerializeField] List<GameObject> generatedCosts = new List<GameObject>();
-    [HideInInspector, SerializeField] GameObject row;
+    [SerializeField] Transform row;
     [HideInInspector, SerializeField] TechTreeButton selectedTech;
     /// <summary>
     /// Correlates Node Data Presets with in-scene buttons, for purpose of linking buttons with children
@@ -38,6 +37,13 @@ public class TechTree : MonoBehaviour
 
     public int Height { get; private set; }
 
+
+    public void Init(NodeData nodeData)
+    {
+        root = nodeData;
+        update = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,15 +52,15 @@ public class TechTree : MonoBehaviour
             Execute();
             update = false;
         }
-        if (clearReadout)
-        {
-            ClearReadout();
-            clearReadout = false;
-        }
+      
     }
 
     public void Select(TechTreeButton ttb)
     {
+
+
+        ClearReadout();
+        PopulateReadout(ttb.NodeData);
         selectedTech = ttb;
     }
 
@@ -64,7 +70,7 @@ public class TechTree : MonoBehaviour
         NodeData node = selectedTech.NodeData;
         for (int i = 0; i < node.resourceCosts.Length; i++)
         {
-            CostDisplay costDisplay = Instantiate(costDisplayPrefab, costsLayout.transform).GetComponent<CostDisplay>();
+            CostDisplay costDisplay = Instantiate(costDisplayPrefab, costsLayout.transform);
             costDisplay.icon.sprite = node.resources[i].Icon;
             costDisplay.costText.text = node.resourceCosts[i].ToString();
 
@@ -92,11 +98,7 @@ public class TechTree : MonoBehaviour
         UpdateAll();
     }
 
-    private void OnValidate()
-    {
-        infoReadout.SetActive(!treeMode);
-        //if (!treeMode) UpdateList();
-    }
+   
 
     void Execute()
     {
@@ -121,11 +123,6 @@ public class TechTree : MonoBehaviour
             Debug.LogError("Tech Tree: ROOT NULL");
             return;
         }
-        if (row != null)
-        {
-            DestroyImmediate(row.gameObject);
-        }
-        row = Instantiate(rowPrefab, transform);
 
         Stack<(NodeData node, int height)> stack = new Stack<(NodeData node, int height)>();
         stack.Push((root, 0));
@@ -228,7 +225,7 @@ public class TechTree : MonoBehaviour
             CostDisplay costDisplay = Instantiate(costDisplayPrefab, costsLayout.transform).GetComponent<CostDisplay>();
             costDisplay.icon.sprite = node.resources[i].Icon;
             costDisplay.costText.text = node.resourceCosts[i].ToString();
-
+            descriptionNameText.text = node.Description;
             generatedCosts.Add(costDisplay.gameObject);
 
             // Grey Out Costs for which the player does not have enough of the resource

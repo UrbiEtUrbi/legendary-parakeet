@@ -40,6 +40,16 @@ public abstract class GameState : MonoBehaviour
 
     }
 
+    public void DisablePlayer()
+    {
+        Player.gameObject.SetActive(false);
+    }
+
+    public void EnablePlayer()
+    {
+        Player.gameObject.SetActive(true);
+    }
+
     public virtual void OnEndStage()
     {
         if (Player)

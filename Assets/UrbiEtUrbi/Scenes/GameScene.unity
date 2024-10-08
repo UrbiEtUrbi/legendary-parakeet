@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   IsGamePlaying: 0
+  Techs: {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
   <ControllerRespawn>k__BackingField: {fileID: 1332901970}
   <ControllerPickups>k__BackingField: {fileID: 1332901971}
   <ControllerEntities>k__BackingField: {fileID: 1332901973}

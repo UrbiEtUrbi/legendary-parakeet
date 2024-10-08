@@ -72,8 +72,7 @@ public class TechTreeButton : MonoBehaviour
         }
         else
         {
-            tree.ClearReadout();
-            tree.PopulateReadout(nodeData);
+
             tree.Select(this);
         }
     }

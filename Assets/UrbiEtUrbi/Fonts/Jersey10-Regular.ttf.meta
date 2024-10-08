@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c7a8d06db128400b9530ec3fa792f8b
+guid: ca5aa462766ca42a69ca7c03ad9cf299
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixelify Sans
+  - Jersey 10
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

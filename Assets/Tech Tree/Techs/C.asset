@@ -16,5 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9b2bb6d97aa4f34f8799914be7fad06, type: 2}
   - {fileID: 11400000, guid: edacc52904f133d45a8fb9759b249848, type: 2}
   techName: C
+  height: 1
+  available: 0
   resources: []
   resourceCosts: 

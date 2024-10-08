@@ -11,10 +11,18 @@ public class NodeData : ScriptableObject
 
     public string techName = "new Technology";
     public int height;
+
+    [System.NonSerialized]
     public bool available = false;
+
+    public ResourceAmount[] Cost;
+
+    public ResourceAmount[] Requirement;
 
     [SerializeField] public Resource[] resources;
     [SerializeField] public int[] resourceCosts;
+
+    public string Description;
 
     public void Buy()
     {
@@ -29,4 +37,8 @@ public class NodeData : ScriptableObject
     {
         available = true;
     }
+
+
+    
 }
+

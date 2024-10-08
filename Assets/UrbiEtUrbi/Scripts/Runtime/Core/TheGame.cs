@@ -24,6 +24,9 @@ public class TheGame : ControllerLocal
     public Tower Tower => m_Tower;
 
 
+    public NodeData Techs;
+
+
     [field: SerializeField]
     public ControllerRespawn ControllerRespawn { private set; get; }
 
@@ -49,6 +52,9 @@ public class TheGame : ControllerLocal
 
     [field: SerializeField]
     public ControllerInteractibles ControllerInteractibles { private set; get; }
+
+
+    
 
 
 

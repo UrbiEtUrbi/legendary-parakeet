@@ -30,6 +30,9 @@ public class InteriorController : MonoBehaviour
     [SerializeField]
     AmmoDeposit AmmoDepositSmallGun;
 
+    [SerializeField]
+    OpenPopupInteractible OpenUpgrades;
+
 
     public Resource CarryingType;
     public int CarryingAmount;
@@ -68,6 +71,7 @@ public class InteriorController : MonoBehaviour
         PickupSmallAmmo.Init(this);
         AmmoDepositMainGun.Init(this);
         AmmoDepositSmallGun.Init(this);
+        OpenUpgrades.Init(this);
         UpdateLabels(MainMagazine, LabelsMainGun);
         UpdateLabels(SmallMagazine, LabelsSmallGun);
     }
@@ -106,6 +110,16 @@ public class InteriorController : MonoBehaviour
     public void Toggle(bool IsInside)
     {
         Gun.IsActive = !IsInside;
+    }
+
+    public void OnPopupOpened()
+    {
+        TheGame.Instance.GameCycleManager.GetCurrentState.DisablePlayer();
+    }
+
+    public void OnPopupClosed()
+    {
+        TheGame.Instance.GameCycleManager.GetCurrentState.EnablePlayer();
     }
 }
 
