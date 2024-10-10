@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2899001898144744127}
   - component: {fileID: 5124831253826304719}
   - component: {fileID: 71463772544947574}
-  - component: {fileID: 1697662739932920824}
   - component: {fileID: 8547073458702656275}
+  - component: {fileID: 1419999203151736866}
   m_Layer: 3
   m_Name: PlayerScavenge
   m_TagString: Untagged
@@ -111,8 +111,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1697662739932920824
-CircleCollider2D:
+--- !u!114 &8547073458702656275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118612912117942668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715a1d9d249a4db68882a41faedddfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  Art: {fileID: 0}
+--- !u!70 &1419999203151736866
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,23 +157,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.38
---- !u!114 &8547073458702656275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4118612912117942668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6715a1d9d249a4db68882a41faedddfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 
-  Art: {fileID: 0}
+  m_Offset: {x: 0.06712684, y: -0.251078}
+  m_Size: {x: 0.63269824, y: 1.6343396}
+  m_Direction: 0
 --- !u!1 &7084412165014934924
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 7084412165014934924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.611, y: 0, z: 0}
+  m_LocalPosition: {x: 0.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -296,6 +296,7 @@ MonoBehaviour:
   Muzzle: {fileID: 6080465277966531080}
   kickback: -0.2
   kickbackDuration: 0.2
+  UseAnimation: 0
 --- !u!1 &7917114030841853124
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +341,10 @@ PrefabInstance:
       value: Art
       objectReference: {fileID: 0}
     - target: {fileID: 7521841452523134668, guid: 1963f69182dd147dabee7a6d29993253, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521841452523134668, guid: 1963f69182dd147dabee7a6d29993253, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -379,6 +384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7823484525169877767, guid: 1963f69182dd147dabee7a6d29993253, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 782452858, guid: 0a24e6dcc5ec84ccf92e1743bb0f562d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -7862,7 +7862,7 @@ GameObject:
   - component: {fileID: 7210422307705006935}
   - component: {fileID: 1165713272435682553}
   m_Layer: 0
-  m_Name: StartPosition
+  m_Name: StartPositionTrench1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,7 +38,6 @@ public class MainGun : TopDownTool, IMagazine
     protected override void Move(float angle)
     {
 
-        Debug.Log(angle);
         if (!IsActive)
         {
             return;

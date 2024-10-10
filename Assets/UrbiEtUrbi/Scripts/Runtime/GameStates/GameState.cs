@@ -23,7 +23,7 @@ public abstract class GameState : MonoBehaviour
             return;
         }
 
-        var pos = FindAnyObjectByType<StartPosition>().gameObject;
+        var pos = GetComponentInChildren<StartPosition>().gameObject;
         var startPos = Vector3.zero;
         if (pos != null)
         {
@@ -35,7 +35,7 @@ public abstract class GameState : MonoBehaviour
         {
             rb.position = startPos;
         }
-        Debug.Log($"{pos} ->{startPos} {rb.position}");
+        Debug.Log($"{pos} ->{startPos} {rb.position} {pos.name}");
         
 
     }

@@ -39,7 +39,7 @@ public class ScavengeState : GameState
         TheGame.Instance.ControllerPickups.OnPickupResource.AddListener(CollectResource);
 
        
-        currentMap = Instantiate<Map>(Prefabs[0]);
+        currentMap = Instantiate<Map>(Prefabs[0],transform);
         base.Init();
         vCam.Follow = Player.transform;
        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
