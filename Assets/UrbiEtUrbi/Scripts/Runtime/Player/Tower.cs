@@ -5,10 +5,10 @@ using UnityEngine;
 public class Tower : IHealth
 {
 
-    int MaxHp;
-    int CurrentHP;
+    float MaxHp;
+    float CurrentHP;
 
-    public void ChangeHealth(int amount)
+    public void ChangeHealth(float amount)
     {
         CurrentHP += amount;
         CurrentHP = Mathf.Min(CurrentHP, MaxHp);

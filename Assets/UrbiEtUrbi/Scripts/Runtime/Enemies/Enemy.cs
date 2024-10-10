@@ -6,10 +6,10 @@ public class Enemy : PoolObject, IHealth
 {
 
 
-    int currentHealth;
-    int maxHealth;
+    float currentHealth;
+    float maxHealth;
 
-    int damage;
+    float damage;
     protected float Speed;
 
     IHealth Target;
@@ -17,8 +17,15 @@ public class Enemy : PoolObject, IHealth
     [SerializeField]
     protected SpriteRenderer SpriteRenderer;
 
+    protected Animator Animator;
 
-    public void ChangeHealth(int amount)
+
+    void Awake()
+    {
+        Animator = GetComponent<Animator>();
+    }
+
+    public void ChangeHealth(float amount)
     {
 
         currentHealth += amount;
@@ -48,7 +55,7 @@ public class Enemy : PoolObject, IHealth
         currentHealth = amount;
     }
 
-    public virtual void Init(int health, int damage, float speed, IHealth target, float TargetPos)
+    public virtual void Init(int health, float damage, float speed, IHealth target, float TargetPos)
     {
         SetInitialHealth(health);
         this.damage = damage;
@@ -63,6 +70,7 @@ public class Enemy : PoolObject, IHealth
 
     protected void Attack()
     {
+        Animator.SetTrigger("attack");
         Target.ChangeHealth(-damage);
     }
 

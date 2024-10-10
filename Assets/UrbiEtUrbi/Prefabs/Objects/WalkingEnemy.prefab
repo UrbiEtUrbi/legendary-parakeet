@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5971668891609434697}
   - component: {fileID: 3564759465460347366}
   - component: {fileID: 4935664710762400416}
+  - component: {fileID: 1072075453409833801}
   m_Layer: 9
   m_Name: WalkingEnemy
   m_TagString: Untagged
@@ -114,6 +115,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.05997038, y: 0.46975595}
   m_Size: {x: 0.61994076, y: 0.86009276}
   m_Direction: 0
+--- !u!95 &1072075453409833801
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756524377543337648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7ff0d486034642ccac06d710ffacb30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1193049069213597693
 GameObject:
   m_ObjectHideFlags: 0
