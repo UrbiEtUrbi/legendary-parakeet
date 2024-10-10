@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 4
   Name: Tech Components
-  Icon: {fileID: -1187571359, guid: 255d4f11dc9864dd39a40635fef370bd, type: 3}
+  Icon: {fileID: 21300000, guid: 25d5767611e924a80be3d7a07a56abbe, type: 3}

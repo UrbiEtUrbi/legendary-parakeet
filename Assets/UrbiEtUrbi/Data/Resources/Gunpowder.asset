@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93572bd2c23e44274aadd97e52b091a1, type: 3}
-  m_Name: Construction Component
+  m_Name: Gunpowder
   m_EditorClassIdentifier: 
-  ID: 1
-  Name: Construction Components
-  Icon: {fileID: 21300000, guid: fe37555a14c884743a01112e98fc98e0, type: 3}
+  ID: 10
+  Name: Gunpowder
+  Icon: {fileID: 21300000, guid: 6029933c9f8c54543b57bb307e692808, type: 3}
