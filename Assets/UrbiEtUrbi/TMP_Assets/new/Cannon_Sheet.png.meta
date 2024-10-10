@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08430ff2842ef40a0bf03bec49fd2c1e
+guid: 268f3dc9360e9429da818e03dded1269
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Panel_0
+      name: Cannon_Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 46
-        height: 46
+        x: 49
+        y: 47
+        width: 35
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dedcec69279c249dfa0bafbf9b6bea02
-      internalID: 1507311579
+      spriteID: 91611d5208ce44bc2a011f776a746028
+      internalID: -1964161951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_1
+      name: Cannon_Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 139
+        y: 47
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bfd9faa99604c20b6443c357b533b9
+      internalID: 1991333319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cannon_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 47
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389eeeb7c5e4f4833abceda4c4ea69b5
+      internalID: -1590685664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cannon_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 47
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6447e507668c1415eaecc6d3fb1c0291
+      internalID: 241466001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cannon_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 29
         y: 0
-        width: 48
-        height: 48
+        width: 39
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 7, z: 7, w: 7}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48167e5c9fed8495295f874d55b23e75
-      internalID: 985162642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_2
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 23, z: 7, w: 23}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfd3dbbf652834f5e9b7403031d4db5a
-      internalID: 595160113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_3
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 3
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 2}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20dc94e0b02c54db29b905b3db426184
-      internalID: -1347061333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_4
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 2
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0f6b1b35c2e148deb029a43c6f05cb2
-      internalID: -1371783698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_5
-      rect:
-        serializedVersion: 2
-        x: 242
-        y: 2
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8352e32984a40c3ab96fc70c98bdec
-      internalID: 2065167944
+      spriteID: b0f43e828e70a43fb960595f0771f48d
+      internalID: -1896611760
       vertices: []
       indices: 
       edges: []
@@ -246,12 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Panel_0: 1507311579
-      UI_Panel_1: 985162642
-      UI_Panel_2: 595160113
-      UI_Panel_3: -1347061333
-      UI_Panel_4: -1371783698
-      UI_Panel_5: 2065167944
+      Cannon_Sheet_0: -1964161951
+      Cannon_Sheet_1: 1991333319
+      Cannon_Sheet_2: -1590685664
+      Cannon_Sheet_3: 241466001
+      Cannon_Sheet_4: -1896611760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08430ff2842ef40a0bf03bec49fd2c1e
+guid: 7ef056fd3b4ab466989dcf4094782e99
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Panel_0
+      name: Vehicle_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 66
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a231f1cdba204476ad79048fc0ede33
+      internalID: 1825765197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vehicle_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 66
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f491cac6dd2e645988dd3ca94ca88f0e
+      internalID: -523163342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vehicle_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 66
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4002acb58f02e4369a706440acd5dca1
+      internalID: 1285355835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vehicle_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 66
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58b998cf1526b41b5993550f4b6f8aed
+      internalID: 263279541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vehicle_Sheet_4
       rect:
         serializedVersion: 2
         x: 1
-        y: 1
-        width: 46
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dedcec69279c249dfa0bafbf9b6bea02
-      internalID: 1507311579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_1
-      rect:
-        serializedVersion: 2
-        x: 48
         y: 0
-        width: 48
-        height: 48
+        width: 78
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 7, z: 7, w: 7}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48167e5c9fed8495295f874d55b23e75
-      internalID: 985162642
+      spriteID: 76318cc3c0dc648fe8e47dc91f780b7d
+      internalID: -1206826768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_2
+      name: Vehicle_Sheet_5
       rect:
         serializedVersion: 2
-        x: 97
+        x: 81
         y: 0
-        width: 48
-        height: 48
+        width: 78
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 23, z: 7, w: 23}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfd3dbbf652834f5e9b7403031d4db5a
-      internalID: 595160113
+      spriteID: dd2d1260cc27c4a97833f2739de819c6
+      internalID: 896849831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_3
+      name: Vehicle_Sheet_6
       rect:
         serializedVersion: 2
-        x: 147
-        y: 3
-        width: 42
-        height: 42
+        x: 161
+        y: 0
+        width: 78
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20dc94e0b02c54db29b905b3db426184
-      internalID: -1347061333
+      spriteID: d0004ad64e73e4a6983358869166a7e9
+      internalID: -2034091527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_4
+      name: Vehicle_Sheet_7
       rect:
         serializedVersion: 2
-        x: 194
-        y: 2
-        width: 44
-        height: 44
+        x: 241
+        y: 0
+        width: 78
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0f6b1b35c2e148deb029a43c6f05cb2
-      internalID: -1371783698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_5
-      rect:
-        serializedVersion: 2
-        x: 242
-        y: 2
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8352e32984a40c3ab96fc70c98bdec
-      internalID: 2065167944
+      spriteID: be4d0e3e641e042b9ac91251f61519cc
+      internalID: 882134115
       vertices: []
       indices: 
       edges: []
@@ -246,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Panel_0: 1507311579
-      UI_Panel_1: 985162642
-      UI_Panel_2: 595160113
-      UI_Panel_3: -1347061333
-      UI_Panel_4: -1371783698
-      UI_Panel_5: 2065167944
+      Vehicle_Sheet_0: 1825765197
+      Vehicle_Sheet_1: -523163342
+      Vehicle_Sheet_2: 1285355835
+      Vehicle_Sheet_3: 263279541
+      Vehicle_Sheet_4: -1206826768
+      Vehicle_Sheet_5: 896849831
+      Vehicle_Sheet_6: -2034091527
+      Vehicle_Sheet_7: 882134115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

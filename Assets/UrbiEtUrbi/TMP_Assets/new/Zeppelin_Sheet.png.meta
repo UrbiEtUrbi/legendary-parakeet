@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08430ff2842ef40a0bf03bec49fd2c1e
+guid: f5a98c858d014405197461ab4cca2799
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Panel_0
+      name: Zeppelin_Sheet_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 1
-        width: 46
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dedcec69279c249dfa0bafbf9b6bea02
-      internalID: 1507311579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 7, z: 7, w: 7}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48167e5c9fed8495295f874d55b23e75
-      internalID: 985162642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_2
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 23, z: 7, w: 23}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfd3dbbf652834f5e9b7403031d4db5a
-      internalID: 595160113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_3
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 3
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 2}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20dc94e0b02c54db29b905b3db426184
-      internalID: -1347061333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_4
-      rect:
-        serializedVersion: 2
-        x: 194
         y: 2
-        width: 44
-        height: 44
+        width: 318
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0f6b1b35c2e148deb029a43c6f05cb2
-      internalID: -1371783698
+      spriteID: 1ba9a340d03534048b33cdfcf4dfd1cf
+      internalID: 325821991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_5
+      name: Zeppelin_Sheet_1
       rect:
         serializedVersion: 2
-        x: 242
+        x: 321
         y: 2
-        width: 44
-        height: 44
+        width: 318
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba8352e32984a40c3ab96fc70c98bdec
-      internalID: 2065167944
+      spriteID: 7b000a35b4b6244d68c5b4987cbbf99b
+      internalID: -365391735
       vertices: []
       indices: 
       edges: []
@@ -246,12 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Panel_0: 1507311579
-      UI_Panel_1: 985162642
-      UI_Panel_2: 595160113
-      UI_Panel_3: -1347061333
-      UI_Panel_4: -1371783698
-      UI_Panel_5: 2065167944
+      Zeppelin_Sheet_0: 325821991
+      Zeppelin_Sheet_1: -365391735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

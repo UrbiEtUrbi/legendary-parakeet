@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08430ff2842ef40a0bf03bec49fd2c1e
+guid: 81df289ae8ecf45b3bfb8cc5cf522869
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Panel_0
+      name: Nightfall_Interior_View_Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 46
-        height: 46
+        x: 87
+        y: 720
+        width: 466
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 6, w: 6}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dedcec69279c249dfa0bafbf9b6bea02
-      internalID: 1507311579
+      spriteID: cd9ab1345ed3c44ca92024187296f4af
+      internalID: 1664516548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_1
+      name: Nightfall_Interior_View_Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
+        x: 238
+        y: 469
+        width: 164
+        height: 197
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 7, z: 7, w: 7}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48167e5c9fed8495295f874d55b23e75
-      internalID: 985162642
+      spriteID: 7d2b9d41232a24dc697bfb6ce6e09849
+      internalID: 646263193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Panel_2
+      name: Nightfall_Interior_View_Sheet_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 0
-        width: 48
-        height: 48
+        x: 252
+        y: 114
+        width: 40
+        height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 23, z: 7, w: 23}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfd3dbbf652834f5e9b7403031d4db5a
-      internalID: 595160113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_3
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 3
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 4, z: 4, w: 2}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20dc94e0b02c54db29b905b3db426184
-      internalID: -1347061333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_4
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 2
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0f6b1b35c2e148deb029a43c6f05cb2
-      internalID: -1371783698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Panel_5
-      rect:
-        serializedVersion: 2
-        x: 242
-        y: 2
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8352e32984a40c3ab96fc70c98bdec
-      internalID: 2065167944
+      spriteID: 7a31bc53fd81d47b4b4daccf7d07d799
+      internalID: 562508855
       vertices: []
       indices: 
       edges: []
@@ -246,12 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Panel_0: 1507311579
-      UI_Panel_1: 985162642
-      UI_Panel_2: 595160113
-      UI_Panel_3: -1347061333
-      UI_Panel_4: -1371783698
-      UI_Panel_5: 2065167944
+      Nightfall_Interior_View_Sheet_0: 1664516548
+      Nightfall_Interior_View_Sheet_1: 646263193
+      Nightfall_Interior_View_Sheet_2: 562508855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

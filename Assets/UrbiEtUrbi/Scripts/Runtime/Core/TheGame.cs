@@ -76,7 +76,7 @@ public class TheGame : ControllerLocal
 
        
         base.Init();
-        GameCycleManager.EnterState(GameStateType.Night);
+        GameCycleManager.EnterState(GameStateType.Day);
         m_Tower = new Tower();
         m_Tower.SetInitialHealth(100);
     }
