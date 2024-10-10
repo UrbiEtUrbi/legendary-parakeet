@@ -30,10 +30,16 @@ public class TopDownTool : MonoBehaviour
 
     protected virtual bool CanShoot => reloadTimer <= 0;
 
+    [SerializeField]
+    bool UseAnimation;
+
+    Animator Animator;
+
     bool holdingUse = false;
 
     private void OnEnable()
     {
+        Animator = GetComponent<Animator>();
         if (ControllerInput.Instance != null)
         {
             ControllerInput.Instance.LeftClick.AddListener(OnUseTool);
@@ -99,8 +105,15 @@ public class TopDownTool : MonoBehaviour
      //   holdingUse = use;
         if (use && CanShoot)
         {
+            if (!UseAnimation)
+            {
+                Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(kickback, 0, 0), duration: kickbackDuration, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
+            }
+            else
+            {
+                Animator.SetTrigger("shoot");
+            }
             reloadTimer = ReloadTime;
-            Tween.PunchLocalPosition(SpriteRenderer.transform, new Vector3(kickback, 0, 0), duration: kickbackDuration, cycles: 0, easeBetweenShakes: Ease.Linear, enableFalloff: true);
 
             var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, 1, -Muzzle.up);
             obj.OnBeforeDestroy =() =>  attackObjects.Remove(obj);

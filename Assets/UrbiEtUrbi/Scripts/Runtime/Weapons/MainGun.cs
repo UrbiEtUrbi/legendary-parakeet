@@ -38,6 +38,7 @@ public class MainGun : TopDownTool, IMagazine
     protected override void Move(float angle)
     {
 
+        Debug.Log(angle);
         if (!IsActive)
         {
             return;
@@ -82,7 +83,7 @@ public class MainGun : TopDownTool, IMagazine
         //var delta = targetRotation.eulerAngles.z - CurrentAngle;
         //Debug.Log($"{angle} {CurrentAngle} {delta}");
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        BarrelParent.localPosition = new Vector3(AnimationCurve.Evaluate(currentAngle/360f), 0, 0);
+       // BarrelParent.localPosition = new Vector3(AnimationCurve.Evaluate(currentAngle/360f), 0, 0);
         currentAngle %= 360f;
     }
 

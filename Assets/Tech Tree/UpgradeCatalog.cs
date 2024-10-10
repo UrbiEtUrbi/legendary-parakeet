@@ -67,7 +67,7 @@ public class UpgradeCatalog : ScriptableObject
 
 
 
-    private string sheetURL = "https://docs.google.com/spreadsheets/d/1YVosnRaqI6DFXpnsoZZSn_Q7vpeHJw8sWJHXFP9NGsM/pub?output=csv";
+    private string sheetURL = "https://docs.google.com/spreadsheets/d/1YVosnRaqI6DFXpnsoZZSn_Q7vpeHJw8sWJHXFP9NGsM/pub?gid=0&single=true&output=csv";
 
     public void GetLeaderboard()
     {
