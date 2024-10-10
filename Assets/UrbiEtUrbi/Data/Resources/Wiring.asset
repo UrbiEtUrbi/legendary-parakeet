@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93572bd2c23e44274aadd97e52b091a1, type: 3}
-  m_Name: MainGun Ammo
+  m_Name: Wiring
   m_EditorClassIdentifier: 
-  ID: 3
-  Name: Tech Components
-  Icon: {fileID: 21300000, guid: 466418d62b5de4b218e248053aead523, type: 3}
+  ID: 2
+  Name: Wiring
+  Icon: {fileID: 21300000, guid: d46953767094c6e44a2425ef8cdd89f7, type: 3}

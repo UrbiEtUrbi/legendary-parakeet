@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93572bd2c23e44274aadd97e52b091a1, type: 3}
-  m_Name: TechComponent
+  m_Name: Fasteners
   m_EditorClassIdentifier: 
-  ID: 2
-  Name: Tech Components
-  Icon: {fileID: -1187571359, guid: 255d4f11dc9864dd39a40635fef370bd, type: 3}
+  ID: 1
+  Name: Fasteners
+  Icon: {fileID: 21300000, guid: 1ba301450b65af2499315944751b5965, type: 3}
