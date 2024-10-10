@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cfbcdb2a51e334589032bbce033a10, type: 3}
   m_Name: A2 Turret Damage I
   m_EditorClassIdentifier: 
-  children: []
-  techName: Turret Damage I
-  height: 2
-  available: 0
-  resources:
-  - {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
-  resourceCosts: 28000000
+  techName: Turret Damage
+  DefaultValue: 0.1
+  Description: 
+  Levels: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cfbcdb2a51e334589032bbce033a10, type: 3}
+  m_Name: MainMagazineSize
+  m_EditorClassIdentifier: 
+  techName: Main Magazine Size
+  DefaultValue: 10
+  Description: 
+  Levels:
+  - Required:
+    - NodeData: {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
+      Level: 1
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+      Amount: 15
+    - Resource: {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
+      Amount: 1
+    Requirement:
+    - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
+      Amount: 2
+    Value: 12

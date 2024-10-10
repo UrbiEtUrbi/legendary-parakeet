@@ -24,7 +24,7 @@ public class TheGame : ControllerLocal
     public Tower Tower => m_Tower;
 
 
-    public NodeData Techs;
+    public UpgradeCatalog Techs;
 
 
     [field: SerializeField]
@@ -65,6 +65,16 @@ public class TheGame : ControllerLocal
 
     public override void Init()
     {
+        foreach (var tech in Techs.Upgrades)
+        {
+            var save = ControllerLoadingScene.Instance.SaveData.techSaves.Find(x => x.Name == tech.name);
+            if (save != null)
+            {
+                tech.CurrentLevel = save.Level;
+            }
+        }
+
+       
         base.Init();
         GameCycleManager.EnterState(GameStateType.Night);
         m_Tower = new Tower();

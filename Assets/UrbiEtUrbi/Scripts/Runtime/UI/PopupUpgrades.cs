@@ -6,6 +6,7 @@ public class PopupUpgrades : PopupBase
 {
     int CurrentTab;
 
+    [SerializeField]
     List<GameObject> Tabs;
 
     public void SelectTab(int TabIndex)

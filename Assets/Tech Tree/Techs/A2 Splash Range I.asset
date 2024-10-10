@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cfbcdb2a51e334589032bbce033a10, type: 3}
   m_Name: A2 Splash Range I
   m_EditorClassIdentifier: 
-  children: []
-  techName: Splash Range 1
-  height: 2
-  available: 0
-  resources:
-  - {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
-  - {fileID: 11400000, guid: 1421af1e5d4d348eb80d0c8ab61d5615, type: 2}
-  resourceCosts: 3c00000008000000
+  techName: Splash Range
+  DefaultValue: 10
+  Description: 
+  Levels: []

@@ -51,7 +51,7 @@ public class ControllerLoadingScene : MonoBehaviour
         }
         else
         {
-            SaveData = null;
+            SaveData = new();
         }
     }
 
@@ -67,9 +67,20 @@ public class SaveData
     public int MaxHp;
     public int CurrentHP;
 
-    List<ResourceAmount> resourceSaves;
+    public List<ResourceAmount> resourceSaves = new();
+    public List<TechSave> techSaves = new();
 
     
+
+    
+}
+
+[System.Serializable]
+public class TechSave
+{
+    public string Name;
+    public int Level;
+
 }
 
 [System.Serializable]

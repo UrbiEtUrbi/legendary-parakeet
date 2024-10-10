@@ -6,39 +6,79 @@ using UnityEngine;
 [CreateAssetMenu, System.Serializable]
 public class NodeData : ScriptableObject
 {
-    public List<NodeData> children;
-    public bool IsLeaf { get => children == null; }
+    
 
     public string techName = "new Technology";
-    public int height;
+
 
     [System.NonSerialized]
-    public bool available = false;
+    public int CurrentLevel;
 
-    public ResourceAmount[] Cost;
+    public float DefaultValue;
+    public bool IsComplete => CurrentLevel >= Levels.Count;
 
-    public ResourceAmount[] Requirement;
-
-    [SerializeField] public Resource[] resources;
-    [SerializeField] public int[] resourceCosts;
 
     public string Description;
 
+    [SerializeField]
+    public List<UpgradeLevel> Levels = new();
+
+    public float GetValue()
+    {
+        return Levels[Mathf.Min(CurrentLevel, Levels.Count)].Value;
+    }
+
+    public UpgradeLevel GetNextUpgrade()
+    {
+        Debug.Log($"{Levels.Count} {CurrentLevel} {name} {GetInstanceID()}", this);
+        return Levels[Mathf.Min(CurrentLevel, Levels.Count)];
+    }
+
+    public UpgradeLevel GetCurrentUpgrade()
+    {
+
+        if (CurrentLevel == 0)
+        {
+            return new UpgradeLevel
+            {
+                Value = DefaultValue
+            };
+        }
+        return Levels[Mathf.Min(CurrentLevel-1, Levels.Count)];
+    }
+
     public void Buy()
     {
-        foreach (NodeData node in children)
-        {
-            node.Unblock();
-        }
-        available = false;
+        CurrentLevel++;
     }
+ 
+}
 
-    public void Unblock()
+[System.Serializable]
+public class ResourceCost
+{
+    public Resource Resource;
+    public int Amount;
+    public ResourceAmount GetAmount()
     {
-        available = true;
+        return new ResourceAmount(Resource.ID, -Amount);
     }
+}
 
+[System.Serializable]
+public class UpgradeLevel
+{
+    public List<UpgradeRequirement> Required;
+    public List<ResourceCost> ResourceCost;
+    public List<ResourceCost> Requirement;
+    public float Value;
+}
 
-    
+[System.Serializable]
+public class UpgradeRequirement
+{
+    public NodeData NodeData;
+    public int Level;
+
 }
 

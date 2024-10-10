@@ -26,7 +26,7 @@ public class Tower : IHealth
     public void Die()
     {
         //Game Over
-        Debug.Log($"your tower was destroyed");
+//        Debug.Log($"your tower was destroyed");
     }
 
     public void SetInitialHealth(int amount)

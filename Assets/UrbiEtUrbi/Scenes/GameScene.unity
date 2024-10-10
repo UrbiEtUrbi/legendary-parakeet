@@ -483,8 +483,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -767,8 +767,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Current State: Day'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -901,8 +901,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
-  m_sharedMaterial: {fileID: -4285855825009927432, guid: 43437e655b1c447de8076053ba44fbd0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   IsGamePlaying: 0
-  Techs: {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
+  Techs: {fileID: 11400000, guid: 72aa6622d3e644ff5b35f919e0e3739a, type: 2}
   <ControllerRespawn>k__BackingField: {fileID: 1332901970}
   <ControllerPickups>k__BackingField: {fileID: 1332901971}
   <ControllerEntities>k__BackingField: {fileID: 1332901973}
