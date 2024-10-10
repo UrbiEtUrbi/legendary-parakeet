@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92cfbcdb2a51e334589032bbce033a10, type: 3}
-  m_Name: A2 Splash Range I
+  m_Name: PlayerPistol
   m_EditorClassIdentifier: 
-  techName: Splash Range
-  DefaultValue: 10
-  Description: 
+  techName: Pistol
+  DefaultValue: 0
+  Description: Crafts a pistol for Daytime Scavenging
   Levels: []

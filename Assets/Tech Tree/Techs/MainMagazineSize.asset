@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   techName: Main Magazine Size
   DefaultValue: 10
-  Description: 
+  Description: Increases the main gun's magazine size
   Levels:
   - Required:
     - NodeData: {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
