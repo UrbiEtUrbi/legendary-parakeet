@@ -15,4 +15,36 @@ MonoBehaviour:
   techName: Gun Emplacement
   DefaultValue: 1
   Description: Gives the window gunners a better gun
-  Levels: []
+  Levels:
+  - Required: []
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+      Amount: 40
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 10
+    Requirement: []
+    Value: 2.3
+  - Required:
+    - NodeData: {fileID: 11400000}
+      Level: 1
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
+      Amount: 10
+    - Resource: {fileID: 11400000, guid: c4d33a2226cffa24b88e1792c4cbfb00, type: 2}
+      Amount: 15
+    Requirement:
+    - Resource: {fileID: 11400000, guid: 08ee81433c82a4d6eb81882e5559e7c6, type: 2}
+      Amount: 1
+    Value: 7.5
+  - Required:
+    - NodeData: {fileID: 11400000}
+      Level: 2
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 10
+    - Resource: {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
+      Amount: 9
+    Requirement:
+    - Resource: {fileID: 11400000, guid: 08ee81433c82a4d6eb81882e5559e7c6, type: 2}
+      Amount: 2
+    Value: 18

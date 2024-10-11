@@ -49,6 +49,9 @@ public class NightState : GameState
     int enemiesKilled;
 
 
+    public List<Enemy> Enemies = new();
+
+
     List<int> freedSorting = new();
     int maxLayer;
 
@@ -91,7 +94,7 @@ public class NightState : GameState
 
                 
 
-               var enemy =  PoolManager.Spawn<ShootingEnemy>("Blimp",transform, sp);
+               var enemy =  PoolManager.Spawn<WalkingEnemy>(transform, sp);
 
                 if (freedSorting.Count > 0)
                 {
@@ -108,6 +111,7 @@ public class NightState : GameState
                enemy.transform.rotation = default;
                enemy.Init(2, TheGame.Instance.Tower, attackTarget);
                enemyCount++;
+               Enemies.Add(enemy);
                currentWaveEnemyCount++;
                yield return new WaitForSeconds(wave.singleDelay);
             }
@@ -120,6 +124,7 @@ public class NightState : GameState
     {
         enemyCount--;
         enemiesKilled++;
+        Enemies.Remove(e);
         freedSorting.Add(e.GetLayer());
         TheGame.Instance.GameCycleManager.SetProgress(1 - (float)enemiesKilled/(float)TotalEnemies);
         if (allEnemiesSpawned && enemyCount <= 0)

@@ -107,7 +107,7 @@ public class UpgradeCatalog : ScriptableObject
             resources.Add(AssetDatabase.LoadAssetAtPath<Resource>(AssetDatabase.GUIDToAssetPath(id)));
         }
 
-
+        Debug.Log(data);
         OnValidate();
         string[] rows = data.Split('\n');
         var csvData = new CSVData();
@@ -154,6 +154,11 @@ public class UpgradeCatalog : ScriptableObject
                         level.ResourceCost = new();
                         if (!string.IsNullOrEmpty(cost))
                         {
+
+                            if (cost.Last() == ';')
+                            {
+                                cost = cost.Substring(0, cost.Length - 1);
+                            }
                             var split = cost.Split(';');
                             foreach (var s in split)
                             {

@@ -61,7 +61,6 @@ public class InteriorController : MonoBehaviour
         };
         foreach (var gun in AutoGun) {
             AutoGunMagazines.Add(gun as IMagazine);
-
             AutoGunMagazines[^1].AssignMagazine(SmallMagazine, LabelsSmallGun);
         }
 

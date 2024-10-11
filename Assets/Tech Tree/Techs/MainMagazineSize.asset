@@ -16,15 +16,25 @@ MonoBehaviour:
   DefaultValue: 10
   Description: Increases the main gun's magazine size
   Levels:
+  - Required: []
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+      Amount: 10
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 5
+    Requirement:
+    - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
+      Amount: 1
+    Value: 12
   - Required:
     - NodeData: {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
       Level: 1
     ResourceCost:
-    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
-      Amount: 15
-    - Resource: {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
-      Amount: 1
+    - Resource: {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
+      Amount: 5
+    - Resource: {fileID: 11400000, guid: c4d33a2226cffa24b88e1792c4cbfb00, type: 2}
+      Amount: 5
     Requirement:
     - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
       Amount: 2
-    Value: 12
+    Value: 16

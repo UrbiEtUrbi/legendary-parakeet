@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerInstance : MonoBehaviour,IHealth
 {
+    public bool isAlive => true;
+
     public void ChangeHealth(float amount)
     {
         TheGame.Instance.Tower.ChangeHealth(amount);

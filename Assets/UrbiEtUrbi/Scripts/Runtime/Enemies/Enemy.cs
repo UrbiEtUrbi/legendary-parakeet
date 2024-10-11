@@ -29,6 +29,8 @@ public class Enemy : PoolObject, IHealth
 
     protected Animator Animator;
 
+    public bool isAlive => currentHealth > 0;
+
     public void SetLayer(int layer)
     {
         SpriteRenderer.sortingOrder = layer;

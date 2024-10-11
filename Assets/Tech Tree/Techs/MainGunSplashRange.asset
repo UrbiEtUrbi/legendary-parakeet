@@ -13,6 +13,26 @@ MonoBehaviour:
   m_Name: MainGunSplashRange
   m_EditorClassIdentifier: 
   techName: Splash Range
-  DefaultValue: 10
+  DefaultValue: 1
   Description: Increases the main gun's explosive splash range
-  Levels: []
+  Levels:
+  - Required: []
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+      Amount: 20
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 5
+    Requirement: []
+    Value: 1.5
+  - Required:
+    - NodeData: {fileID: 11400000}
+      Level: 1
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 20
+    - Resource: {fileID: 0}
+      Amount: 10
+    Requirement:
+    - Resource: {fileID: 11400000, guid: 1421af1e5d4d348eb80d0c8ab61d5615, type: 2}
+      Amount: 1
+    Value: 2

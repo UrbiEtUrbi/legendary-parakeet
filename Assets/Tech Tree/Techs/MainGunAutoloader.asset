@@ -15,4 +15,14 @@ MonoBehaviour:
   techName: Autoloader
   DefaultValue: 0
   Description: Reloads the main gun for you
-  Levels: []
+  Levels:
+  - Required:
+    - NodeData: {fileID: 11400000, guid: 81b4fd07cd36a7c49a7f748948c7f8a3, type: 2}
+      Level: 2
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
+      Amount: 9
+    Requirement:
+    - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
+      Amount: 2
+    Value: 1

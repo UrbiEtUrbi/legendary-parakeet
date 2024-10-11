@@ -8,6 +8,8 @@ public class Tower : IHealth
     float MaxHp;
     float CurrentHP;
 
+    public bool isAlive => CurrentHP > 0;
+
     public void ChangeHealth(float amount)
     {
         CurrentHP += amount;

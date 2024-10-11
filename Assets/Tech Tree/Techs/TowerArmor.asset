@@ -15,4 +15,24 @@ MonoBehaviour:
   techName: Tower Armor
   DefaultValue: 0
   Description: Adds armor to the tower, reducing all damage
-  Levels: []
+  Levels:
+  - Required: []
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+      Amount: 50
+    - Resource: {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
+      Amount: 12
+    Requirement:
+    - Resource: {fileID: 11400000, guid: 1421af1e5d4d348eb80d0c8ab61d5615, type: 2}
+      Amount: 1
+    Value: 1
+  - Required: []
+    ResourceCost:
+    - Resource: {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
+      Amount: 12
+    - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+      Amount: 24
+    Requirement:
+    - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
+      Amount: 1
+    Value: 1.5

@@ -57,5 +57,6 @@ public enum AttackType
     Pistol,
     MainGun,
     MainGunBlast,
-    VehicleBullet
+    VehicleBullet,
+    Secondary
 }

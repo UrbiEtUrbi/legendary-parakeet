@@ -8,4 +8,5 @@ public interface IHealth
     public void ChangeHealth(float amount);
     public void ChangeHealth(float amount, AttackType type);
     public void Die();
+    public bool isAlive { get; }
 }

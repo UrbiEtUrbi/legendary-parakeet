@@ -297,6 +297,8 @@ MonoBehaviour:
   kickback: -0.2
   kickbackDuration: 0.2
   UseAnimation: 0
+  PlayerControlled: 1
+  ExternalTarget: {fileID: 0}
 --- !u!1 &7917114030841853124
 GameObject:
   m_ObjectHideFlags: 0

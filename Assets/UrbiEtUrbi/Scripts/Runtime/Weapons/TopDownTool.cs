@@ -12,7 +12,7 @@ public class TopDownTool : MonoBehaviour
     AttackType Attack;
 
     [SerializeField]
-    float ReloadTime;
+    protected float ReloadTime;
 
     [SerializeField]
     SpriteRenderer SpriteRenderer;
@@ -42,7 +42,7 @@ public class TopDownTool : MonoBehaviour
 
     public Transform ExternalTarget;
 
-    float Damage;
+    protected float Damage;
 
     private void OnEnable()
     {
@@ -80,20 +80,25 @@ public class TopDownTool : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
 
 
         Vector3 pos = default;
-        if (ExternalTarget == null)
+        if (ExternalTarget == null && PlayerControlled)
         {
 
             pos = TheGame.Instance.GameCycleManager.CurrentCamera.ScreenToWorldPoint(Mouse.current.position.value);
         }
-        else
+        else if (ExternalTarget != null)
         {
 
             pos = ExternalTarget.transform.position;
+        }
+        else
+        {
+            reloadTimer -= Time.deltaTime;
+            return;
         }
 
             Vector3 direction = pos - transform.position;
