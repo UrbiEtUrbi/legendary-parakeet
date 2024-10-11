@@ -77,7 +77,11 @@ public class TheGame : ControllerLocal
             }
         }
 
-       
+
+        foreach (var resSave in ControllerLoadingScene.Instance.SaveData.resourceSaves)
+        {
+            ControllerResources.Change(resSave,false);
+        }
         base.Init();
         GameCycleManager.EnterState(GameStateType.Day);
         m_Tower = new Tower();

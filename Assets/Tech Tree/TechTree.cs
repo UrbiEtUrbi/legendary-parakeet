@@ -25,6 +25,11 @@ public class TechTree : MonoBehaviour
     [SerializeField] Transform row;
     [HideInInspector, SerializeField] TechTreeButton selectedTech;
 
+    [SerializeField]
+    TMP_Text Label;
+    [SerializeField]
+    GameObject buyButton;
+
     float rectWidth;
 
     public int Height { get; private set; }
@@ -69,6 +74,8 @@ public class TechTree : MonoBehaviour
             }
             selectedTech.BuyTech();
             UpdateAll();
+            ClearReadout();
+            PopulateReadout(selectedTech.NodeData);
         }
         
     }
@@ -86,6 +93,7 @@ public class TechTree : MonoBehaviour
         }
         columns.Clear();
         generatedNodes.Clear();
+        ClearReadout();
         RegenerateList();
     }
 
@@ -134,22 +142,51 @@ public class TechTree : MonoBehaviour
 
     public void PopulateReadout(NodeData node)
     {
-        techNameText.text = node.techName;
-        var nextLevel = node.GetNextUpgrade();
-        for (int i = 0; i < nextLevel.ResourceCost.Count; i++)
+        techNameText.text = $"{node.techName} {node.CurrentLevel+1}";
+        if (node.IsComplete)
         {
-            CostDisplay costDisplay = Instantiate(costDisplayPrefab, costsLayout.transform).GetComponent<CostDisplay>();
-            costDisplay.icon.sprite = nextLevel.ResourceCost[i].Resource.Icon;
-            costDisplay.costText.text = nextLevel.ResourceCost[i].Amount.ToString();
-            descriptionNameText.text = node.Description;
-            generatedCosts.Add(costDisplay.gameObject);
 
-            // Grey Out Costs for which the player does not have enough of the resource
-            if (TheGame.Instance == null) continue;
-            if (TheGame.Res.CanChange(nextLevel.ResourceCost[i].GetAmount()))
+           
+            descriptionNameText.text = node.Description;
+            Label.gameObject.SetActive(true);
+            Label.text = "Done!";
+            buyButton.gameObject.SetActive(false);
+            return;
+        }
+            var nextLevel = node.GetNextUpgrade();
+
+            bool canBuy = true;
+            for (int i = 0; i < nextLevel.ResourceCost.Count; i++)
             {
-                Debug.Log("Successfully got resource data for resource");
+                CostDisplay costDisplay = Instantiate(costDisplayPrefab, costsLayout.transform).GetComponent<CostDisplay>();
+                costDisplay.icon.sprite = nextLevel.ResourceCost[i].Resource.Icon;
+                costDisplay.costText.text = nextLevel.ResourceCost[i].Amount.ToString();
+                descriptionNameText.text = node.Description;
+                generatedCosts.Add(costDisplay.gameObject);
+
+                // Grey Out Costs for which the player does not have enough of the resource
+                if (TheGame.Instance == null) continue;
+                if (TheGame.Res.CanChange(nextLevel.ResourceCost[i].GetAmount()))
+                {
+
+                    Debug.Log("Successfully got resource data for resource");
+                }
+                else
+                {
+                    canBuy = false;
+                }
             }
+
+
+        buyButton.gameObject.SetActive(canBuy);
+        Label.gameObject.SetActive(!canBuy);
+        if (node.IsComplete)
+        {
+            Label.text = "Done!";
+        }
+        else if (!canBuy)
+        {
+            Label.text = "Not enough Resources";
         }
     }
 

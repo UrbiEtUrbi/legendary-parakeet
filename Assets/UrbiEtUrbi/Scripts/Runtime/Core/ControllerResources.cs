@@ -34,9 +34,9 @@ public class ControllerResources : MonoBehaviour
     }
 
 
-    public void Change(ResourceAmount resourceAmount)
+    public void Change(ResourceAmount resourceAmount, bool save = true)
     {
-        Change(resourceAmount.ID, resourceAmount.Amount);
+        Change(resourceAmount.ID, resourceAmount.Amount, save);
     }
 
     public void Change(Resource resource, int amount)
@@ -45,14 +45,28 @@ public class ControllerResources : MonoBehaviour
         Change(resource.ID, amount);
     }
 
-    public void Change(int resourceID, int amount)
+    public void Change(int resourceID, int amount, bool save = true)
     {
 
         if (GetResourceAmount(resourceID, out var resAmount))
         {
             resAmount.Amount += amount;
+            Debug.Log($"{resAmount.ID} {resAmount.Amount}");
         }
-       
+        else if(amount > 0)
+        {
+            resourceAmounts.Add(new ResourceAmount(resourceID,amount));
+        }
+
+        if (save)
+        {
+            if (GetResourceAmount(resourceID, out var res))
+            {
+                ControllerLoadingScene.Instance.SaveData.Resource(res);
+            }
+        }
+
+
     }
 
     bool GetResourceAmount(int resourceID, out ResourceAmount amount)
