@@ -39,6 +39,12 @@ public class GameCycleManager : MonoBehaviour
 
     }
 
+    public void exit()
+    {
+        CurrentStateInstance.Cleanup();
+        Destroy(CurrentStateInstance.gameObject);
+    }
+
     public void EnterState(GameStateType gameState)
     {
        

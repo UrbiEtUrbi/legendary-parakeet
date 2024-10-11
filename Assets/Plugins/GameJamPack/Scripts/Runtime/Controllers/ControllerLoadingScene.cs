@@ -42,6 +42,12 @@ public class ControllerLoadingScene : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void Remove()
+    {
+
+        PlayerPrefs.DeleteKey(SaveStr);
+    }
+
     public void Load()
     {
        var str =  PlayerPrefs.GetString(SaveStr,string.Empty);

@@ -31,9 +31,8 @@ public class Tower : IHealth
 
     public void Die()
     {
-        
-        //Game Over
-//        Debug.Log($"your tower was destroyed");
+
+        TheGame.Instance.OnGameOver();
     }
 
     public void SetInitialHealth(float amount)

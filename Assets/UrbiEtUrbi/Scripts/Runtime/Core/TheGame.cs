@@ -13,6 +13,8 @@ public class TheGame : ControllerLocal
     private static TheGame m_Instance;
 
 
+
+
     [HideInInspector]
     public bool IsGameOver;
 
@@ -57,9 +59,22 @@ public class TheGame : ControllerLocal
 
     public int RoundNumber;
 
-   
+
+    [SerializeField]
+    PopupBase gameover;
 
 
+    public void GameOver()
+    {
+        ControllerLoadingScene.Instance.Remove();
+        ControllerGameFlow.Instance.LoadNewScene(1);
+    }
+
+    public void OnGameOver()
+    {
+        GameCycleManager.exit();
+        gameover.Show();
+    }
 
     private void Awake()
     {
