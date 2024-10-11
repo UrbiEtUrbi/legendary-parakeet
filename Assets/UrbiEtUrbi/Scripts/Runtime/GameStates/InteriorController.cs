@@ -43,6 +43,9 @@ public class InteriorController : MonoBehaviour
     [SerializeField]
     List<TMP_Text> LabelsSmallGun;
 
+    [SerializeField]
+    NodeData magazineMain, magaizineAuto, autoloader;
+
 
     private void Start()
     {
@@ -50,14 +53,14 @@ public class InteriorController : MonoBehaviour
 
         MainMagazine = new Magazine
         {
-            Max = 10,
-            Current = 5
+            Max = (int)magazineMain.GetValue(),
+            Current = (int)magazineMain.GetValue()
         };
 
         SmallMagazine = new Magazine
         {
-            Max = 100,
-            Current = 50
+            Max = (int)magaizineAuto.GetValue(),
+            Current = (int)magaizineAuto.GetValue()
         };
         foreach (var gun in AutoGun) {
             AutoGunMagazines.Add(gun as IMagazine);
@@ -101,6 +104,8 @@ public class InteriorController : MonoBehaviour
 
     public void PickupResource(Resource resource, int amount)
     {
+
+        
         CarryingType = resource;
         CarryingAmount = amount;
 

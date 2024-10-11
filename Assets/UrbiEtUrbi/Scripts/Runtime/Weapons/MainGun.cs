@@ -14,6 +14,8 @@ public class MainGun : TopDownTool, IMagazine
     [SerializeField]
     float BlastRadius;
 
+    [SerializeField]
+    NodeData DamageSo, autoload;
 
     Magazine Magazine;
 
@@ -104,8 +106,18 @@ public class MainGun : TopDownTool, IMagazine
 
     protected override void Use()
     {
+        SoundManager.Instance.Play("main_gun_shoot");
+        Damage = DamageSo.GetValue();
         Magazine.Current -= 1;
         UpdateLabels();
+        if (autoload.GetValue() > 0)
+        {
+            if (TheGame.Res.CanChange(3, -1))
+            {
+                TheGame.Res.Change(3, -1);
+                Magazine.Fill();
+            }
+        }
 
         base.Use();
     }

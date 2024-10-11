@@ -18,6 +18,9 @@ public class NightState : GameState
     WaveCollection WaveCollection;
 
     [SerializeField]
+    GameObject musicPrep, musicNight;
+
+    [SerializeField]
     List<BoxCollider2D> SpawnPositionGround;
 
     int waveIndex = 0;
@@ -57,6 +60,8 @@ public class NightState : GameState
 
 
     public List<Enemy> Enemies = new();
+
+
 
 
     List<int> freedSorting = new();
@@ -244,6 +249,8 @@ public class NightState : GameState
     {
         if (IsPrepping)
         {
+            musicPrep.gameObject.SetActive(false);
+            musicNight.gameObject.SetActive(true);
             IsPrepping = false;
             IsDefending = true;
             TheGame.Instance.GameCycleManager.DebugLabel.text = "Enemies:";

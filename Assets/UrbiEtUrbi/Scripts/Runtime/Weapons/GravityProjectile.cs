@@ -30,7 +30,7 @@ public class GravityProjectile : Projectile
 
     public override void BeforeDestroy()
     {
-
+        SoundManager.Instance.Play("main_gun_boom");
         TheGame.Instance.ControllerAttack.Attack(transform, false, AttackType.MainGunBlast, HitPosition, new Vector3(2, 2, 2),1, default);
         base.BeforeDestroy();
 
