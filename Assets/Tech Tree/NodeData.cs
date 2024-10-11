@@ -29,7 +29,6 @@ public class NodeData : ScriptableObject
 
     public UpgradeLevel GetNextUpgrade()
     {
-        Debug.Log($"{Levels.Count} {CurrentLevel} {name} {GetInstanceID()}", this);
         return Levels[Mathf.Min(CurrentLevel, Levels.Count)];
     }
 
@@ -49,6 +48,8 @@ public class NodeData : ScriptableObject
     public void Buy()
     {
         CurrentLevel++;
+
+        ControllerLoadingScene.Instance.SaveData.Tech(name, CurrentLevel);
     }
  
 }

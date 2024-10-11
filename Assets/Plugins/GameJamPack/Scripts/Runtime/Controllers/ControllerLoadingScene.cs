@@ -74,6 +74,39 @@ public class SaveData
     public GameStateType gameStateType;
 
 
+    public void Tech(string name, int level)
+    {
+        var idx = techSaves.FindIndex(x => x.Name == name);
+
+        if (idx != -1)
+        {
+            techSaves[idx].Level = level;
+        } else{
+
+            techSaves.Add(new TechSave
+            {
+                Level = level,
+                Name = name
+            }) ;
+            }
+    }
+
+    public void Resource(ResourceAmount resourceAmount)
+    {
+        var idx = resourceSaves.FindIndex(x => x.ID == resourceAmount.ID);
+
+        if (idx != -1)
+        {
+            resourceSaves[idx].Amount = resourceAmount.Amount;
+        }
+        else
+        {
+
+            resourceSaves.Add(new ResourceAmount(resourceAmount.ID, resourceAmount.Amount));
+        }
+    }
+
+
 
 
 }
