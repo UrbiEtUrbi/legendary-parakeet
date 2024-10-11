@@ -32,14 +32,24 @@ public class ScavengeState : GameState
     [SerializeField]
     PopupScavengeEndDay Popup;
 
+    [SerializeField]
+    Map forceMap;
+
     public override void Init()
     {
 
        // cam.target = Player.transform;
         TheGame.Instance.ControllerPickups.OnPickupResource.AddListener(CollectResource);
 
-       
-        currentMap = Instantiate<Map>(Prefabs[0],transform);
+
+        if (forceMap)
+        {
+            currentMap = Instantiate<Map>(forceMap, transform);
+        }
+        else
+        {
+            currentMap = Instantiate<Map>(Prefabs[Random.Range(0, Prefabs.Count)], transform);
+        }
         base.Init();
         vCam.Follow = Player.transform;
        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;

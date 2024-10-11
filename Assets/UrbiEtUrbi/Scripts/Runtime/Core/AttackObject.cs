@@ -90,7 +90,6 @@ public class AttackObject : MonoBehaviour
                   //TODO shake camera
                 }
 
-                Debug.Log(Force);
                 if (Force > 0)
                 {
                     colliderHit.GetComponent<WalkingEnemy>().AddForce(transform.position,Force,Radius,Uplift );

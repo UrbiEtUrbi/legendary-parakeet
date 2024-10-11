@@ -54,7 +54,7 @@ public class TheGame : ControllerLocal
     public ControllerInteractibles ControllerInteractibles { private set; get; }
 
 
-    
+    public int RoundNumber;
 
 
 

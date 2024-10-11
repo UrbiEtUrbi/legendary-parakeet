@@ -29,6 +29,8 @@ public class WalkingEnemy : Enemy
     float radius;
     float uplift;
 
+    bool blasted;
+
     public void AddForce(Vector3 origin, float force, float radius, float uplift)
     {
         this.force = force;
@@ -58,14 +60,14 @@ public class WalkingEnemy : Enemy
 
     void TryToAttack()
     {
-        if (attackTimer <= 0)
+        if (attackTimer <= 0 && !blasted)
         {
             attackTimer = 1f / AttackRate;
             Attack();
         }
     }
 
-    public override void Init(int health, int damage, float speed, IHealth target, float TargetPos)
+    public override void Init(int health, float damage, float speed, IHealth target, float TargetPos)
     {
 
         this.TargetPos = TargetPos;
@@ -84,6 +86,9 @@ public class WalkingEnemy : Enemy
         rb.freezeRotation = false;
         if (force > 0)
         {
+            blasted = true;
+            Debug.Log("Set fall trigger");
+            enemy.GetComponent<Animator>().SetTrigger("fall");
             rb.AddExplosionForce(force, origin, radius, uplift);
         }
         force = 0;
@@ -107,7 +112,7 @@ public static class Rigidbody2DExtension
 
     public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier)
     {
-        Debug.Log($"{body.transform.position} {explosionPosition}");
+  //      Debug.Log($"{body.transform.position} {explosionPosition}");
         var dir = (body.transform.position - explosionPosition);
         dir = new Vector3(dir.x, dir.y, 0);
         float wearoff = 1 - (dir.magnitude / explosionRadius);
@@ -121,13 +126,13 @@ public static class Rigidbody2DExtension
 
         if (body.position.x > explosionPosition.x)
         {
-            Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {-baseForce.magnitude}");
+//            Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {-baseForce.magnitude}");
             body.AddTorque(0.1f*-baseForce.magnitude, ForceMode2D.Impulse);
         }
         else
         {
 
-            Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {baseForce.magnitude}");
+  //          Debug.Log($"{dir} {wearoff} {baseForce} {upliftForce} {baseForce.magnitude}");
             body.AddTorque(0.1f*baseForce.magnitude, ForceMode2D.Impulse);
         }
     }
