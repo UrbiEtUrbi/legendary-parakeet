@@ -136,6 +136,7 @@ public class GameCycleManager : MonoBehaviour
                     EnterState(GameStateType.Night);
                     break;
                 case GameStateType.Night:
+                    TheGame.Instance.RoundNumber++;
                     EnterState(GameStateType.Day);
                     break;
             }
@@ -145,8 +146,3 @@ public class GameCycleManager : MonoBehaviour
 }
 
 
-public enum GameStateType
-{
-    Day,
-    Night,
-}

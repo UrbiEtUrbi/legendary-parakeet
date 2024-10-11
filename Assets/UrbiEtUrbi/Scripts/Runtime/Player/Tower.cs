@@ -18,7 +18,7 @@ public class Tower : IHealth
         }
     }
 
-    public void ChangeHealth(int amount, AttackType type)
+    public void ChangeHealth(float amount, AttackType type)
     {
         
     }
@@ -29,7 +29,7 @@ public class Tower : IHealth
 //        Debug.Log($"your tower was destroyed");
     }
 
-    public void SetInitialHealth(int amount)
+    public void SetInitialHealth(float amount)
     {
         MaxHp = amount;
         CurrentHP = amount;

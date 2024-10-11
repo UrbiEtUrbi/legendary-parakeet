@@ -67,13 +67,13 @@ public class WalkingEnemy : Enemy
         }
     }
 
-    public override void Init(int health, float damage, float speed, IHealth target, float TargetPos)
+    public override void Init( float speed, IHealth target, float TargetPos)
     {
 
         this.TargetPos = TargetPos;
         direction = TargetPos > transform.position.x ? 1 : -1;
         SpriteRenderer.flipX = direction == -1;
-        base.Init(health, damage, speed, target, TargetPos);
+        base.Init( speed, target, TargetPos);
     }
 
     protected override void  BeforeDeath()
@@ -87,7 +87,6 @@ public class WalkingEnemy : Enemy
         if (force > 0)
         {
             blasted = true;
-            Debug.Log("Set fall trigger");
             enemy.GetComponent<Animator>().SetTrigger("fall");
             rb.AddExplosionForce(force, origin, radius, uplift);
         }

@@ -6,6 +6,14 @@ public class Enemy : PoolObject, IHealth
 {
 
 
+
+    [SerializeField]
+    float Height;
+
+    [SerializeField]
+    EnemyDefinition Definition;
+
+
     float currentHealth;
     float maxHealth;
 
@@ -37,7 +45,7 @@ public class Enemy : PoolObject, IHealth
         }
     }
 
-    public void ChangeHealth(int amount, AttackType type)
+    public void ChangeHealth(float amount, AttackType type)
     {
         ChangeHealth(amount);
     }
@@ -48,17 +56,17 @@ public class Enemy : PoolObject, IHealth
         PoolManager.Despawn(this);
     }
 
-    public void SetInitialHealth(int amount)
+    public void SetInitialHealth(float amount)
     {
 
         maxHealth = amount;
         currentHealth = amount;
     }
 
-    public virtual void Init(int health, float damage, float speed, IHealth target, float TargetPos)
+    public virtual void Init(float speed, IHealth target, float TargetPos)
     {
-        SetInitialHealth(health);
-        this.damage = damage;
+        SetInitialHealth(Definition.MaxHealth);
+        this.damage = Definition.Damage;
         Speed = speed;
         Target = target;
     }

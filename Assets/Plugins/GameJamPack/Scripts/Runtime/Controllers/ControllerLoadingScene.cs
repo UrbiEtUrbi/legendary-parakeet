@@ -70,9 +70,12 @@ public class SaveData
     public List<ResourceAmount> resourceSaves = new();
     public List<TechSave> techSaves = new();
 
-    
+    public int CurrentRound;
+    public GameStateType gameStateType;
 
-    
+
+
+
 }
 
 [System.Serializable]
@@ -96,3 +99,11 @@ public class ResourceAmount
     }
 
 }
+
+[System.Serializable]
+public enum GameStateType
+{
+    Day,
+    Night,
+}
+

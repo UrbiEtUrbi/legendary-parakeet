@@ -21,4 +21,12 @@ public class EnemyDefinition : ScriptableObject
     float HealthPerRound;
 
     public float MaxHealth => BaseHealth + HealthPerRound * TheGame.Instance.RoundNumber;
+
+    [SerializeField]
+    float BaseAttackRate;
+
+    [SerializeField]
+    float AttackRatePerRound;
+
+    public float AttackRate => BaseAttackRate + AttackRatePerRound * TheGame.Instance.RoundNumber;
 }

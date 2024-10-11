@@ -78,7 +78,7 @@ public class NightState : GameState
                var enemy =  PoolManager.Spawn<WalkingEnemy>(transform, sp);
                 //TODO remove these magic numbers
                enemy.transform.rotation = default;
-               enemy.Init(1, 1, 2, TheGame.Instance.Tower, sp.x > 0 ? 1.51f : -2.38f);
+               enemy.Init(2, TheGame.Instance.Tower, sp.x > 0 ? 1.51f : -2.38f);
                enemyCount++;
                currentWaveEnemyCount++;
                yield return new WaitForSeconds(wave.singleDelay);
