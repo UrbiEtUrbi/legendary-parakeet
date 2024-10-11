@@ -18,3 +18,5 @@ MonoBehaviour:
   HealthPerRound: 0.1
   BaseAttackRate: 1
   AttackRatePerRound: 0.01
+  BaseSpeed: 1
+  SpeedPerRound: 0.1

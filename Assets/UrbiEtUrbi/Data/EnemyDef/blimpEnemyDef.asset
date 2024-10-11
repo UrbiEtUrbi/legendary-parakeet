@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a27b73013d9143589d4b41518dfb5b0, type: 3}
-  m_Name: swarmEnemyDef
+  m_Name: blimpEnemyDef
   m_EditorClassIdentifier: 
   BaseDamage: 1
   DamagePerRound: 0.1
@@ -18,5 +18,5 @@ MonoBehaviour:
   HealthPerRound: 0.1
   BaseAttackRate: 1
   AttackRatePerRound: 0.01
-  BaseSpeed: 2
-  SpeedPerRound: 0
+  BaseSpeed: 0.3
+  SpeedPerRound: 0.01

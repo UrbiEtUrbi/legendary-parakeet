@@ -49,6 +49,7 @@ public class AttackObject : MonoBehaviour
 
     public void Init(Vector2 size, Vector3 position, float _damage, float lifetime, AttackType type)
     {
+
         if (lifetime > 0)
         {
             dd.Init(lifetime);
@@ -71,7 +72,6 @@ public class AttackObject : MonoBehaviour
 
         foreach (var colliderHit in colliders)
         {
-
             if (colliderHit != null)
             {
                

@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
       name: Zeppelin_Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 318
-        height: 101
+        x: 92
+        y: 100
+        width: 9
+        height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 9, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -134,10 +134,10 @@ TextureImporter:
       name: Zeppelin_Sheet_1
       rect:
         serializedVersion: 2
-        x: 321
-        y: 2
-        width: 318
-        height: 101
+        x: 320
+        y: 96
+        width: 320
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: 7b000a35b4b6244d68c5b4987cbbf99b
       internalID: -365391735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zeppelin_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1bbf725d81f4a25bae5bf425303c5b
+      internalID: 1877983360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zeppelin_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c364dea29d1141cead4603953d5f35c
+      internalID: 1722295065
       vertices: []
       indices: 
       edges: []
@@ -164,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       Zeppelin_Sheet_0: 325821991
       Zeppelin_Sheet_1: -365391735
+      Zeppelin_Sheet_2: 1877983360
+      Zeppelin_Sheet_3: 1722295065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -49,6 +49,9 @@ public class NightState : GameState
     int enemiesKilled;
 
 
+    List<int> freedSorting = new();
+    int maxLayer;
+
     
     private void Start()
     {
@@ -84,8 +87,23 @@ public class NightState : GameState
             {
 
                var sp = GetSpawnPosition();
-              
-               var enemy =  PoolManager.Spawn<ShootingEnemy>("Car",transform, sp);
+
+
+                
+
+               var enemy =  PoolManager.Spawn<ShootingEnemy>("Blimp",transform, sp);
+
+                if (freedSorting.Count > 0)
+                {
+                    var idx = Random.Range(0, freedSorting.Count);
+                    enemy.SetLayer(freedSorting[idx]);
+                    freedSorting.RemoveAt(idx);
+                }
+                else
+                {
+                    enemy.SetLayer(maxLayer);
+                    maxLayer++;
+                }
                 //TODO remove these magic numbers
                enemy.transform.rotation = default;
                enemy.Init(2, TheGame.Instance.Tower, attackTarget);
@@ -98,11 +116,11 @@ public class NightState : GameState
         }
     }
 
-    public void RemoveEnemy()
+    public void RemoveEnemy(Enemy e)
     {
         enemyCount--;
         enemiesKilled++;
-
+        freedSorting.Add(e.GetLayer());
         TheGame.Instance.GameCycleManager.SetProgress(1 - (float)enemiesKilled/(float)TotalEnemies);
         if (allEnemiesSpawned && enemyCount <= 0)
         {

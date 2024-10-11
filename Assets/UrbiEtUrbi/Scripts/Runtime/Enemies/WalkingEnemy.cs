@@ -15,14 +15,14 @@ public class WalkingEnemy : Enemy
     protected float StopDistance;
 
     [SerializeField]
-    float AttackRate;
+    protected float AttackRate;
 
 
 
     float attackTimer;
 
     Transform TargetPos;
-    int direction;
+    protected int direction;
 
     float force = default;
     Vector3 origin = default;
@@ -82,13 +82,19 @@ public class WalkingEnemy : Enemy
         }
     }
 
-    void TryToAttack()
+    protected virtual void TryToAttack()
     {
         if (attackTimer <= 0 && !blasted)
         {
-            attackTimer = 1f / AttackRate;
+           
             Attack();
         }
+    }
+
+    protected override void Attack()
+    {
+        attackTimer = 1f / AttackRate;
+        base.Attack();
     }
 
     public override void ChangeHealth(float amount, AttackType type)
@@ -153,7 +159,7 @@ public class WalkingEnemy : Enemy
             force = 0;
             enemy.AddComponent<DestroyDelayed>().Init(1f);
         }
-        (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).RemoveEnemy();
+        (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).RemoveEnemy(this);
 
     }
 

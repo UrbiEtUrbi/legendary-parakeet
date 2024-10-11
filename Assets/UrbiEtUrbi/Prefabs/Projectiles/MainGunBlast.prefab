@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 16896
   generateImpulse: 0
   impulseAmplitude: 0
   hitMultiple: 1

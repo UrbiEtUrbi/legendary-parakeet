@@ -14,6 +14,8 @@ public class Enemy : PoolObject, IHealth
     protected EnemyDefinition Definition;
 
 
+
+
     float currentHealth;
     float maxHealth;
 
@@ -27,6 +29,15 @@ public class Enemy : PoolObject, IHealth
 
     protected Animator Animator;
 
+    public void SetLayer(int layer)
+    {
+        SpriteRenderer.sortingOrder = layer;
+    }
+
+    public int GetLayer()
+    {
+        return SpriteRenderer.sortingOrder;
+    }
 
     void Awake()
     {
@@ -67,7 +78,7 @@ public class Enemy : PoolObject, IHealth
     {
         SetInitialHealth(Definition.MaxHealth);
         this.damage = Definition.Damage;
-        Speed = speed;
+        Speed = Definition.Speed;
         Target = target;
     }
 
@@ -79,6 +90,7 @@ public class Enemy : PoolObject, IHealth
     protected virtual void Attack()
     {
         //Debug.Log("Attack");
+
         Animator.SetTrigger("attack");
         Target.ChangeHealth(-damage);
     }

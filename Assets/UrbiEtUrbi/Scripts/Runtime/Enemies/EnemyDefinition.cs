@@ -29,4 +29,12 @@ public class EnemyDefinition : ScriptableObject
     float AttackRatePerRound;
 
     public float AttackRate => BaseAttackRate + AttackRatePerRound * TheGame.Instance.RoundNumber;
+
+    [SerializeField]
+    float BaseSpeed;
+
+    [SerializeField]
+    float SpeedPerRound;
+
+    public float Speed => BaseSpeed + SpeedPerRound * TheGame.Instance.RoundNumber;
 }

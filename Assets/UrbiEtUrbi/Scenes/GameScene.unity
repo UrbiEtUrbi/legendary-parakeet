@@ -1075,7 +1075,7 @@ MonoBehaviour:
     AttackObject: {fileID: 647294998434894936, guid: b5aee0a0b8e914999bc35dd4bc6037ff, type: 3}
     AttackVFX: {fileID: 3025436297037402024, guid: 19bd67f44a1ab46a8bea7d5c9689e5b1, type: 3}
   - AttackType: 2
-    AttackObject: {fileID: 647294998434894936, guid: c1630f56458ee433f972af69cf6c013a, type: 3}
+    AttackObject: {fileID: 647294998434894936, guid: 4e67f35d486984318949f908e0666622, type: 3}
     AttackVFX: {fileID: 3025436297037402024, guid: 9274d770d93d14f09aebd67714edff27, type: 3}
   - AttackType: 3
     AttackObject: {fileID: 647294998434894936, guid: c1630f56458ee433f972af69cf6c013a, type: 3}
