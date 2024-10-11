@@ -613,7 +613,9 @@ MonoBehaviour:
   vCam: {fileID: 1334873808730050893}
   Prefabs:
   - {fileID: 5852456426968639312, guid: 43516761dff59416f83c0189f5572630, type: 3}
+  - {fileID: 5852456426968639312, guid: 1b61bd524500afa4599239d62d7d4260, type: 3}
   Popup: {fileID: 6627068149207336307}
+  forceMap: {fileID: 5852456426968639312, guid: 1b61bd524500afa4599239d62d7d4260, type: 3}
 --- !u!1 &3815786066816214662
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +687,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.59375
+  orthographic size: 4.7083335
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
