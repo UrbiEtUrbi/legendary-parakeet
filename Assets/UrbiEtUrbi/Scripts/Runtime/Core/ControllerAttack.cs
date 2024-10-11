@@ -14,7 +14,7 @@ public class ControllerAttack : MonoBehaviour
     
 
 
-    public AttackObject Attack(Transform source, bool parentToSource, AttackType Type, Vector3 position, Vector3 size, int damage, Vector3 direction, float lifetime = -1) {
+    public AttackObject Attack(Transform source, bool parentToSource, AttackType Type, Vector3 position, Vector3 size, float damage, Vector3 direction, float lifetime = -1) {
 
         var data = Attacks.Find(x => x.AttackType == Type);
         var attack = Instantiate(data.AttackObject, position, default, parentToSource ? source : null);
@@ -56,5 +56,6 @@ public enum AttackType
 {
     Pistol,
     MainGun,
-    MainGunBlast
+    MainGunBlast,
+    VehicleBullet
 }

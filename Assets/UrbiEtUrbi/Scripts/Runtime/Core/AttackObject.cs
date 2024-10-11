@@ -13,7 +13,7 @@ public class AttackObject : MonoBehaviour
     bool initialized = false;
 
     Vector2 attackSize;
-    int damage;
+    float damage;
 
     [SerializeField]
     bool generateImpulse;
@@ -47,7 +47,7 @@ public class AttackObject : MonoBehaviour
      
     }
 
-    public void Init(Vector2 size, Vector3 position, int _damage, float lifetime, AttackType type)
+    public void Init(Vector2 size, Vector3 position, float _damage, float lifetime, AttackType type)
     {
         if (lifetime > 0)
         {
@@ -66,6 +66,7 @@ public class AttackObject : MonoBehaviour
         if (!initialized) {
             return;
         }
+
         var colliders = Physics2D.OverlapBoxAll(transform.position, attackSize, transform.rotation.eulerAngles.y, TargetLayer);
 
         foreach (var colliderHit in colliders)
@@ -73,7 +74,7 @@ public class AttackObject : MonoBehaviour
 
             if (colliderHit != null)
             {
-//                Debug.Log($"collider hit {colliderHit.name}");
+               
                 var h = colliderHit.GetComponent<IHealth>();
                 if (h == null)
                 {

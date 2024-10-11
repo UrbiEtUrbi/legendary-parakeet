@@ -11,7 +11,7 @@ public class Enemy : PoolObject, IHealth
     protected float Height;
 
     [SerializeField]
-    EnemyDefinition Definition;
+    protected EnemyDefinition Definition;
 
 
     float currentHealth;
@@ -76,7 +76,7 @@ public class Enemy : PoolObject, IHealth
 
     }
 
-    protected void Attack()
+    protected virtual void Attack()
     {
         //Debug.Log("Attack");
         Animator.SetTrigger("attack");

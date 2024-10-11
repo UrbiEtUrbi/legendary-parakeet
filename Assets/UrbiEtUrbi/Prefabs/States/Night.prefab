@@ -1358,7 +1358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.5, y: 49.1}
+  m_AnchoredPosition: {x: 0, y: 49.1}
   m_SizeDelta: {x: 168, y: 98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2211082270291229461
@@ -1705,7 +1705,6 @@ MonoBehaviour:
   - {fileID: 7958561901095517847}
   CameraExterior:
   - {fileID: 5137878440406461774}
-  - {fileID: 7492888292957152607}
   CameraInterior:
   - {fileID: 756355853986885638}
   - {fileID: 1533571101404354724}
@@ -3067,11 +3066,11 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4.25
+  orthographic size: 4.8125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1983
+    m_Bits: 14271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3768,7 +3767,7 @@ Transform:
   m_GameObject: {fileID: 4013041434482244019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.56, z: 0}
+  m_LocalPosition: {x: 0, y: -2.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3784,7 +3783,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3831512410148923748}
   - component: {fileID: 4197106786443533507}
-  m_Layer: 0
+  - component: {fileID: 4981494370331063220}
+  m_Layer: 12
   m_Name: TowerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3856,6 +3856,18 @@ PolygonCollider2D:
       - {x: -0.03387177, y: -5.427042}
       - {x: 1.3358918, y: -5.5819244}
   m_UseDelaunayMesh: 0
+--- !u!114 &4981494370331063220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022892683196608559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab63d0b4835c46a1a4b7811613f5c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4099033270561582768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3921,8 @@ MonoBehaviour:
   kickback: -0.5
   kickbackDuration: 0.2
   UseAnimation: 1
+  PlayerControlled: 1
+  ExternalTarget: {fileID: 0}
   BarrelParent: {fileID: 0}
   AnimationCurve:
     serializedVersion: 2

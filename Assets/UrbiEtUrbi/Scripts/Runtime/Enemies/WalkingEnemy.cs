@@ -12,7 +12,7 @@ public class WalkingEnemy : Enemy
 
 
     [SerializeField]
-    float StopDistance;
+    protected float StopDistance;
 
     [SerializeField]
     float AttackRate;
@@ -34,6 +34,9 @@ public class WalkingEnemy : Enemy
 
     float blastedTimer;
     float blastedTime = 1f;
+
+    [SerializeField]
+    bool CanBeBlasted;
 
     public void AddForce(Vector3 origin, float force, float radius, float uplift)
     {
@@ -92,7 +95,7 @@ public class WalkingEnemy : Enemy
     {
         base.ChangeHealth(amount, type);
 
-        if (type == AttackType.MainGunBlast)
+        if (type == AttackType.MainGunBlast && CanBeBlasted)
         {
             var rb = GetComponent<Rigidbody2D>();
             rb.gravityScale = 1;
@@ -134,20 +137,22 @@ public class WalkingEnemy : Enemy
 
     protected override void  BeforeDeath()
     {
-      
-        var enemy = Instantiate<WalkingEnemy>(this).gameObject;
-        Destroy(enemy.GetComponent<Enemy>());
-        var rb = enemy.GetComponent<Rigidbody2D>();
-        rb.gravityScale = 1;
-        rb.freezeRotation = false;
-        if (force > 0)
+        if (CanBeBlasted)
         {
-            blasted = true;
-            enemy.GetComponent<Animator>().SetTrigger("fall");
-            rb.AddExplosionForce(force, origin, radius, uplift);
+            var enemy = Instantiate<WalkingEnemy>(this).gameObject;
+            Destroy(enemy.GetComponent<Enemy>());
+            var rb = enemy.GetComponent<Rigidbody2D>();
+            rb.gravityScale = 1;
+            rb.freezeRotation = false;
+            if (force > 0)
+            {
+                blasted = true;
+                enemy.GetComponent<Animator>().SetTrigger("fall");
+                rb.AddExplosionForce(force, origin, radius, uplift);
+            }
+            force = 0;
+            enemy.AddComponent<DestroyDelayed>().Init(1f);
         }
-        force = 0;
-        enemy.AddComponent<DestroyDelayed>().Init(1f);
         (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).RemoveEnemy();
 
     }

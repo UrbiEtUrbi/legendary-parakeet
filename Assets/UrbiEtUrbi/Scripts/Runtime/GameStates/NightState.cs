@@ -85,7 +85,7 @@ public class NightState : GameState
 
                var sp = GetSpawnPosition();
               
-               var enemy =  PoolManager.Spawn<WalkingEnemy>(transform, sp);
+               var enemy =  PoolManager.Spawn<ShootingEnemy>("Car",transform, sp);
                 //TODO remove these magic numbers
                enemy.transform.rotation = default;
                enemy.Init(2, TheGame.Instance.Tower, attackTarget);

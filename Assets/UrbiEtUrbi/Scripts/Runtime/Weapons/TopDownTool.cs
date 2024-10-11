@@ -37,10 +37,17 @@ public class TopDownTool : MonoBehaviour
 
     bool holdingUse = false;
 
+    [SerializeField]
+    bool PlayerControlled;
+
+    public Transform ExternalTarget;
+
+    float Damage;
+
     private void OnEnable()
     {
         Animator = GetComponent<Animator>();
-        if (ControllerInput.Instance != null)
+        if (ControllerInput.Instance != null && PlayerControlled)
         {
             ControllerInput.Instance.LeftClick.AddListener(OnUseTool);
         }
@@ -51,6 +58,14 @@ public class TopDownTool : MonoBehaviour
         }
     }
 
+
+    public void Init(float Damage, float reloadTime, Transform target)
+    {
+        this.Damage = Damage;
+        this.ReloadTime = reloadTime;
+        ExternalTarget = target;
+
+    }
     private void OnDisable()
     {
 
@@ -67,14 +82,28 @@ public class TopDownTool : MonoBehaviour
 
     private void Update()
     {
-       
-        var pos = TheGame.Instance.GameCycleManager.CurrentCamera.ScreenToWorldPoint(Mouse.current.position.value);
-        Vector3 direction = pos - transform.position;
-        direction.z = 0;  // Ignore z-axis since it's 2D
 
-        // Calculate the angle between the direction vector and the world up vector (0, 1, 0)
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        Vector3 pos = default;
+        if (ExternalTarget == null)
+        {
+
+            pos = TheGame.Instance.GameCycleManager.CurrentCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        }
+        else
+        {
+
+            pos = ExternalTarget.transform.position;
+        }
+
+            Vector3 direction = pos - transform.position;
+            direction.z = 0;  // Ignore z-axis since it's 2D
+
+            // Calculate the angle between the direction vector and the world up vector (0, 1, 0)
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+
+        
 
        
 
@@ -100,7 +129,7 @@ public class TopDownTool : MonoBehaviour
 
     List<AttackObject> attackObjects = new List<AttackObject>();
 
-    void OnUseTool(bool use)
+    public void OnUseTool(bool use)
     {
      //   holdingUse = use;
         if (use && CanShoot)
@@ -115,7 +144,7 @@ public class TopDownTool : MonoBehaviour
             }
             reloadTimer = ReloadTime;
 
-            var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, 1, -Muzzle.up);
+            var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, Damage, -Muzzle.up);
             obj.OnBeforeDestroy =() =>  attackObjects.Remove(obj);
             attackObjects.Add(obj);
             Use();
