@@ -1773,7 +1773,7 @@ MonoBehaviour:
   StateType: 1
   PlayerInstanceKey: PlayerInterior
   Player: {fileID: 0}
-  Duration: 5
+  Duration: 45
   InitialDelay: 2
   HealthBar: {fileID: 3319121948625842019}
   WaveCollection: {fileID: 11400000, guid: b3332c7bf48c84dac94befaf683da611, type: 2}
@@ -3177,7 +3177,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.4166665
+  orthographic size: 4.28125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

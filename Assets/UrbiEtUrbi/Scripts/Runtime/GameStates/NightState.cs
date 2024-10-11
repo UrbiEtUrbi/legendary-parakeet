@@ -216,7 +216,7 @@ public class NightState : GameState
 
     private void Update()
     {
-        if (UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (UnityEngine.InputSystem.Keyboard.current.enterKey.wasPressedThisFrame)
         {
             SwitchView();
         }

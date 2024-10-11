@@ -2,8 +2,10 @@ Shader "Unlit/PixelOutline"
 { 
 Properties 
 { _MainTex ("Texture", 2D) = "white" {}
- _Color("Color", Color) = (1,1,1,1)
+ _Color("Color", Color) = (0,0,0,1)
+_Color1("Color1", Color) = (1,1,1,1)
  _Radius("Radius", Range(0,10)) = 1
+ _Speed("Speed", Range(0,10)) = 1
 } 
 SubShader 
 { Tags { "RenderType"="Transparent" }
@@ -34,8 +36,10 @@ Pass
         float4 _MainTex_TexelSize;
 
         float4 _Color;
+        float4 _Color1;
 
         float _Radius;
+        float _Speed;
 
         v2f vert (appdata v)
         {
@@ -61,13 +65,15 @@ Pass
                     }
                 }
             }
-
+            
             na = clamp(na,0,1);
 
+
+            float4 outputColor = step(0.5, frac(_Time.y*_Speed)) * _Color + (1 - step(0.5, frac(_Time.y*_Speed)))* _Color1;
             fixed4 c = tex2D(_MainTex, i.uv);
             na-=ceil(c.a);
 
-            return lerp(c, _Color, na);
+            return lerp(c, outputColor, na);
         }
         ENDCG
     }
