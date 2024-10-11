@@ -13,8 +13,9 @@ public class NightState : GameState
     [SerializeField]
     Bar HealthBar;
 
+
     [SerializeField]
-    List<Wave> EnemyWaves;
+    WaveCollection WaveCollection;
 
     [SerializeField]
     List<BoxCollider2D> SpawnPositionGround;
@@ -40,6 +41,12 @@ public class NightState : GameState
     [SerializeField]
     Transform attackTarget;
 
+    [SerializeField]
+    int baseWaveCount;
+
+    [SerializeField]
+    float waveCountPerRoundIncrease;
+
 
     bool isInside = true;
 
@@ -55,6 +62,8 @@ public class NightState : GameState
     List<int> freedSorting = new();
     int maxLayer;
 
+    List<Wave> currentWaves;
+
     
     private void Start()
     {
@@ -69,54 +78,100 @@ public class NightState : GameState
 
     }
 
+
+
     IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(InitialDelay);
         while (true)
         {
 
-            if (waveIndex >= EnemyWaves.Count)
+            if (waveIndex >= currentWaves.Count)
             {
                 allEnemiesSpawned = true;
+                EndNight();
                 yield break;
             }
-            var wave = EnemyWaves[waveIndex];
-            waveIndex++;
+            var wave = currentWaves[waveIndex];
 
-            yield return new WaitForSeconds(wave.delay);
-            int currentWaveEnemyCount = 0;
 
-            while (currentWaveEnemyCount < wave.count)
+            while (wave.HasEnemies)
             {
 
-               var sp = GetSpawnPosition();
 
-
+                int enemiesToSpawn = Mathf.Min(Random.Range(1, 10), wave.Count);
                 
-
-               var enemy =  PoolManager.Spawn<WalkingEnemy>(transform, sp);
-
-                if (freedSorting.Count > 0)
+                while (true)
                 {
-                    var idx = Random.Range(0, freedSorting.Count);
-                    enemy.SetLayer(freedSorting[idx]);
-                    freedSorting.RemoveAt(idx);
+
+
+                    var sp = GetSpawnPosition();
+                    List<string> enemyTypes = new List<string>();
+                    if (wave.Swarm > 0)
+                    {
+                        enemyTypes.Add("WalkingEnemy");
+                    }if (wave.Zeppelin > 0)
+                    {
+                        enemyTypes.Add("Blimp");
+                    }if (wave.Car > 0)
+                    {
+                        enemyTypes.Add("Car");
+                    }
+
+                    var pick = enemyTypes[Random.Range(0, enemyTypes.Count)];
+                    Enemy enemy = default;
+                    switch (pick)
+                    {
+                        case "Car":
+                            enemy = PoolManager.Spawn<ShootingEnemy>(pick, transform, sp);
+                            wave.Car--;
+                            break;
+                        case "Blimp":
+                            wave.Zeppelin--;
+                            enemy = PoolManager.Spawn<ShootingEnemy>(pick, transform, sp);
+                            break;
+
+
+                        case "WalkingEnemy":
+                            wave.Swarm--;
+                            enemy = PoolManager.Spawn<WalkingEnemy>(transform, sp);
+                            break;
+
+                    }
+
+
+
+                    if (freedSorting.Count > 0)
+                    {
+                        var idx = Random.Range(0, freedSorting.Count);
+                        enemy.SetLayer(freedSorting[idx]);
+                        freedSorting.RemoveAt(idx);
+                    }
+                    else
+                    {
+                        enemy.SetLayer(maxLayer);
+                        maxLayer++;
+                    }
+                    //TODO remove these magic numbers
+                    enemy.transform.rotation = default;
+                    enemy.transform.position = sp;
+                    enemy.Init(2, TheGame.Instance.Tower, attackTarget);
+                    enemyCount++;
+                    Enemies.Add(enemy);
+                    yield return new WaitForSeconds(0.05f);
+                    enemiesToSpawn--;
+                    if (enemiesToSpawn <= 0)
+                    {
+                        break;
+                    }
                 }
-                else
-                {
-                    enemy.SetLayer(maxLayer);
-                    maxLayer++;
-                }
-                //TODO remove these magic numbers
-               enemy.transform.rotation = default;
-               enemy.Init(2, TheGame.Instance.Tower, attackTarget);
-               enemyCount++;
-               Enemies.Add(enemy);
-               currentWaveEnemyCount++;
-               yield return new WaitForSeconds(wave.singleDelay);
+               
+
+                yield return new WaitForSeconds(2f);
             }
+            waveIndex++;
 
-            TheGame.Instance.GameCycleManager.SetProgress(1);
+
         }
     }
 
@@ -127,6 +182,11 @@ public class NightState : GameState
         Enemies.Remove(e);
         freedSorting.Add(e.GetLayer());
         TheGame.Instance.GameCycleManager.SetProgress(1 - (float)enemiesKilled/(float)TotalEnemies);
+        EndNight();
+    }
+
+    public void EndNight()
+    {
         if (allEnemiesSpawned && enemyCount <= 0)
         {
             TheGame.Instance.GameCycleManager.EnterState(GameStateType.Day);
@@ -188,10 +248,17 @@ public class NightState : GameState
             IsDefending = true;
             TheGame.Instance.GameCycleManager.DebugLabel.text = "Enemies:";
 
-            foreach (var w in EnemyWaves)
+            currentWaves = WaveCollection.GetWave(baseWaveCount + Mathf.FloorToInt(TheGame.Instance.RoundNumber * waveCountPerRoundIncrease));
+       //     Debug.Log(currentWaves.Count);
+            waveIndex = 0;
+            foreach (var w in currentWaves)
             {
-                TotalEnemies += (int)w.count;
+                TotalEnemies += w.Car;
+                TotalEnemies += w.Swarm;
+                TotalEnemies += w.Zeppelin;
             }
+//            Debug.Log(TotalEnemies);
+            TheGame.Instance.GameCycleManager.SetProgress(1);
             StartCoroutine(SpawnEnemy());
             return;
         }
@@ -209,13 +276,5 @@ public class NightState : GameState
 }
 
 
-[System.Serializable]
-public class Wave
-{
-    public float delay;
-    public float singleDelay;
-    public float count;
-
-}
 
 

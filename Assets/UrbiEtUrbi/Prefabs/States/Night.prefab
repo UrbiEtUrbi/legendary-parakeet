@@ -1774,12 +1774,9 @@ MonoBehaviour:
   PlayerInstanceKey: PlayerInterior
   Player: {fileID: 0}
   Duration: 5
-  InitialDelay: 0
+  InitialDelay: 2
   HealthBar: {fileID: 3319121948625842019}
-  EnemyWaves:
-  - delay: 0
-    singleDelay: 0.001
-    count: 10
+  WaveCollection: {fileID: 11400000, guid: b3332c7bf48c84dac94befaf683da611, type: 2}
   SpawnPositionGround:
   - {fileID: 5634881998972624163}
   - {fileID: 7958561901095517847}
@@ -1794,6 +1791,8 @@ MonoBehaviour:
   UpgradesPopup: {fileID: 2445567051710607481}
   InteriorController: {fileID: 8011435804427281451}
   attackTarget: {fileID: 3353791868515355219}
+  baseWaveCount: 2
+  waveCountPerRoundIncrease: 0.2
   Enemies: []
 --- !u!1 &1954625062997795151
 GameObject:
@@ -3178,7 +3177,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.35
+  orthographic size: 5.4166665
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

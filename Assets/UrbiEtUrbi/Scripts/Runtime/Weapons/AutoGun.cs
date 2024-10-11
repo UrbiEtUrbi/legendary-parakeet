@@ -42,12 +42,20 @@ public class AutoGun : TopDownTool, IMagazine
     {
         if (currentTarget == null || !currentTarget.isAlive)
         {
-            var enemies = (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).Enemies;
+            var ns = TheGame.Instance.GameCycleManager.GetCurrentState as NightState;
+            if (ns == null)
+            {
+                return;
+            }
+            var enemies = ns.Enemies;
 
             Enemy target = null;
             float dist = 1000;
             foreach (var enemy in enemies)
             {
+                if (Mathf.Abs(enemy.transform.position.x)> 10){
+                    continue;
+                }
                 if (left && enemy.transform.position.x < 0)
                 {
                     if (Mathf.Abs(enemy.transform.position.x) < dist)

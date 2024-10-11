@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0fd04e4be934a218ac164fbc330d13, type: 3}
+  m_Name: Waves
+  m_EditorClassIdentifier: 
+  Waves:
+  - Swarm: 12
+    Zeppelin: 0
+    Car: 0
+    MinRound: 0
+    MaxRound: 1
+    MinUpgrades: 0
+    Factor: 1.1
+  - Swarm: 16
+    Zeppelin: 0
+    Car: 2
+    MinRound: 1
+    MaxRound: 3
+    MinUpgrades: 0
+    Factor: 1.1
+  - Swarm: 24
+    Zeppelin: 0
+    Car: 0
+    MinRound: 1
+    MaxRound: 4
+    MinUpgrades: 0
+    Factor: 1.1
+  - Swarm: 20
+    Zeppelin: 0
+    Car: 4
+    MinRound: 2
+    MaxRound: 5
+    MinUpgrades: 1
+    Factor: 1.1
+  - Swarm: 32
+    Zeppelin: 0
+    Car: 1
+    MinRound: 3
+    MaxRound: 5
+    MinUpgrades: 1
+    Factor: 1.1
+  - Swarm: 40
+    Zeppelin: 0
+    Car: 2
+    MinRound: 3
+    MaxRound: 5
+    MinUpgrades: 0
+    Factor: 1.1
+  - Swarm: 36
+    Zeppelin: 0
+    Car: 8
+    MinRound: 3
+    MaxRound: 6
+    MinUpgrades: 2
+    Factor: 1.1
+  - Swarm: 48
+    Zeppelin: 0
+    Car: 6
+    MinRound: 4
+    MaxRound: 9
+    MinUpgrades: 2
+    Factor: 1.1
+  - Swarm: 56
+    Zeppelin: 0
+    Car: 12
+    MinRound: 5
+    MaxRound: 9
+    MinUpgrades: 1
+    Factor: 1.1
+  - Swarm: 64
+    Zeppelin: 1
+    Car: 0
+    MinRound: 3
+    MaxRound: 12
+    MinUpgrades: 3
+    Factor: 1.1
+  - Swarm: 48
+    Zeppelin: 1
+    Car: 6
+    MinRound: 3
+    MaxRound: 12
+    MinUpgrades: 4
+    Factor: 1.1
+  - Swarm: 50
+    Zeppelin: 5
+    Car: 10
+    MinRound: 8
+    MaxRound: 100
+    MinUpgrades: 4
+    Factor: 1.1

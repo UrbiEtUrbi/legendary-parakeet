@@ -53,6 +53,7 @@ public class ScavengeState : GameState
         base.Init();
         vCam.Follow = Player.transform;
        vCam.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = currentMap.Confiner;
+        TheGame.Instance.GameCycleManager.DebugLabel.text = $"Time Until Nightfall:";
 
     }
     public override void Cleanup()

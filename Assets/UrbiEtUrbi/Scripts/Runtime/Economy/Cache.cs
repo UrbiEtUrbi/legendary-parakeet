@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName ="NightFall/Cache", fileName ="Cache")]
+[CreateAssetMenu(menuName ="Nightfall/Cache", fileName ="Cache")]
 public class Cache : ScriptableObject
 {
 

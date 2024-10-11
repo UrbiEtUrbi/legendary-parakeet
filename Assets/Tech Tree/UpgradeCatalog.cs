@@ -269,4 +269,6 @@ public class CSVRow {
         return float.Parse(Get(field));
     }
 
+
+
 }
