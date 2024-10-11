@@ -13,4 +13,19 @@ MonoBehaviour:
   m_Name: MassiveTrenchCache
   m_EditorClassIdentifier: 
   OverrideSprite: {fileID: -1505046148, guid: b49769c5d7f797d41982ed94bd7b3b04, type: 3}
-  Contents: []
+  Contents:
+  - Resource: {fileID: 11400000, guid: b0f6e72e99574478e8382612ea29658c, type: 2}
+    Min: 1
+    Max: 5
+  - Resource: {fileID: 11400000, guid: c4d33a2226cffa24b88e1792c4cbfb00, type: 2}
+    Min: 3
+    Max: 7
+  - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
+    Min: 4
+    Max: 8
+  - Resource: {fileID: 11400000, guid: c31023182d078450a9036f356dfddc93, type: 2}
+    Min: 6
+    Max: 14
+  - Resource: {fileID: 11400000, guid: c3508f7c9fa4143b4b3b4ecb94855212, type: 2}
+    Min: 4
+    Max: 12

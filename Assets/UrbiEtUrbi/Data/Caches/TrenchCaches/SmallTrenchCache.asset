@@ -15,5 +15,8 @@ MonoBehaviour:
   OverrideSprite: {fileID: 170172398, guid: b49769c5d7f797d41982ed94bd7b3b04, type: 3}
   Contents:
   - Resource: {fileID: 11400000, guid: c3508f7c9fa4143b4b3b4ecb94855212, type: 2}
+    Min: 2
+    Max: 5
+  - Resource: {fileID: 11400000, guid: c31023182d078450a9036f356dfddc93, type: 2}
     Min: 1
-    Max: 2
+    Max: 6
