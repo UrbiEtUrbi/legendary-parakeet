@@ -1480,34 +1480,7 @@ MonoBehaviour:
   EnemyWaves:
   - delay: 0
     singleDelay: 0.001
-    count: 20
-  - delay: 4
-    singleDelay: 1
-    count: 10
-  - delay: 10
-    singleDelay: 0.5
-    count: 20
-  - delay: 0
-    singleDelay: 0
-    count: 1
-  - delay: 4
-    singleDelay: 0.3
-    count: 30
-  - delay: 5
-    singleDelay: 2
-    count: 10
-  - delay: 10
-    singleDelay: 1
-    count: 20
-  - delay: 5
-    singleDelay: 0.5
-    count: 40
-  - delay: 0
-    singleDelay: 0.1
-    count: 50
-  - delay: 0
-    singleDelay: 0
-    count: 1
+    count: 3
   SpawnPositionGround:
   - {fileID: 5634881998972624163}
   - {fileID: 7958561901095517847}
@@ -1521,6 +1494,7 @@ MonoBehaviour:
   InfoPopup: {fileID: 852402542159772531}
   UpgradesPopup: {fileID: 2445567051710607481}
   InteriorController: {fileID: 8011435804427281451}
+  attackTarget: {fileID: 3353791868515355219}
 --- !u!1 &1954625062997795151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1877,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2972554458860270719}
+  - {fileID: 3831512410148923748}
+  - {fileID: 3353791868515355219}
   m_Father: {fileID: 8114281815507537282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8375545696500470669
@@ -2794,7 +2770,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6.21875
+  orthographic size: 4.9375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3470,6 +3446,119 @@ MonoBehaviour:
   Tabs:
   - {fileID: 4559427313031924914}
   - {fileID: 5363785260245081228}
+--- !u!1 &4013041434482244019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3353791868515355219}
+  m_Layer: 0
+  m_Name: AttackTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3353791868515355219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013041434482244019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4900814001078436350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4022892683196608559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3831512410148923748}
+  - component: {fileID: 4197106786443533507}
+  m_Layer: 0
+  m_Name: TowerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3831512410148923748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022892683196608559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4900814001078436350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &4197106786443533507
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022892683196608559}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.7104654, y: 0.82238364}
+      - {x: -0.68463224, y: 0.81226313}
+      - {x: -1.1798396, y: -5.4862466}
+      - {x: -0.03387177, y: -5.427042}
+      - {x: 1.3358918, y: -5.5819244}
+  m_UseDelaunayMesh: 0
 --- !u!1 &4099033270561582768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +4002,7 @@ GameObject:
   - component: {fileID: 2972554458860270719}
   - component: {fileID: 3064640142218351582}
   m_Layer: 7
-  m_Name: GameObject
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

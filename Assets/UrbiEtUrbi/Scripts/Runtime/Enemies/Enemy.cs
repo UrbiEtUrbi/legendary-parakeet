@@ -8,7 +8,7 @@ public class Enemy : PoolObject, IHealth
 
 
     [SerializeField]
-    float Height;
+    protected float Height;
 
     [SerializeField]
     EnemyDefinition Definition;
@@ -45,7 +45,7 @@ public class Enemy : PoolObject, IHealth
         }
     }
 
-    public void ChangeHealth(float amount, AttackType type)
+    public virtual void ChangeHealth(float amount, AttackType type)
     {
         ChangeHealth(amount);
     }
@@ -63,7 +63,7 @@ public class Enemy : PoolObject, IHealth
         currentHealth = amount;
     }
 
-    public virtual void Init(float speed, IHealth target, float TargetPos)
+    public virtual void Init(float speed, IHealth target, Transform TargetPos)
     {
         SetInitialHealth(Definition.MaxHealth);
         this.damage = Definition.Damage;
@@ -78,6 +78,7 @@ public class Enemy : PoolObject, IHealth
 
     protected void Attack()
     {
+        Debug.Log("Attack");
         Animator.SetTrigger("attack");
         Target.ChangeHealth(-damage);
     }

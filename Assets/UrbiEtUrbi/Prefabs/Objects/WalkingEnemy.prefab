@@ -50,8 +50,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  Height: -3.96
+  Definition: {fileID: 11400000, guid: 28f84ce1e0bd144169b83b46ecd6ff4f, type: 2}
   SpriteRenderer: {fileID: 3177308670067936277}
-  StopDistance: 1
+  StopDistance: 1.9
   AttackRate: 0.5
 --- !u!50 &3564759465460347366
 Rigidbody2D:
