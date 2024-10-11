@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6ad162e307347ef994d4b56309619b, type: 3}
+  m_Name: SmallForestCache
+  m_EditorClassIdentifier: 
+  OverrideSprite: {fileID: 170172398, guid: b49769c5d7f797d41982ed94bd7b3b04, type: 3}
+  Contents:
+  - Resource: {fileID: 11400000, guid: c3508f7c9fa4143b4b3b4ecb94855212, type: 2}
+    Min: 1
+    Max: 2

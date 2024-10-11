@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6ad162e307347ef994d4b56309619b, type: 3}
   m_Name: MediumTrenchCache
   m_EditorClassIdentifier: 
+  OverrideSprite: {fileID: -662548970, guid: b49769c5d7f797d41982ed94bd7b3b04, type: 3}
   Contents:
   - Resource: {fileID: 11400000, guid: c3508f7c9fa4143b4b3b4ecb94855212, type: 2}
     Min: 2

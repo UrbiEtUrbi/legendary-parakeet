@@ -43,7 +43,15 @@ public class GameCycleManager : MonoBehaviour
     public void EnterState(GameStateType gameState)
     {
         Debug.Log(gameState);
-        DebugLabel.text = $"Current State: {gameState}";
+        if (gameState == GameStateType.Day)
+        {
+            DebugLabel.text = $"Time Until Nightfall:";
+        } 
+        else
+        {
+            DebugLabel.text = $"Time Until Daybreak:";
+        }
+        
 
         //exit current state
         if (CurrentStateInstance != null)
