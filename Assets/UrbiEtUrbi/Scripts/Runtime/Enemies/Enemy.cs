@@ -78,7 +78,7 @@ public class Enemy : PoolObject, IHealth
 
     protected void Attack()
     {
-        Debug.Log("Attack");
+        //Debug.Log("Attack");
         Animator.SetTrigger("attack");
         Target.ChangeHealth(-damage);
     }

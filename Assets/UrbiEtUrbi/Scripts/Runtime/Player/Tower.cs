@@ -12,19 +12,24 @@ public class Tower : IHealth
     {
         CurrentHP += amount;
         CurrentHP = Mathf.Min(CurrentHP, MaxHp);
+        (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).SetHealth(CurrentHP / MaxHp);
+      //  Debug.Log($"{CurrentHP} {CurrentHP / MaxHp}");
         if (CurrentHP <= 0)
         {
-            Die();
+            (TheGame.Instance.GameCycleManager.GetCurrentState as NightState).SetHealth(0);
+            if (CurrentHP <= 0)
+                Die();
         }
     }
 
     public void ChangeHealth(float amount, AttackType type)
     {
-        
+        ChangeHealth(amount);
     }
 
     public void Die()
     {
+        
         //Game Over
 //        Debug.Log($"your tower was destroyed");
     }

@@ -7,8 +7,7 @@ using UnityEngine.Events;
 public class GameCycleManager : MonoBehaviour
 {
 
-    [SerializeField]
-    TMP_Text DebugLabel;
+    public TMP_Text DebugLabel;
 
 
     [SerializeField]
@@ -42,15 +41,7 @@ public class GameCycleManager : MonoBehaviour
 
     public void EnterState(GameStateType gameState)
     {
-        Debug.Log(gameState);
-        if (gameState == GameStateType.Day)
-        {
-            DebugLabel.text = $"Time Until Nightfall:";
-        } 
-        else
-        {
-            DebugLabel.text = $"Time Until Daybreak:";
-        }
+       
         
 
         //exit current state
@@ -67,7 +58,7 @@ public class GameCycleManager : MonoBehaviour
         if (CurrentStateInstance.Duration > 0)
         {
             Bar.SetValue(1);
-            StartCoroutine(TimeStage());
+            StartCoroutine(timeCoroutine = TimeStage());
 
         }
 
@@ -111,16 +102,21 @@ public class GameCycleManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             timer += 0.1f;
-            Bar.SetValue(1 - timer / CurrentStateInstance.Duration);
+            SetProgress(1 - timer / CurrentStateInstance.Duration);
             if (timer >= CurrentStateInstance.Duration)
             {
-
                 CurrentStateInstance.OnEndStage();
                 
                 yield break;
+              
             }
         }
 
+    }
+
+    public void SetProgress(float value)
+    {
+        Bar.SetValue(value);
     }
     
 
@@ -141,9 +137,12 @@ public class GameCycleManager : MonoBehaviour
             switch (CurrentStateInstance.StateType)
             {
                 case GameStateType.Day:
+
+                    DebugLabel.text = $"Prep Time:";
                     EnterState(GameStateType.Night);
                     break;
                 case GameStateType.Night:
+                    DebugLabel.text = $"Time Until Nightfall:";
                     TheGame.Instance.RoundNumber++;
                     EnterState(GameStateType.Day);
                     break;

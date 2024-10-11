@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NightState : GameState
 {
@@ -9,6 +10,8 @@ public class NightState : GameState
     float InitialDelay;
 
 
+    [SerializeField]
+    Bar HealthBar;
 
     [SerializeField]
     List<Wave> EnemyWaves;
@@ -41,6 +44,9 @@ public class NightState : GameState
     bool isInside = true;
 
     bool IsPrepping, IsDefending;
+
+    int TotalEnemies;
+    int enemiesKilled;
 
 
     
@@ -87,13 +93,17 @@ public class NightState : GameState
                currentWaveEnemyCount++;
                yield return new WaitForSeconds(wave.singleDelay);
             }
+
+            TheGame.Instance.GameCycleManager.SetProgress(1);
         }
     }
 
     public void RemoveEnemy()
     {
         enemyCount--;
+        enemiesKilled++;
 
+        TheGame.Instance.GameCycleManager.SetProgress(1 - (float)enemiesKilled/(float)TotalEnemies);
         if (allEnemiesSpawned && enemyCount <= 0)
         {
             TheGame.Instance.GameCycleManager.EnterState(GameStateType.Day);
@@ -107,6 +117,11 @@ public class NightState : GameState
         var collider = SpawnPositionGround[idx];
 
         return collider.transform.position += new Vector3(Random.Range(-collider.size.x * 0.5f, collider.size.x * 0.5f),0,0);
+    }
+
+    public void SetHealth(float value)
+    {
+        HealthBar.SetValue(value);
     }
 
     public void SwitchView()
@@ -148,6 +163,12 @@ public class NightState : GameState
         {
             IsPrepping = false;
             IsDefending = true;
+            TheGame.Instance.GameCycleManager.DebugLabel.text = "Enemies:";
+
+            foreach (var w in EnemyWaves)
+            {
+                TotalEnemies += (int)w.count;
+            }
             StartCoroutine(SpawnEnemy());
             return;
         }
