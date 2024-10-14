@@ -15,7 +15,7 @@ MonoBehaviour:
   Waves:
   - Swarm: 12
     Zeppelin: 0
-    Car: 0
+    Car: 1
     MinRound: 0
     MaxRound: 1
     MinUpgrades: 0

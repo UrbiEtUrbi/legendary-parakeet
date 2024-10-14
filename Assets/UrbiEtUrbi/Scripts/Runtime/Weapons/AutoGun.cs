@@ -16,7 +16,7 @@ public class AutoGun : TopDownTool, IMagazine
     Enemy currentTarget;
 
     [SerializeField]
-    NodeData FireRate;
+    NodeData FireRate, AP;
 
     Magazine Magazine;
     List<TMP_Text> labels;
@@ -94,6 +94,8 @@ public class AutoGun : TopDownTool, IMagazine
             Magazine.Current--;
             ReloadTime =    1 / FireRate.GetValue();
             UpdateLabels();
+            Damage = 1 + AP.GetValue() > 0 ? 1 : 0;
+            SoundManager.Instance.Play("machine_gun");
             OnUseTool(true);
         }
     }

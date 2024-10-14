@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseDamage: 1
   DamagePerRound: 0.1
-  BaseHealth: 1
+  BaseHealth: 10
   HealthPerRound: 0.1
   BaseAttackRate: 1
   AttackRatePerRound: 0.01

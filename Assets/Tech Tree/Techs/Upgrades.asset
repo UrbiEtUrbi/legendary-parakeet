@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Upgrades
   m_EditorClassIdentifier: 
   Upgrades:
+  - {fileID: 11400000, guid: 5b4a9d57954384a638ab2362e2e45d2a, type: 2}
   - {fileID: 11400000, guid: 807f3a3669b4f2c46a6feb69a640e538, type: 2}
   - {fileID: 11400000, guid: 0f74ce6f05fb51c4497e57a3beafa3a8, type: 2}
   - {fileID: 11400000, guid: 179d1bd7c9e8f7b49acde10cb9161766, type: 2}
@@ -23,3 +24,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b3ad0cc40cfca14ba9a139899a949f2, type: 2}
   - {fileID: 11400000, guid: 43806698a779cbf4c8a13460ee2d96a0, type: 2}
   - {fileID: 11400000, guid: 3c929209bb0ffa244af98f609dbb1afd, type: 2}
+  - {fileID: 11400000, guid: 59bdaaf91c4d643f28dea146d82dfe62, type: 2}

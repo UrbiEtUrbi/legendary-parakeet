@@ -424,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &400928947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -459,6 +459,36 @@ MonoBehaviour:
   timer: 0
   refresh: 0.5
   avgFramerate: 0
+  Next:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1332901969}
+        m_TargetAssemblyTypeName: GameCycleManager, Assembly-CSharp
+        m_MethodName: CheatNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CheatRes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1332901974}
+        m_TargetAssemblyTypeName: TheGame, Assembly-CSharp
+        m_MethodName: CheatRes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &400928949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,6 +1291,7 @@ MonoBehaviour:
   <ControllerInteractibles>k__BackingField: {fileID: 1332901977}
   RoundNumber: 0
   gameover: {fileID: 1177725688}
+  TowerHealth: {fileID: 11400000, guid: 3c929209bb0ffa244af98f609dbb1afd, type: 2}
 --- !u!4 &1332901975
 Transform:
   m_ObjectHideFlags: 0

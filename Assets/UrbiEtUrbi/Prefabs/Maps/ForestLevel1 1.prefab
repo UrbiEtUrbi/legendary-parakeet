@@ -11920,6 +11920,7 @@ Transform:
   - {fileID: 8890343798621836762}
   - {fileID: 8287196303668815414}
   - {fileID: 6076822651071811236}
+  - {fileID: 5700090904898042447}
   m_Father: {fileID: 27983040311458855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4256663664433893199
@@ -12116,6 +12117,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e245d0ddcdd8946c9bb330c95bce94bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5124794825353379329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5700090904898042447}
+  - component: {fileID: 8440454112112422488}
+  m_Layer: 0
+  m_Name: Massive
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5700090904898042447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124794825353379329}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13, y: 16.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4591440300592218236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8440454112112422488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124794825353379329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c4516ce3e42450fbaa36e305386b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsSurvivor: 0
+  Drops:
+  - Cache: {fileID: 11400000, guid: 6d15777ba5b84b842a29059d99d710f5, type: 2}
+    Weight: 5
+  - Cache: {fileID: 11400000, guid: c05e9bb437f38534996fc1bcd2fcfa07, type: 2}
+    Weight: 8
 --- !u!1 &5457796401813465445
 GameObject:
   m_ObjectHideFlags: 0

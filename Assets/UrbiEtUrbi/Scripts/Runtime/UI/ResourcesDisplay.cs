@@ -19,6 +19,10 @@ public class ResourcesDisplay : MonoBehaviour
         {
 
             var amount = TheGame.Instance.ControllerResources.GetResourceAmount(r);
+            if (amount == 0)
+            {
+                continue;
+            }
             var view = PoolManager.Spawn<ResourceView>("ResourceViewEndDay", container);
             view.Init(r.ID, amount);
             Views.Add(view);

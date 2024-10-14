@@ -30,7 +30,7 @@ MonoBehaviour:
     ResourceCost:
     - Resource: {fileID: 11400000, guid: fbfcd63949b1bc34a9a97d0edbaf9126, type: 2}
       Amount: 20
-    - Resource: {fileID: 0}
+    - Resource: {fileID: 11400000, guid: c4d33a2226cffa24b88e1792c4cbfb00, type: 2}
       Amount: 10
     Requirement:
     - Resource: {fileID: 11400000, guid: 1421af1e5d4d348eb80d0c8ab61d5615, type: 2}

@@ -16,6 +16,8 @@ public class ControllerMainMenu : ControllerLocal
     public override void Init()
     {
         base.Init();
+
+        SoundManager.Instance.CurrentCamera = Camera.main;
      
     }
 

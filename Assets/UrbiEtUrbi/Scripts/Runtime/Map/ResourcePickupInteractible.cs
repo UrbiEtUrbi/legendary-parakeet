@@ -8,6 +8,7 @@ public class ResourcePickupInteractible : Interactible
     public override void OnInteract()
     {
 
+        SoundManager.Instance.Play("search");
         var rp = GetComponent<ResourcePickup>();
         rp.PickupResource();
         if (DestroyOnInteract)

@@ -63,6 +63,9 @@ public class TheGame : ControllerLocal
     [SerializeField]
     PopupBase gameover;
 
+    [SerializeField]
+    NodeData TowerHealth;
+
 
     public void GameOver()
     {
@@ -100,12 +103,31 @@ public class TheGame : ControllerLocal
         base.Init();
         GameCycleManager.EnterState(GameStateType.Day);
         m_Tower = new Tower();
-        m_Tower.SetInitialHealth(100);
+        m_Tower.SetInitialHealth(TowerHealth.GetValue());
     }
 
     public void Save()
     {
         ControllerLoadingScene.Instance.Save();
+
+    }
+    public void CheatRes()
+    {
+        foreach (var res in Res.ResourceCollection)
+        {
+            ControllerResources.Change(res, 100);
+        }
+    }
+
+    public void BuyUpgrade(NodeData upgrade) 
+    {
+        switch (upgrade.name)
+        {
+            case "TowerHealth":
+                Tower.SetMaxHealth(upgrade.GetValue());
+                break;
+
+        }
 
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InteriorController : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class InteriorController : MonoBehaviour
     OpenPopupInteractible OpenUpgrades;
 
 
+    [SerializeField]
+    Image carry;
+
     public Resource CarryingType;
     public int CarryingAmount;
 
@@ -54,13 +58,13 @@ public class InteriorController : MonoBehaviour
         MainMagazine = new Magazine
         {
             Max = (int)magazineMain.GetValue(),
-            Current = (int)magazineMain.GetValue()
+            Current = (int)(magazineMain.GetValue()*0.75f)
         };
 
         SmallMagazine = new Magazine
         {
             Max = (int)magaizineAuto.GetValue(),
-            Current = (int)magaizineAuto.GetValue()
+            Current = (int)(magaizineAuto.GetValue()*0.75f)
         };
         foreach (var gun in AutoGun) {
             AutoGunMagazines.Add(gun as IMagazine);
@@ -83,6 +87,7 @@ public class InteriorController : MonoBehaviour
 
         if (ammoDeposit == AmmoDepositMainGun)
         {
+          
             MainMagazine.Fill();
             UpdateLabels(MainMagazine, LabelsMainGun);
 
@@ -92,6 +97,9 @@ public class InteriorController : MonoBehaviour
             SmallMagazine.Fill();
             UpdateLabels(SmallMagazine, LabelsSmallGun);
         }
+        CarryingType = null;
+        CarryingAmount = 0;
+        carry.gameObject.SetActive(false);
     }
 
     void UpdateLabels(Magazine magazine, List<TMP_Text> Labels)
@@ -104,10 +112,10 @@ public class InteriorController : MonoBehaviour
 
     public void PickupResource(Resource resource, int amount)
     {
-
-        
+        carry.gameObject.SetActive(true);
         CarryingType = resource;
         CarryingAmount = amount;
+        carry.sprite = CarryingType.Icon;
 
     }
 
@@ -118,6 +126,8 @@ public class InteriorController : MonoBehaviour
 
     public void OnPopupOpened()
     {
+
+        
         TheGame.Instance.GameCycleManager.GetCurrentState.DisablePlayer();
     }
 

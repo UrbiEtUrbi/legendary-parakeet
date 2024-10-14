@@ -60,8 +60,9 @@ MonoBehaviour:
   Art: {fileID: 7521841452523134668, guid: 1963f69182dd147dabee7a6d29993253, type: 3}
   ArtObject: {fileID: 0}
   Slowing: 0
-  TopDownTool: {fileID: 0}
+  TopDownTool: {fileID: 6567951336489436984}
   LookAtCursor: 1
+  Pistol: {fileID: 11400000, guid: 7c72379fdfb70cb4e99c9f83816aae90, type: 2}
   pixelsPerUnit: 16
 --- !u!95 &5124831253826304719
 Animator:
@@ -261,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2865385690185185282
 Transform:
   m_ObjectHideFlags: 0

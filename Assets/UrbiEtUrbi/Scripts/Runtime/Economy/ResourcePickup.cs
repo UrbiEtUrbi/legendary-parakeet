@@ -15,6 +15,8 @@ public class ResourcePickup : Pickup
 
     public void Init(Cache cache, Sprite defaultSprite)
     {
+
+
        this.cache = cache;
        SpriteRenderer.sprite = cache.OverrideSprite == null ? defaultSprite : cache.OverrideSprite;
        base.Init();

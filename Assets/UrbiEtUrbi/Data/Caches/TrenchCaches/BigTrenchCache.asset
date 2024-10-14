@@ -26,3 +26,6 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: c31023182d078450a9036f356dfddc93, type: 2}
     Min: 6
     Max: 12
+  - Resource: {fileID: 11400000, guid: 6c1a5517fa6294193bf5876314efd855, type: 2}
+    Min: 6
+    Max: 12

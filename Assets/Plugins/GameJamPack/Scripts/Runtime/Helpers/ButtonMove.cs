@@ -29,6 +29,7 @@ public class ButtonMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             (transform.GetChild(i).transform as RectTransform).anchoredPosition -= move;
         }
+        SoundManager.Instance.Play("button_click");
         b.OnPointerUp(eventData);
     }
 

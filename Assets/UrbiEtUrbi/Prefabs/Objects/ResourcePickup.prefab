@@ -68,8 +68,7 @@ MonoBehaviour:
       useUnscaledTime: 0
       useFixedUpdate: 0
   sound: 
-  res: {fileID: 0}
-  amount: 0
+  cache: {fileID: 0}
   SpriteRenderer: {fileID: 3361434472982131632}
 --- !u!58 &1395443079954540586
 CircleCollider2D:
@@ -105,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49
+  m_Radius: 1
 --- !u!212 &3361434472982131632
 SpriteRenderer:
   m_ObjectHideFlags: 0

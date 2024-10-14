@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: MassiveForestCache
   m_EditorClassIdentifier: 
   OverrideSprite: {fileID: -1505046148, guid: b49769c5d7f797d41982ed94bd7b3b04, type: 3}
-  Contents: []
+  Contents:
+  - Resource: {fileID: 11400000, guid: c4d33a2226cffa24b88e1792c4cbfb00, type: 2}
+    Min: 2
+    Max: 6

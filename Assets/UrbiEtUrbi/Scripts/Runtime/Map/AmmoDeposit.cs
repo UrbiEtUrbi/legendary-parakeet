@@ -24,6 +24,7 @@ public class AmmoDeposit : Interactible
 
     public override void OnInteract()
     {
+        SoundManager.Instance.Play("load");
         InteriorController.DepositAmmo(AmmoType, this);
         base.OnInteract();
     }

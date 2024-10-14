@@ -19,7 +19,6 @@ public class TechTree : MonoBehaviour
 
     [SerializeField] bool update;
 
-    List<VerticalLayoutGroup> columns = new List<VerticalLayoutGroup>();
     List<TechTreeButton> generatedNodes = new List<TechTreeButton>();
     [SerializeField] List<GameObject> generatedCosts = new List<GameObject>();
     [SerializeField] Transform row;
@@ -87,11 +86,11 @@ public class TechTree : MonoBehaviour
         //Height = CalculateHeight();
         //Debug.Log(Height);
         rectWidth = columnPrefab.GetComponent<RectTransform>().rect.width;
-        foreach (VerticalLayoutGroup column in columns)
+
+        for (int i = generatedNodes.Count - 1; i >= 0; i--)
         {
-            if (column != null) DestroyImmediate(column.gameObject);
+            Destroy(generatedNodes[i].gameObject);
         }
-        columns.Clear();
         generatedNodes.Clear();
         ClearReadout();
         RegenerateList();
@@ -100,6 +99,7 @@ public class TechTree : MonoBehaviour
     private void RegenerateList()
     {
 
+        Debug.Log("create new");
         foreach (var tech in TheGame.Instance.Techs.Upgrades)
         {
 
@@ -118,8 +118,9 @@ public class TechTree : MonoBehaviour
 
             if (hasRequirements || tech.CurrentLevel > 0)
             {
-                
-               InstantiateAndPopulate(tech, row.transform);
+
+             
+                InstantiateAndPopulate(tech, row.transform);
             }
         }
 
@@ -201,6 +202,8 @@ public class TechTree : MonoBehaviour
 
     void InstantiateAndPopulate(NodeData nodeData, Transform parent)
     {
+
+        
         TechTreeButton node = Instantiate(nodePrefab, parent);
         node.Setup(nodeData, this);
         generatedNodes.Add(node);

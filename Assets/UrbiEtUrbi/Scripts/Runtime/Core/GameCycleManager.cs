@@ -73,6 +73,7 @@ public class GameCycleManager : MonoBehaviour
         MainCamera.gameObject.SetActive(camera == null);
 
         CurrentCamera = camera == null ? MainCamera : camera;
+        SoundManager.Instance.CurrentCamera = CurrentCamera;
         
         
 
@@ -101,6 +102,13 @@ public class GameCycleManager : MonoBehaviour
         CurrentStateInstance.OnEndStage();
 
     }
+
+    public void SkipTime()
+    {
+        timer += CurrentStateInstance.Duration;
+ //       Debug.Log(timer);
+    }
+
     IEnumerator TimeStage()
     {
         timer = 0;
@@ -108,6 +116,7 @@ public class GameCycleManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             timer += 0.1f;
+//            Debug.Log($"{timer} {CurrentStateInstance.Duration}");
             SetProgress(1 - timer / CurrentStateInstance.Duration);
             if (timer >= CurrentStateInstance.Duration)
             {

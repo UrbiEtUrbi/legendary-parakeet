@@ -23,6 +23,7 @@ public class CollectItemInteractible : Interactible
     public override void OnInteract()
     {
 
+        SoundManager.Instance.Play("button_hover");
         InteriorController.PickupResource(Resource, Amount);
         base.OnInteract();
     }

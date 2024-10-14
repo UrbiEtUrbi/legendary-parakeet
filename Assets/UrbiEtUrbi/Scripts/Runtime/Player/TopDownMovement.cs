@@ -65,6 +65,9 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField]
     bool LookAtCursor;
 
+    [SerializeField]
+    NodeData Pistol;
+
 
     void OnEnable()
     {
@@ -73,9 +76,14 @@ public class TopDownMovement : MonoBehaviour
             return;
         }
 
+        if (Pistol != null && Pistol.CurrentLevel > 0)
+        {
+            TopDownTool.gameObject.SetActive(true);
+        }
+
         //  ArtObject = Instantiate(Art);
         //  Debug.Log(ArtObject);
-        GetComponent<PlayerInstance>().Art = m_Sprite;
+            GetComponent<PlayerInstance>().Art = m_Sprite;
         m_GroundLayer = LayerMask.GetMask("Ground");
         m_Rb = GetComponent<Rigidbody2D>();
 

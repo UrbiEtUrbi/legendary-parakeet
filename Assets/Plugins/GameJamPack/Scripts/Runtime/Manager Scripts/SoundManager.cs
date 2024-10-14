@@ -33,6 +33,8 @@ public class SoundManager : GenericSingleton<SoundManager>
     public float MaxDistance;
     public bool UseSpatialSound;
 
+    public Camera CurrentCamera;
+
 
 
 
@@ -147,7 +149,7 @@ public class SoundManager : GenericSingleton<SoundManager>
 
     private SoundInstance PlayInstance(int idx, string soundName, Transform target)
     {
-        Vector3 targetPosition = target == default ? Camera.main.transform.position : target.position;
+        Vector3 targetPosition = target == default ? CurrentCamera.transform.position : target.position;
         var soundInstance = PoolManager.Spawn<SoundInstance>(SoundInstanceName, null, targetPosition);
         List<SoundItem> previous = new List<SoundItem>();
         if (sounds[idx].PlaySubitemType == PlaySubitemType.RandomNotSameTwice)
@@ -176,19 +178,19 @@ public class SoundManager : GenericSingleton<SoundManager>
 
 
 
-        if (PlayingSounds.Count > 0)
-        {
+        //if (PlayingSounds.Count > 0)
+        //{
           
-            var c = PlayingSounds.OrderByDescending(x => x.Volume).ToList();
-            if (c[0].Volume > soundInstance.Volume)
-            {
-                soundInstance.UpdateVolume(true);
-            }
-            else
-            {
-                c[0].UpdateVolume(true);
-            }
-        }
+        //    var c = PlayingSounds.OrderByDescending(x => x.Volume).ToList();
+        //    if (c[0].Volume > soundInstance.Volume)
+        //    {
+        //        soundInstance.UpdateVolume(true);
+        //    }
+        //    else
+        //    {
+        //        c[0].UpdateVolume(true);
+        //    }
+        //}
 
         var length = soundInstance.Play();
 
@@ -222,18 +224,18 @@ public class SoundManager : GenericSingleton<SoundManager>
     }
 
 
-    private void Update()
-    {
-        var c = PlayingSounds.OrderByDescending(x => x.Volume).ToList();
-        for (int i = 0; i < c.Count; i++)
-        {
-            if (c[i] == null)
-            {
-                continue;
-            }
-            c[i].UpdateVolume(i != 0);
-        }
-    }
+    //private void Update()
+    //{
+    //    var c = PlayingSounds.OrderByDescending(x => x.Volume).ToList();
+    //    for (int i = 0; i < c.Count; i++)
+    //    {
+    //        if (c[i] == null)
+    //        {
+    //            continue;
+    //        }
+    //        c[i].UpdateVolume(i != 0);
+    //    }
+    //}
 
 
     int CanPlay(string soundName)

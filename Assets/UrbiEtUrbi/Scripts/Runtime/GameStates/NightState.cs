@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class NightState : GameState
 {
 
@@ -12,6 +13,7 @@ public class NightState : GameState
 
     [SerializeField]
     Bar HealthBar;
+
 
 
     [SerializeField]
@@ -63,6 +65,10 @@ public class NightState : GameState
 
 
 
+    [SerializeField]
+    GameObject buttonSkip;
+
+
 
     List<int> freedSorting = new();
     int maxLayer;
@@ -79,8 +85,7 @@ public class NightState : GameState
         isInside = true;
       
         UpdateState();
-
-
+        PrimeTween.Tween.Delay(0.2f*Duration, () => buttonSkip.gameObject.SetActive(true));
     }
 
 
@@ -180,6 +185,16 @@ public class NightState : GameState
         }
     }
 
+    public void TryRepair()
+    {
+
+        if (TheGame.Res.CanChange(0, -10)){
+            TheGame.Res.Change(0, -10);
+            TheGame.Instance.Tower.ChangeHealth(0.2f);
+            SoundManager.Instance.Play("repair");
+        }
+    }
+
     public void RemoveEnemy(Enemy e)
     {
         enemyCount--;
@@ -227,6 +242,12 @@ public class NightState : GameState
         }
     }
 
+    public void StartAttack()
+    {
+        buttonSkip.SetActive(false);
+        TheGame.Instance.GameCycleManager.SkipTime();
+    }
+
     void UpdateState()
     {
         foreach (var ext in CameraExterior)
@@ -249,6 +270,7 @@ public class NightState : GameState
     {
         if (IsPrepping)
         {
+            buttonSkip.SetActive(false);
             musicPrep.gameObject.SetActive(false);
             musicNight.gameObject.SetActive(true);
             IsPrepping = false;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu, System.Serializable]
 public class NodeData : ScriptableObject
@@ -19,17 +20,32 @@ public class NodeData : ScriptableObject
 
     public string Description;
 
+
+
     [SerializeField]
     public List<UpgradeLevel> Levels = new();
 
     public float GetValue()
     {
-        return Levels[Mathf.Min(CurrentLevel, Levels.Count)].Value;
+        if (CurrentLevel == 0)
+        {
+            return DefaultValue;
+        }
+        else if (IsComplete)
+        {
+            return Levels[^1].Value;
+
+        }
+        {
+            return Levels[Mathf.Min(CurrentLevel-1, Levels.Count)].Value;
+
+        }
     }
 
     public UpgradeLevel GetNextUpgrade()
     {
-        return Levels[Mathf.Min(CurrentLevel, Levels.Count)];
+        Debug.Log($"{name} {CurrentLevel} {Levels.Count-1}");
+        return Levels[Mathf.Min(CurrentLevel, Levels.Count-1)];
     }
 
     public UpgradeLevel GetCurrentUpgrade()
@@ -48,7 +64,7 @@ public class NodeData : ScriptableObject
     public void Buy()
     {
         CurrentLevel++;
-
+        TheGame.Instance.BuyUpgrade(this);
         ControllerLoadingScene.Instance.SaveData.Tech(name, CurrentLevel);
     }
  

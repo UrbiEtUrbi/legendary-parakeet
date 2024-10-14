@@ -149,6 +149,8 @@ public class TopDownTool : MonoBehaviour
             }
             reloadTimer = ReloadTime;
 
+          
+
             var obj = TheGame.Instance.ControllerAttack.Attack(transform, false, Attack, Muzzle.position, Vector3.one, Damage, -Muzzle.up);
             obj.OnBeforeDestroy =() =>  attackObjects.Remove(obj);
             attackObjects.Add(obj);

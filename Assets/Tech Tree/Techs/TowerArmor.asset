@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TowerArmor
   m_EditorClassIdentifier: 
   techName: Tower Armor
-  DefaultValue: 0
+  DefaultValue: 1
   Description: Adds armor to the tower, reducing all damage
   Levels:
   - Required: []
@@ -25,7 +25,7 @@ MonoBehaviour:
     Requirement:
     - Resource: {fileID: 11400000, guid: 1421af1e5d4d348eb80d0c8ab61d5615, type: 2}
       Amount: 1
-    Value: 1
+    Value: 0.9
   - Required: []
     ResourceCost:
     - Resource: {fileID: 11400000, guid: 0af510931965543c1a9ebb05b88df74c, type: 2}
@@ -35,4 +35,4 @@ MonoBehaviour:
     Requirement:
     - Resource: {fileID: 11400000, guid: d8c9919b567b34ba5bb22a7e03b5a08c, type: 2}
       Amount: 1
-    Value: 1.5
+    Value: 0.8

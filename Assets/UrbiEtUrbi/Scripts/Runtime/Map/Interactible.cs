@@ -44,6 +44,7 @@ public class Interactible : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && CanInteract())
         {
+            Debug.Log("resp", this);
             m.SetFloat("_Radius", 1f);
             TheGame.Instance.ControllerInteractibles.Add(this);
         }
@@ -51,9 +52,11 @@ public class Interactible : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        m.SetFloat("_Radius", 0);
+       
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            m.SetFloat("_Radius", 0);
+            Debug.Log("resp out", this);
             TheGame.Instance.ControllerInteractibles.Remove(this);
         }
     }
